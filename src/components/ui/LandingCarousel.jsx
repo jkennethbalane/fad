@@ -49,7 +49,7 @@ export default function LandingCarousel(){
                       <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                         <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                         <span className='text-5xl xl:text-5xl'>PLATES</span>
-                        <NavLink to="/aboutus" exact={true}><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/4 font-roboto">Learn More</Button></NavLink>
+                        <Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/4 font-roboto">Learn More</Button>
                       </div>
                     </div>
                   </CardContent>
