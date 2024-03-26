@@ -7,7 +7,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Index/>}/>
-        <Route path= "/fad" element={<Index/>}/>
         <Route path= "/aboutus" element={<About/>}/>
       </Routes>
     </BrowserRouter>

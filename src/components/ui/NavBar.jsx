@@ -6,11 +6,11 @@ import { useState, useEffect, useRef } from "react";
 const NavLinks =() =>{
   return(
       <>
-        <NavLink to="/aboutus" className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
-        <NavLink to="/academics" className="font-roboto font-medium hover:text-gray-400">Academics</NavLink>
-        <NavLink to="/RandE" className="font-roboto font-medium hover:text-gray-400">R & E</NavLink>
-        <NavLink to="/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink>
-        <NavLink to="/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink>
+        <NavLink to="/aboutus" exact={true} className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
+        <NavLink to="/academics" exact={true} className="font-roboto font-medium hover:text-gray-400">Academics</NavLink>
+        <NavLink to="/RandE" exact={true} className="font-roboto font-medium hover:text-gray-400">R & E</NavLink>
+        <NavLink to="/organization" exact={true} className="font-roboto font-medium hover:text-gray-400">Organization</NavLink>
+        <NavLink to="/admission" exact={true} className="font-roboto font-medium hover:text-gray-400">Admission </NavLink>
       </>
   );
 };
@@ -18,11 +18,11 @@ const NavLinks =() =>{
 const DropDown =() =>{
   return(
       <>
-        <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ABOUT US</NavLink>
-        <NavLink to="/academics" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ACADEMICS</NavLink>
-        <NavLink to="/RandE" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">R & E</NavLink>
-        <NavLink to="/organization" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
-        <NavLink to="/admission" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ADMISSION</NavLink>
+        <NavLink to="/aboutus" exact={true} className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ABOUT US</NavLink>
+        <NavLink to="/academics" exact={true} className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ACADEMICS</NavLink>
+        <NavLink to="/RandE" exact={true} className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">R & E</NavLink>
+        <NavLink to="/organization" exact={true} className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
+        <NavLink to="/admission" exact={true} className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ADMISSION</NavLink>
       </>
   );
 };
@@ -89,7 +89,9 @@ export default function NavigationBar() {
     <div>
       <div className="top-0 px-3 xl:px-12 py-4 bg-white flex-wrap z-[20] mx-auto flex w-full items-center justify-between bg-white" id='navBar'>
         <div className="logo w-2/3 xl:w-1/2 h-full">
+          <NavLink to="/" exact={true}>
             <img id='logo' src={logo} className='visible'></img>
+          </NavLink>
         </div>
         <nav className="flex w-1/3 justify-end">
             <div className="hidden w-full justify-between xl:flex">
