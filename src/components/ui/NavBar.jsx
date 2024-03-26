@@ -87,7 +87,7 @@ export default function NavigationBar() {
 
   return (
     <div>
-      <div className="top-0 px-12 py-4 bg-white flex-wrap z-[20] mx-auto flex w-full items-center justify-between bg-white" id='navBar'>
+      <div className="top-0 px-3 xl:px-12 py-4 bg-white flex-wrap z-[20] mx-auto flex w-full items-center justify-between bg-white" id='navBar'>
         <div className="logo w-2/3 xl:w-1/2 h-full">
             <img id='logo' src={logo} className='visible'></img>
         </div>
