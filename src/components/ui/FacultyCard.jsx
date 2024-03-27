@@ -8,10 +8,10 @@ export default function FacultyCard(name){
         useEffect(()=> {
             const FacCard = document.getElementById(dynamicID)
             if(isExpanded){
-                FacCard.className = 'border-4'
+                FacCard.classList.add('border-4', 'rounded')
             }
             else{
-                FacCard.className = 'border-0'
+                FacCard.classList.remove('border-4', 'rounded')
             }
         }, [isExpanded])
     }

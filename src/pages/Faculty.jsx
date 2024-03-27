@@ -2,7 +2,6 @@ import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
 import Header from '../components/ui/assets/FacultyHead.png'
 import FacultyCard from '../components/ui/FacultyCard.jsx'
-
 import Fac1 from '../components/ui/assets/fac1.png'
 import Fac2 from '../components/ui/assets/fac2.png'
 import Fac3 from '../components/ui/assets/fac3.png'
@@ -23,6 +22,8 @@ import Fac17 from '../components/ui/assets/fac17.png'
 import Fac18 from '../components/ui/assets/fac18.png'
 import Fac19 from '../components/ui/assets/fac19.png'
 import Fac20 from '../components/ui/assets/fac20.png'
+
+import { Button } from "@/components/ui/button"
 
 export default function Faculty() {
     return(
@@ -92,6 +93,13 @@ export default function Faculty() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='items-center text-center flex flex-col space-y-0 py-6 font-[500] space-y-5'>
+                <div className='flex flex-col'> 
+                    <span className="xl:text-3xl text-xs text-testimonialTitle">Our Student Life</span>
+                    <span className="xl:text-3xl text-md text-black">Learn More About Us</span>
+                </div>
+                <Button className="text-white text-3xs bg-learnmore-btn rounded hover:bg-white h-auto font-roboto w-1/5 xl:w-1/6 xl:text-xl">Learn More</Button>
             </div>
             <Footer/>
         </div>
