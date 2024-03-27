@@ -3,6 +3,7 @@ import facebook from './assets/Facebook.png'
 import instagram from './assets/Instagram.png'
 import mail from './assets/Letter.png'
 import phone from './assets/Phone.png'
+import { NavLink } from 'react-router-dom'
 
 export default function Footer(){
     return(
@@ -13,8 +14,8 @@ export default function Footer(){
                     <div>
                         <span className='text-4xl xl:text-5xl'>CONNECT<br/>WITH US</span>
                         <div className='flex flex-row space-x-5'>
-                            <img src={facebook} className='transition duration-300 transform hover:scale-105'></img>
-                            <img src={instagram} className='transition duration-300 transform hover:scale-105'></img>
+                            <NavLink to="https://www.facebook.com/ExpressYourheART2o17?mibextid=ZbWKwL"><img src={facebook} className='transition duration-300 transform hover:scale-105'></img></NavLink>
+                            <NavLink to="https://www.instagram.com/fineartstup?igsh=MTFxMDFnOXU1d2tvYg=="><img src={instagram} className='transition duration-300 transform hover:scale-105'></img></NavLink>
                         </div>
                     </div>
                     <div>

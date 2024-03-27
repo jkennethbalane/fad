@@ -61,12 +61,12 @@ export default function About(){
                     <div className='flex flex-col'>
                         <span className='font-[500] text-3xl'>Fine Arts Program Educational Objectives (PEOs)</span>
                         <span className='font-[400] font-ebgaramond'>CMO 43 S.2017Art. IV Section 5.3 page 4<br/><br/>
-To produce art and design professionals:<br/>
-1. Whose creative works exhibit core Filipino values;<br/>
-2. Who demonstrate high level of competencies in artistic production in local and international settings; and<br/>
-3. Who are committed to nation-building and lifelong learning.<br/><br/>
-Illustrate and describe the historical formulation, monitoring and review of the VMGO.<br/><br/>
-The President, under the guidance of the Executive Committee and Administrative Council, develops and oversees the University's VMGO, which is subsequently cascaded to all relevant parties. </span>
+                        To produce art and design professionals:<br/>
+                        1. Whose creative works exhibit core Filipino values;<br/>
+                        2. Who demonstrate high level of competencies in artistic production in local and international settings; and<br/>
+                        3. Who are committed to nation-building and lifelong learning.<br/><br/>
+                        Illustrate and describe the historical formulation, monitoring and review of the VMGO.<br/><br/>
+                        The President, under the guidance of the Executive Committee and Administrative Council, develops and oversees the University's VMGO, which is subsequently cascaded to all relevant parties. </span>
                     </div>
                 </div>
             </div>
