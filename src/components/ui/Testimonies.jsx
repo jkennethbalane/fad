@@ -20,7 +20,7 @@ function Testimonies() {
             </div>
             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                 <CarouselContent>
-                    <CarouselItem key="0">
+                    <CarouselItem key="0" className="xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
                             <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-2xs h-80 rounded-xl space-y-5">
@@ -36,7 +36,7 @@ function Testimonies() {
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="1">
+                    <CarouselItem key="1" className="xl:basis-1/3" >
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
                             <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-xs h-80 rounded-xl space-y-5">
@@ -52,7 +52,7 @@ function Testimonies() {
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="2">
+                    <CarouselItem key="2" className="xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
                             <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-2xs h-80 rounded-xl space-y-5">
@@ -68,7 +68,7 @@ function Testimonies() {
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="3">
+                    <CarouselItem key="3" className="xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
                             <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-xs rounded-xl space-y-5">
