@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import EventCard from './EventCard.jsx'
 
 function Testimonies() {
   const [count, setCount] = useState(0)
@@ -92,46 +93,10 @@ function Testimonies() {
                 <span className="xl:text-3xl text-xs font-[300]">LATEST NEWS AND EVENTS</span>
             </div>
             <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-                <Card className="flex justify-center">
-                    <CardContent className="flex flex-col bg-[url('/src/components/ui/assets/indayog.png')] bg-cover aspect-square h-80 transition duration-300 transform hover:scale-105 rounded-xl p-0">
-                        <div className="flex flex-col justify-end h-full w-full">
-                            <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center'>
-                                <span className='font-ebgaramond text-xl'>PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023</span>
-                                <span className='font-roboto text-sm'>Learn More</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="flex justify-center">
-                    <CardContent className="flex flex-col bg-[url('/src/components/ui/assets/LunetaArt.png')] bg-cover aspect-square h-80 transition duration-300 transform hover:scale-105 rounded-xl p-0">
-                        <div className="flex flex-col justify-end h-full w-full">
-                            <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center'>
-                                <span className='font-ebgaramond text-xl'>Luneta Art Fair</span>
-                                <span className='font-roboto text-sm'>Learn More</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="flex justify-center">
-                    <CardContent className="flex flex-col bg-[url('/src/components/ui/assets/Dexter.png')] bg-cover aspect-square h-80 transition duration-300 transform hover:scale-105 rounded-xl p-0 ">
-                        <div className="flex flex-col justify-end h-full w-full">
-                            <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center'>
-                                <span className='font-ebgaramond text-xl'>Meet Dexter Fernandez</span>
-                                <span className='font-roboto text-sm'>Learn More</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card className="flex justify-center">
-                    <CardContent className="flex flex-col bg-[url('/src/components/ui/assets/ArtInThePark.png')] bg-cover aspect-square h-80 transition duration-300 transform hover:scale-105 rounded-xl p-0">
-                        <div className="flex flex-col justify-end h-full w-full">
-                            <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center'>
-                                <span className='font-ebgaramond text-xl'>Art in the Park at Jaime Velasquez Park</span>
-                                <span className='font-roboto text-sm'>Learn More</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
+                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]"/>
+                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]"/>
+                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]"/>
+                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]"/>
             </div>
             <div className='text-center flex flex-col space-y-0 py-6'>
                 <span className="xl:text-3xl text-xs text-testimonialTitle">Want to connect with us?</span>

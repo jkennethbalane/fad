@@ -96,10 +96,10 @@ function Events(){
                 </div>
                 <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
                 
-                    <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/src/components/ui/assets/KST.jpg')]"/>
-                    <EventCard title="CARE PROJECT AT TUP FOUNDATION DAY 2023" bgImg="bg-[url('/src/components/ui/assets/HALA.jpg')]"/>
-                    <EventCard title="Trust the Process: Blind Contour With Music" bgImg="bg-[url('/src/components/ui/assets/GAWAD.jpg')]"/>
-                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/GAWAD23.jpg')]"/>
+                    <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/src/components/ui/assets/big.jpg')]"/>
+                    <EventCard title="CARE PROJECT AT TUP FOUNDATION DAY 2023" bgImg="bg-[url('/src/components/ui/assets/careproject.jpg')]"/>
+                    <EventCard title="Trust the Process: Blind Contour With Music" bgImg="bg-[url('/src/components/ui/assets/trust.jpg')]"/>
+                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/mess.png')]"/>
                 </div>
             </div>
         </div>
@@ -118,10 +118,10 @@ export default function RandE(){
                     <img src={header} className='object-cover w-full'></img>
                 </div>
                 <div className={`font-roboto px-8 xl:px-12 py-12 flex flex-col font-[500] space-y-10 ${isMore ? 'bg-black text-white' : 'bg-white text-black'}`}>
-                    <div className='flex flex-col space-y-5 w-full xl:w-1/4'>
+                    <div className='flex flex-col space-y-5 w-full'>
                         <span className='text-3xl'>CARE Project</span>
-                        <span className='text-lg font-[400] font-ebgaramond leading-5'>CARE Project is a collaboration of Art and Psychology to address the increasing mental health problem in the Philippines. This is a partnership between Technological University of the Philippines (TUP) and AMARA Counselling and Training.</span>
-                        <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"  }</Button>
+                        <span className='text-lg font-[400] font-ebgaramond leading-5 w-full xl:w-1/4'>CARE Project is a collaboration of Art and Psychology to address the increasing mental health problem in the Philippines. This is a partnership between Technological University of the Philippines (TUP) and AMARA Counselling and Training.</span>
+                        <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"}</Button>
                     </div>
                 </div>
                 {isMore ? <Events/> : <Exhibition/>  }
