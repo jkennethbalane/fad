@@ -89,7 +89,7 @@ function Exhibition(){
 function Events(){
     return(
         <div>
-            <div className='py-6 px-12 font-roboto text-white'>
+            <div className='py-12 px-12 font-roboto text-white'>
                 <div className='text-center flex flex-col space-y-3 text-black'>
                     <span className="xl:text-3xl text-xl text-testimonialTitle ">EVENTS</span>
                     <span className="xl:text-3xl text-xl font-[300]">EXTENSION PROJECT</span>
@@ -124,7 +124,8 @@ export default function RandE(){
                         <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"}</Button>
                     </div>
                 </div>
-                {isMore ? <Events/> : <Exhibition/>  }
+                {isMore && <Events/> }
+                <Exhibition/>
             </div>
             <Footer />
         </div>

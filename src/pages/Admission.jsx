@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 function Content(){
     return(<div>
-        <div className='h-auto bg-black text-white py-3 xl:py-12'>
+        <div className='h-auto bg-black text-white py-12 xl:py-12'>
             <div className='font-roboto px-6 xl:px-8 flex flex-col font-[500] space-y-10 space-y-5 w-full'>
                 <div className='flex flex-col justify-between w-1/2 space-y-5'>
                     <div className='flex flex-col space-y-3'>

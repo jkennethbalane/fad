@@ -11,14 +11,14 @@ import EventCard from '../components/ui/EventCard.jsx'
 function Content(){
     const [isMore, setIsMore] = useState(false)
     return(<div>
-        <div className='h-auto bg-black text-white py-3 xl:py-12'>
+        <div className='h-auto bg-black text-white py-14 xl:py-12'>
             <div className='font-roboto px-6 xl:px-8 flex flex-col font-[500] space-y-10 space-y-5 w-full'>
                 <div className='flex flex-row justify-between'>
                     <div className='flex flex-col space-y-3'>
                         <span className='text-lg'>Technological University of the Philippines – Institute of Visual Communication</span>
                         <span className='text-lg font-[400] font-ebgaramond leading-5'>The Organization is founded in 2020</span>
                     </div>
-                    <img src={IVC} className='aspect-square h-24'></img>
+                    <img src={IVC} className='aspect-square h-20 max-h-20'></img>
                 </div>
                 {isMore &&
                     <>
