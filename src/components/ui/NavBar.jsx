@@ -38,24 +38,6 @@ export default function NavigationBar() {
     setIsOpen(!isOpen);
   };
   
-  function changeStyle(ref){
-    useEffect(()=> {
-      if(isOpen){
-        navLogo.className = 'hidden'
-        navBar.classList.replace("bg-white", "bg-[#C4203B]")
-      }
-      if(!isOpen){
-        try{
-          navLogo.className = 'visible'
-          navBar.classList.replace("bg-[#C4203B]", "bg-white")
-        }
-        catch(e){
-          console.log(e)
-        }
-      }
-    }, [isOpen])
-  }
-
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -79,17 +61,16 @@ export default function NavigationBar() {
 
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
-
-  const buttonRef = useRef();
-  changeStyle(buttonRef)
-
+  
   const index = 1
   return (
     <div>
-      <div className="top-0 px-3 xl:px-12 py-4 bg-white flex-wrap z-[20] mx-auto flex w-full items-center justify-between bg-white" id='navBar'>
+      <div className={`top-0 px-3 xl:px-12 py-4 flex-wrap z-[20] mx-auto flex w-full items-center justify-between ${
+    isOpen ? 'bg-[#C4203B]' : 'bg-white'
+  }`} id='navBar'>
         <div className="logo w-2/3 xl:w-1/2 h-full">
           <NavLink to="/" >
-            <img id='logo' src={logo} className='visible'></img>
+            <img id='logo' src={logo} className={`${isOpen ? 'hidden' : 'visible'}`}></img>
           </NavLink>
         </div>
         <nav className="flex w-1/3 justify-end">
@@ -97,13 +78,13 @@ export default function NavigationBar() {
                 <NavLinks />
             </div>
             <div className="xl:hidden">
-                <button onClick={toggleNavbar} ref={buttonRef}>{isOpen ? <X className='bg-white rounded rounded-[1px]'/> : <Menu />}</button>
+                <button onClick={toggleNavbar} >{isOpen ? <X className='bg-white rounded rounded-[1px]'/> : <Menu />}</button>
             </div>
         </nav>
       </div>
       <div>
       {isOpen && (
-        <div className="flex flex-col font-roboto font-[500] right-0 h-dvh z-10 bg-[#C4203B] text-white w-full" ref={wrapperRef}>
+        <div className={`flex flex-col font-roboto font-[500] right-0 h-dvh z-10 bg-[#C4203B] text-white w-full overflow-hidden`} ref={wrapperRef}>
           <DropDown/>
         </div>
       )}
