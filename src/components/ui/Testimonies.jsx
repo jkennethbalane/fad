@@ -93,10 +93,39 @@ function Testimonies() {
                 <span className="xl:text-3xl text-xs font-[300]">LATEST NEWS AND EVENTS</span>
             </div>
             <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]"/>
-                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]"/>
-                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]"/>
-                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]"/>
+                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]" 
+                description="Various student organizations have
+                    enthusiastically showcased their groups to the
+                    TUP Community through engaging booth
+                    setups, with the Booth Planning Committee
+                    selecting the top three 'Pinaka-kavogue na
+                    Booth' for TUP Indayog 2023. TUP - Institute
+                    for Visual Communication won TOP 3 - A prize
+                    of PHP 700 worth of SM Gift Certificates."/>
+                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]"
+                description="The Luneta Art Fair, taking place on
+                February 4th and 5th, will transform Rizal
+                Park into a vibrant showcase of emerging
+                artists' works from diverse backgrounds.
+                TUP - Institute for Visual Communication
+                participated alongside the TUP Fine Arts
+                Department faculty."
+                />
+                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]"
+                description="Meeting Dexter Fernandez (Garapata), the
+                Filipino artist behind this global streetwear
+                collaboration. Unveil the artistic essence
+                of Dexter Fernandez as his mesmerizing
+                street art seamlessly integrates into the
+                realm of fashion alongside H&M and DBTK."
+                />
+                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]"
+                description="On March 19, 2023, 'Art in the Park'
+                occurred at Jaime Velasquez Park
+                in Makati City, featuring around 60
+                exhibitors participating in the fair's
+                17th edition."
+                />
             </div>
             <div className='text-center flex flex-col space-y-0 py-6'>
                 <span className="xl:text-3xl text-xs text-testimonialTitle">Want to connect with us?</span>

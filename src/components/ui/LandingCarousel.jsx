@@ -19,7 +19,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function LandingCarousel(){
     const plugin = React.useRef(
-        Autoplay({ delay: 3000, stopOnInteraction: false })
+        Autoplay({ delay: 1000, stopOnInteraction: true })
     )
     return (
         <>

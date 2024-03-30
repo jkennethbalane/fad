@@ -1,6 +1,6 @@
 import logo from './assets/logo.png'
 import { NavLink } from "react-router-dom"
-import { Menu , X} from "lucide-react"
+import { ChevronDown, ChevronLeft, Menu , X} from "lucide-react"
 import { useState, useEffect, useRef } from "react";
 
 const NavLinks =() =>{
@@ -16,13 +16,29 @@ const NavLinks =() =>{
 };
 
 const DropDown =() =>{
+  const [isDrop, setIsDrop] = useState(false)
   return(
       <>
-        <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ABOUT US</NavLink>
-        <NavLink to="/academics" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ACADEMICS</NavLink>
-        <NavLink to="/RandE" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">R & E</NavLink>
-        <NavLink to="/organization" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
-        <NavLink to="/admission" className="font-roboto hover:bg-[#852838] hover:border-none border border-solid border-white px-12 py-5">ADMISSION</NavLink>
+        <div className='flex flex-row justify-between w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5'>
+          <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838]">ABOUT US</NavLink>
+          {
+            isDrop ? <ChevronDown className='flex flex-col items-center h-auto aspect-square' onClick={() => setIsDrop(!isDrop)}/> : <ChevronLeft className='flex flex-col items-center h-auto aspect-square' onClick={() => setIsDrop(!isDrop)}/>
+          }
+        </div>
+        {
+            isDrop && (
+              <div className='flex flex-col'>
+                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">MISSION</NavLink>
+                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">VISION</NavLink>
+                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">GOALS</NavLink>
+                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
+              </div>
+            )
+          }
+        <NavLink to="/academics" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ACADEMICS</NavLink>
+        <NavLink to="/RandE" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">R & E</NavLink>
+        <NavLink to="/organization" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
+        <NavLink to="/admission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ADMISSION</NavLink>
       </>
   );
 };

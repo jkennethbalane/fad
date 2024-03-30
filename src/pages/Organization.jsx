@@ -49,11 +49,43 @@ function Events(){
                 </div>
                 <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
                 
-                    <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/src/components/ui/assets/KST.jpg')]"/>
-                    <EventCard title="CARE PROJECT AT TUP FOUNDATION DAY 2023" bgImg="bg-[url('/src/components/ui/assets/HALA.jpg')]"/>
-                    <EventCard title="Trust the Process: Blind Contour With Music" bgImg="bg-[url('/src/components/ui/assets/GAWAD.jpg')]"/>
-                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/GAWAD23.jpg')]"/>
-                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/GAWAD23.jpg')]"/>
+                    <EventCard title="SHEESH, THAT'S CRAZY!: Graphic Design as an instrument for the minority" bgImg="bg-[url('/src/components/ui/assets/sheesh.jpg')]"
+                    description="This webinar event is held online, and the guest speakers are, Mr. Karl Castro
+                    and Mr. Ernest Joseph Garcia. The guest speakers talked about the
+                    application of graphic design in the filipino contemporary arts and spreading
+                    awareness about the minority through it. We, the IVC, aims to inform future
+                    designers, the effects of design in society, as well as its contribution to the
+                    minority and societal issues. As one global community, let us extend our help
+                    to the people around us and learn more knowledge about design arts."
+                    />
+                    <EventCard title="PRIDE MONTH ART SHOWCASE" bgImg="bg-[url('/src/components/ui/assets/pride.png')]" 
+                    description="This online exhibit is to celebrate Pride Month and it is open to all and any
+                    genre, including photography, digital art, digital manipulation, traditional art,
+                    etc., are accepted. This events aims to show the colorful creativity of queer
+                    artists as well as to reflect diverse perspectives on the LGBTQIA+ experiences."
+                    fbLink="https://www.facebook.com/photo/?fbid=176799084790335&set=pcb.176803
+                    721456538"
+                    />
+                    <EventCard title="TUP INDAYOG 2023: ANG SIMULA NG KABANATA" bgImg="bg-[url('/src/components/ui/assets/palette.jpg')]"
+                    description="This event invited and gathered all the organization to display their booths
+                    and showcased their organization’s name and to welcome the students who
+                    are interested to join them. The TUP-IVC booth named ‘PINOY PALETTE
+                    sari-sari store’ also won 3rd place in the Best in Booth Award"
+                    fbLink="https://www.facebook.com/photo/?fbid=122116079528010186&set=a.122115
+                    476672010186"
+                    />
+                    <EventCard title="2-Day Workshop Seminar at 122th TUP Foundation Day" bgImg="bg-[url('/src/components/ui/assets/vibe.png')]"
+                    description="The events aims to provide TUP-IVC members and Fine Arts students with
+                    extensive knowledge, insights and diverse range of subject relevant to visual
+                    designs, digital, branding and film."
+                    fbLink="https://www.facebook.com/profile.php?id=61553920576848"
+                    />
+                    <EventCard title="LUNETA ART FAIR" bgImg="bg-[url('/src/components/ui/assets/LAF.jpg')]"
+                    description="The TUP-IVC participated in this year’s Luneta Art Fair held at Noli Me
+                    Tangere Garden, Rizal Park. We aim to showcased and sell the amazing
+                    artworks made by our faculty, IVC members and TUP alumni."
+                    fbLink="https://www.facebook.com/TUPiVisCom/posts/397994486079417"
+                    />
 
                 </div>
             </div>

@@ -29,28 +29,28 @@ function Exhibition(){
                 <div className="flex flex-col">
                     <div className='flex flex-row space-x-1 w-full'>
                         <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                            <GalleryCard imgSrc={Gal1}/>
-                            <GalleryCard imgSrc={Gal3}/>
+                            <GalleryCard imgSrc={Gal1} title="A Message For The Bystanders" material="Acrylic" canvas="24' x 36'" artist="Beej"/>
+                            <GalleryCard imgSrc={Gal3} title="Peanut Butter" material="Acrylic on Canvas" canvas="20' x 28'" artist="Rai"/>
                         </div>
                         <div className='flex flex-col space-y-1 w-1/2'>
-                            <GalleryCard imgSrc={Gal2}/>
-                            <GalleryCard imgSrc={Gal4}/>
+                            <GalleryCard imgSrc={Gal2} title="Whim-Sea-Cal Rift" material="Mixed Media on Canvas" canvas="12' x 12'" artist="Rayka Martin"/>
+                            <GalleryCard imgSrc={Gal4} title="Portrait" material="Acrylic on Canvas" canvas="8' x 12'" artist="Elisha Kentzie"/>
                         </div>
                     </div>
-                    <GalleryCard imgSrc={Gal5}/>
+                    <GalleryCard imgSrc={Gal5} title="Femme Fatale" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
                 </div>
                 <div className="flex flex-col">
                     <div className='flex flex-row space-x-1 w-full'>
                         <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                            <GalleryCard imgSrc={Gal6}/>
-                            <GalleryCard imgSrc={Gal7}/>
+                            <GalleryCard imgSrc={Gal6} title="Impermanence I" material="Acrylic on Canvas" canvas="12' x 12'" artist="Joseph Lawrence Domasian"/>
+                            <GalleryCard imgSrc={Gal7} title="Vexexd" material="Oil Paint" canvas="20' x 23'" artist="Cynkit"/>
                         </div>
                         <div className='flex flex-col space-y-1 w-1/2'>
-                            <GalleryCard imgSrc={Gal8}/>
-                            <GalleryCard imgSrc={Gal9}/>
+                            <GalleryCard imgSrc={Gal8} title="forward" material="Mixed Media on Paper" canvas="10' x 8'" artist="Kimkim"/>
+                            <GalleryCard imgSrc={Gal9} title="Liwanag sa Oras ng Kapaguran" material="Acrylic" canvas="10' x 14'" artist="Litol M."/>
                         </div>
                     </div>
-                    <GalleryCard imgSrc={Gal10}/>
+                    <GalleryCard imgSrc={Gal10} title="Psychedelic Pop" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
                 </div>
             </div>
             <div className="flex flex-row justify-center">
@@ -96,10 +96,29 @@ function Events(){
                 </div>
                 <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
                 
-                    <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/src/components/ui/assets/big.jpg')]"/>
-                    <EventCard title="CARE PROJECT AT TUP FOUNDATION DAY 2023" bgImg="bg-[url('/src/components/ui/assets/careproject.jpg')]"/>
-                    <EventCard title="Trust the Process: Blind Contour With Music" bgImg="bg-[url('/src/components/ui/assets/trust.jpg')]"/>
-                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/mess.png')]"/>
+                    <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/src/components/ui/assets/big.jpg')]" description="The CARE Project has recently collaborated with the Municipal Government of Macalelon
+                        Quezon and JA1 Macalelon Quezon. We are grateful to Ms. Shine Tolentino Rios for inviting
+                        us to participate in the Women's Month celebration through the Gender and Development
+                        program of MGMQ. Additionally, we would like to thank Rev. Ressie Lancap and Ms. Aicah
+                        Tolentino Cantos for joining our CARE team in Macalelon Quezon."
+                        fbLink="https://www.facebook.com/share/p/L78o4PUcEa4Q3BCD/?mibextid=oFDknk"
+                        />
+                    <EventCard title="CARE PROJECT AT TUP FOUNDATION DAY 2023" bgImg="bg-[url('/src/components/ui/assets/careproject.jpg')]" description="CARE BENTABLES, the Exclusive Merch Collection from the TUP Fine Art Students held
+                        at CAFA 101 from December 13-16. Includes PUTO BOOTH,and TARA SHOT during the
+                        TUP Foundation Day 2023"
+                        fbLink="https://www.facebook.com/share/p/8ZA8qNMfJs6vxN6x/?mibextid=oFDknk"
+                        />
+                    <EventCard title="Trust the Process: Blind Contour With Music" bgImg="bg-[url('/src/components/ui/assets/trust.jpg')]" description="On May 12, 2023, the 'Trust the Process' program was held from 9:00 a.m. to 12:00 p.m at
+                        the Juan Luna Elementary School. The program aimed to motivate participants to trust their
+                        journey and embrace the growth process. It featured speeches from Mr. Fernando Magalang,
+                        Dr. Teofilo Ombaba, and Mr. Emmanuel Borjal."
+                        fbLink="https://www.facebook.com/share/p/sY2E7PLXH7WQfezp/?mibextid=oFDknk"
+                        />
+                    <EventCard title="A Beautiful Mess: Print Making – Decalcomania and String Art" bgImg="bg-[url('/src/components/ui/assets/mess.png')]" description="The 'A Beautiful Mess' program celebrated Mother's Day and promoted embracing life's
+                        messiness. The event featured art activities, presentations, and a keynote speech by Ms.
+                        Marjorie Gomez, who addressed finding beauty in life's challenges."
+                        fbLink="https://www.facebook.com/share/p/JqU7d58jsAzzg9Tu/?mibextid=oFDknk"
+                        />
                 </div>
             </div>
         </div>
