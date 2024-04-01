@@ -44,7 +44,7 @@ export default function EmblaCarousel() {
   return (
     <div className="embla relative" ref={emblaRef}>
       <div className="embla__container flex relative">
-        <div className='embla__slide' key='0'>
+        <div className='embla__slide relative' key='0'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full">
@@ -59,7 +59,7 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide' key='1'>
+        <div className='embla__slide relative' key='1'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -68,14 +68,14 @@ export default function EmblaCarousel() {
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>PLATES</span>
-                    <Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button>
+                    <NavLink to='/plates'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
-        <div className='embla__slide' key='2'>
+        <div className='embla__slide relative' key='2'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -84,14 +84,14 @@ export default function EmblaCarousel() {
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EVENTS</span>
-                    <Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button>
+                    <NavLink to='/events'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
-        <div className='embla__slide' key='3'>
+        <div className='embla__slide relative' key='3'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -100,7 +100,7 @@ export default function EmblaCarousel() {
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EXHIBIT</span>
-                    <Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button>
+                    <NavLink to='/exhibit'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
@@ -116,7 +116,7 @@ export default function EmblaCarousel() {
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>ALUMNI</span>
-                    <Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button>
+                    <NavLink to='/alumni'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>

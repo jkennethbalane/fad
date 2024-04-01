@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Footer from "../components/ui/Footer";
 import NavBar from "../components/ui/NavBar";
 import header from '../components/ui/assets/R&E.png'
@@ -16,11 +16,12 @@ import Gal9 from '../components/ui/assets/Exhib9.png'
 import Gal10 from '../components/ui/assets/Exhib10.png'
 import EventCard from '../components/ui/EventCard.jsx'
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 function Exhibition(){
     return(
     <div>
-        <div className="bg-black p-6">
+        <div className="bg-black p-6"  id='exhibitSection'>
             <div className='text-center flex flex-col space-y-3 text-white'>
                 <span className="xl:text-3xl text-xl">ONLINE EXHIBITION</span>
                 <span className="xl:text-3xl text-xl text-[#FFEECE]">FINE ARTS GALLERY</span>
@@ -126,8 +127,17 @@ function Events(){
 }
 
 
-export default function RandE(){
+export default function RandE(ref){
     const [isMore, setIsMore] = useState(false)
+    const handleClickScroll = () => {
+        if(ref.scrollTo != undefined){
+            const element = document.getElementById(ref.scrollTo)
+            element.scrollIntoView({behavior:'smooth'});
+        }
+      };
+    useEffect(() => {
+        handleClickScroll();
+    }, [ref.scrollTo]);
 
     return(
         <div>

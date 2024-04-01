@@ -15,9 +15,13 @@ function App() {
         <Route path='/fad' element={<Index/>}/>
         <Route path='/academics' element={<Faculty/>}/>
         <Route path='/RandE' element={<RandE />}/>
+        <Route path='/exhibit' element={<RandE scrollTo='exhibitSection'/>}/>
         <Route path='/organization' element={<Organization />}/>
         <Route path='/admission' element={<Admission />}/>
         <Route path='/students' element={<Students/>}/>
+        <Route path='/plates' element={<Students scrollTo='platesSection'/>}/>
+        <Route path='/events' element={<Students scrollTo='eventsSection'/>}/>
+        <Route path='/alumni' element={<Students scrollTo='alumniSection'/>}/>
         <Route path= '/aboutus' element={<About/>}/>
         <Route path= '/aboutus-mission' element={<About scrollTo='missionSection'/>}/>
         <Route path= '/aboutus-vision' element={<About scrollTo='visionSection'/>}/>

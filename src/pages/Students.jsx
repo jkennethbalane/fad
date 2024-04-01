@@ -48,12 +48,12 @@ import NAA9 from '../components/ui/assets/CAFASYALAN.jpg'
 import NAA10 from '../components/ui/assets/RAMON.jpg'
 
 import jsonData from "../assets/alumni.json"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function Gallery(){
     return(
     <div>
-        <div className='p-6 space-y-3'>
+        <div className='p-6 space-y-3' id='platesSection'>
             <div className='text-center flex flex-col space-y-3 text-black'>
                 <span className="xl:text-3xl text-xl font-[500]">FINE ARTS DEPARTMENT</span>
                 <span className="xl:text-3xl text-xl font-[500]">BEST PLATES</span>
@@ -178,7 +178,7 @@ function Testimony(){
 
 function Events(){
     return(
-        <div className='py-12 px-12 font-roboto text-white'>
+        <div className='py-12 px-12 font-roboto text-white' id='eventsSection'>
             <div className='text-center flex flex-col space-y-3 text-black'>
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">FINE ARTS DEPARTMENTS</span>
                 <span className="xl:text-3xl text-xl">EVENTS</span>
@@ -291,8 +291,8 @@ function AlumniCards(res){
 }
 function Alumni(){
     return(
-        <div className='p-6 space-y-2'>
-            <div className='text-center flex flex-col space-y-3 text-black'>
+        <div className='p-6 space-y-2' id='alumniSection'>
+            <div className='text-center flex flex-col space-y-3 text-black' >
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">FINE ARTS DEPARTMENTS</span>
                 <span className="xl:text-3xl text-xl">ALUMNI</span>
             </div>
@@ -307,24 +307,33 @@ function Alumni(){
     )
 }
 
-export default function Student(){
+export default function Student(ref){
+    const handleClickScroll = () => {
+        if(ref.scrollTo != undefined){
+            const element = document.getElementById(ref.scrollTo)
+            element.scrollIntoView({behavior:'smooth'});
+        }
+      };
+    useEffect(() => {
+        handleClickScroll();
+    }, [ref.scrollTo]);
     return(
         <div>
             <NavBar/>
             <div className="w-full">
-                <div className='relative'>
-                    <img src={Header} className='xl:h-full object-cover h-[30rem] aspect-video w-full'></img>
-                    <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
-                        <span className='text-2xl xl:text-3xl'>STUDENT</span>
-                        <span className='text-3xl xl:text-5xl'>LIFE</span>
-                    </div>
+            <div className='relative'>
+                <img src={Header} className='xl:h-full object-cover h-[30rem] aspect-video w-full'></img>
+                <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
+                    <span className='text-2xl xl:text-3xl'>STUDENT</span>
+                    <span className='text-3xl xl:text-5xl'>LIFE</span>
                 </div>
-                <Gallery/>
-                <Testimony/>
-                <Events/>
-                <NewsAndArticles/>
-                <Alumni/>
-                <Footer/>
+            </div>
+            <Gallery/>
+            <Testimony/>
+            <Events />
+            <NewsAndArticles/>
+            <Alumni />
+            <Footer/>
             </div>
         </div>
     )
