@@ -11,10 +11,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Autoplay from "embla-carousel-autoplay"
 import { NavLink } from 'react-router-dom'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Dot } from 'lucide-react'
 
 
 export default function EmblaCarousel() {
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ playOnInit: true, delay: 5000 })
   ])
@@ -29,14 +31,20 @@ export default function EmblaCarousel() {
 
   useEffect(() => {
     if (emblaApi) {
-      // console.log(emblaApi.slideNodes()) // Access API
+      emblaApi.on('select', () => {
+        const index = emblaApi.selectedScrollSnap(); // Get the index of the selected scroll snap
+        setSelectedIndex(index)
+      });
     }
   }, [emblaApi])
+  
+
+  
 
   return (
     <div className="embla relative" ref={emblaRef}>
       <div className="embla__container flex relative">
-        <div className='embla__slide'>
+        <div className='embla__slide' key='0'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full">
@@ -51,7 +59,7 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide'>
+        <div className='embla__slide' key='1'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -67,7 +75,7 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide'>
+        <div className='embla__slide' key='2'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -83,7 +91,7 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide'>
+        <div className='embla__slide' key='3'>
           <div>
             <Card className="border-black">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -99,7 +107,7 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide'>
+        <div className='embla__slide' key='4'>
           <div>
             <Card className="w-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex">
@@ -121,6 +129,14 @@ export default function EmblaCarousel() {
       <div className='w-full flex flex-row justify-between p-12 absolute top-1/2 '>
           <button className='transition duration-300 transform hover:scale-105 w-12 h-12 rounded-full bg-white opacity-0 xl:opacity-100' onClick={scrollPrev}> <ChevronLeft className='flex flex-row w-full justify-center'/></button>
           <button className='transition duration-300 transform hover:scale-105 w-12 h-12 rounded-full bg-white opacity-0 xl:opacity-100' onClick={scrollNext}> <ChevronRight className='flex flex-row w-full justify-center'/></button>
+      </div>
+
+      <div className='text-white flex flex-row w-full justify-center xl:space-x-3 space-x-0 text-3xl'>
+        <Dot color={selectedIndex == 0 ? '#FEB000' : '#F9F9F9'}/>
+        <Dot color={selectedIndex == 1 ? '#FEB000' : '#F9F9F9'}/>
+        <Dot color={selectedIndex == 2 ? '#FEB000' : '#F9F9F9'}/>
+        <Dot color={selectedIndex == 3 ? '#FEB000' : '#F9F9F9'}/>
+        <Dot color={selectedIndex == 4 ? '#FEB000' : '#F9F9F9'}/>
       </div>
     </div>
   )
