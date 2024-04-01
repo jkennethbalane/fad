@@ -10,7 +10,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
+  CarouselPrevious
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import * as React from "react"
@@ -18,12 +18,17 @@ import Autoplay from "embla-carousel-autoplay"
 import { NavLink } from 'react-router-dom'
 
 export default function LandingCarousel(){
-    const plugin = React.useRef(
-        Autoplay({ delay: 1000, stopOnInteraction: true })
-    )
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false })
+  )
     return (
         <>
-          <Carousel className="w-full flex justify-center max-w-full xl:h-auto" plugin={(plugin)}>
+          <Carousel className="w-full flex justify-center max-w-full xl:h-auto" opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugin={(plugin)}
+          >
             <CarouselContent>
               <CarouselItem key="0" >
               <div>
@@ -106,6 +111,8 @@ export default function LandingCarousel(){
               </div>
               </CarouselItem>
             </CarouselContent>
+            <CarouselPrevious className="xl:visible xs:hidden"/>
+            <CarouselNext className="xl:visible xs:hidden"/>
           </Carousel>
         </>
       )

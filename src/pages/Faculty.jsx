@@ -34,7 +34,6 @@ export default function Faculty() {
             
             <NavBar />
             <div className='w-full'>
-                { open == 1 ? <span>1</span>: <span>2</span>}
                 <div className='relative'>
                     <img src={Header} className='xl:h-full object-cover h-[28rem] aspect-video w-full'></img>
                     <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>

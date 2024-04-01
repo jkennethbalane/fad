@@ -3,13 +3,23 @@ import Footer from '../components/ui/Footer.jsx'
 import header from '../components/ui/assets/aboutus.png'
 import header1 from '../components/ui/assets/about-1.png'
 import { Button } from "@/components/ui/button"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export default function About(){
+export default function About(ref){
     const [isMore, setIsMore] = useState(false);
     function toggleMore(){
         setIsMore(!isMore)
     };
+    const handleClickScroll = () => {
+        if(ref.scrollTo != undefined){
+            const element = document.getElementById(ref.scrollTo)
+            element.scrollIntoView({behavior:'smooth'});
+        }
+      };
+    useEffect(() => {
+        handleClickScroll();
+    }, [ref.scrollTo]);
+    
 
     return(
     <div>
@@ -21,7 +31,7 @@ export default function About(){
                 </div>
                 <div className='h-auto bg-black text-white py-3 xl:py-12'>
                     <div className='font-roboto px-8 xl:px-12 py-6 flex flex-col font-[500] space-y-10'>
-                        <div className='flex flex-col space-y-3'>
+                        <div className='flex flex-col space-y-3' id='aboutSection'>
                             <span className='text-3xl'>ABOUT US</span>
                             <span className='text-lg font-[400] font-ebgaramond leading-5'>Our Fine Arts Department at the Technological University of the Philippines-Manila, with a focus on Advertising, equips students to create visually appealing narratives that are relevant in today's digital world. We combine innovation and creativity with state-of-the-art technology to prepare graduates for success in the fast-paced fields of visual communication and advertising.</span>
                         </div>
@@ -40,27 +50,27 @@ export default function About(){
                     </div>
                     <img src={header1} className='w-full'></img>
                 </div>
-                <div className='h-auto bg-white py-6 xl:py-12 font-roboto px-8 xl:px-12 flex flex-col font-[500] space-y-10'>
-                    <div className='flex flex-col'>
+                <div className='h-auto bg-white py-6 xl:py-12 font-roboto px-8 xl:px-12 flex flex-col font-[500] space-y-10 xl:w-1/2 w-full'>
+                    <div className='flex flex-col' id='missionSection'>
                         <span className='font-[500] text-3xl'>TUP MISSION</span>
                         <span className='font-[400] font-ebgaramond'>The University shall provide higher and advanced vocational, technical, industrial, and professional education and training in the industries and technology and practical arts leading to certificates, diplomas and degrees. It shall provide progressive leadership in applied research, development studies in technical, industrial and technological fields and production using indigenous materials; effect technology transfer in the countryside; and assist in the development of small and medium scale industries in identified growth centers. (as embodied in Section 2 P.D. No. 1518) </span>
                     </div>
-                    <div className='flex flex-col'> 
+                    <div className='flex flex-col' id='visionSection'> 
                         <span className='font-[500] text-3xl'>TUP VISION</span>
                         <span className='font-[400] font-ebgaramond'>The Technological University of the Philippines shall be a premier state university with recognized excellence in engineering and technology education at par with leading universities in the ASEAN region.”  </span>
                     </div>
                 </div>
-                <div className='bg-gradient-to-b from-[#9E1906] text-white to-[#0C0808] h-auto px-8 xl:px-12 py-6 xl:py-12 space-y-10'>
+                <div className='bg-gradient-to-b from-[#9E1906] text-white to-[#0C0808] h-auto px-8 xl:px-12 py-6 xl:py-12 space-y-10 '>
                     <div className='text-center'>
                         <span className='text-[#FFEECE] font-[500] text-xl text-center'>Our Goals and Objectives</span>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col xl:w-1/2 w-full' id='goalSection'>
                         <span className='font-[500] text-3xl'>TUP-CAFA GOAL</span>
                         <span className='font-[400] font-ebgaramond'>The College of Architecture and Fine Arts shall prepare the students to become the world’s leading Architects, Artists, Designers and Draftsmen who are creative, competent, morally upright and innovative in their respective disciplines for environmental, cultural, national, and international advantage. </span>
                     </div>
-                    <div className='flex flex-col'>
-                        <span className='font-[500] text-3xl'>Fine Arts Program Educational Objectives (PEOs)</span>
-                        <span className='font-[400] font-ebgaramond'>CMO 43 S.2017Art. IV Section 5.3 page 4<br/><br/>
+                    <div className='flex flex-col xl:w-1/2 w-full'>
+                        <span className='font-[500] text-3xl' >Fine Arts Program Educational Objectives (PEOs)</span>
+                        <span className='font-[400] font-ebgaramond' id='objectiveSection'>CMO 43 S.2017Art. IV Section 5.3 page 4<br/><br/>
                         To produce art and design professionals:<br/>
                         1. Whose creative works exhibit core Filipino values;<br/>
                         2. Who demonstrate high level of competencies in artistic production in local and international settings; and<br/>

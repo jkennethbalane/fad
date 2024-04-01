@@ -6,11 +6,22 @@ import { useState, useEffect, useRef } from "react";
 const NavLinks =() =>{
   return(
       <>
-        <NavLink to="/aboutus" className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
-        <NavLink to="/academics" className="font-roboto font-medium hover:text-gray-400">Academics</NavLink>
-        <NavLink to="/RandE" className="font-roboto font-medium hover:text-gray-400">R & E</NavLink>
-        <NavLink to="/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink>
-        <NavLink to="/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink>
+      <ul className='flex flex-row justify-between w-full'>
+        <li className='relative group flex flex-row justify-center'>
+          <NavLink to="/aboutus" className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
+          {/* <div className='fixed flex flex-col z-10 bg-white p-3 border-2 border-black invisible group-hover:visible space-y-2'>
+            <NavLink to="/aboutus" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">About Us</NavLink>
+            <NavLink to="/aboutus-mission" className="font-roboto border-0 border-y border-solid border-white px-16 py-5" >MISSION</NavLink>
+            <NavLink to="/aboutus-vision" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">VISION</NavLink>
+            <NavLink to="/aboutus-goals" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">GOALS</NavLink>
+            <NavLink to="/aboutus-objectives" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
+          </div> */}
+        </li>
+        <li><NavLink to="/academics" className="font-roboto font-medium hover:text-gray-400">Academics</NavLink></li>
+        <li><NavLink to="/RandE" className="font-roboto font-medium hover:text-gray-400">R & E</NavLink></li>
+        <li><NavLink to="/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink></li>
+        <li><NavLink to="/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink></li>
+      </ul>
       </>
   );
 };
@@ -28,10 +39,10 @@ const DropDown =() =>{
         {
             isDrop && (
               <div className='flex flex-col'>
-                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">MISSION</NavLink>
-                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">VISION</NavLink>
-                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">GOALS</NavLink>
-                <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
+                <NavLink to="/aboutus-mission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">MISSION</NavLink>
+                <NavLink to="/aboutus-vision" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">VISION</NavLink>
+                <NavLink to="/aboutus-goals" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">GOALS</NavLink>
+                <NavLink to="/aboutus-objectives" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
               </div>
             )
           }
@@ -56,6 +67,7 @@ export default function NavigationBar() {
   
   function useOutsideAlerter(ref) {
     useEffect(() => {
+
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
           setIsOpen(false)
@@ -72,6 +84,8 @@ export default function NavigationBar() {
         document.removeEventListener("mousedown", handleClickOutside);
         document.removeEventListener("touchmove", swipeDown);
       };
+      
+      
     }, [ref]);
   }
 
@@ -90,7 +104,7 @@ export default function NavigationBar() {
           </NavLink>
         </div>
         <nav className="flex w-1/3 justify-end">
-            <div className="hidden w-full justify-between xl:flex">
+            <div className="hidden w-full xl:flex">
                 <NavLinks />
             </div>
             <div className="xl:hidden">

@@ -9,7 +9,7 @@ import Admission from "./pages/Admission.jsx"
 
 function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <Routes>
         <Route index element={<Index/>}/>
         <Route path='/fad' element={<Index/>}/>
@@ -18,7 +18,11 @@ function App() {
         <Route path='/organization' element={<Organization />}/>
         <Route path='/admission' element={<Admission />}/>
         <Route path='/students' element={<Students/>}/>
-        <Route path= "/aboutus" element={<About/>}/>
+        <Route path= '/aboutus' element={<About/>}/>
+        <Route path= '/aboutus-mission' element={<About scrollTo='missionSection'/>}/>
+        <Route path= '/aboutus-vision' element={<About scrollTo='visionSection'/>}/>
+        <Route path= '/aboutus-goals' element={<About scrollTo='goalSection'/>}/>
+        <Route path= '/aboutus-objectives' element={<About scrollTo='objectiveSection'/>}/>
       </Routes>
     </BrowserRouter>
   )
