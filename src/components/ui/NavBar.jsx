@@ -1,5 +1,5 @@
 import logo from './assets/logo.png'
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import { ChevronDown, ChevronLeft, Menu , X} from "lucide-react"
 import { useState, useEffect, useRef } from "react";
 
@@ -28,6 +28,7 @@ const NavLinks =() =>{
 
 const DropDown =() =>{
   const [isDrop, setIsDrop] = useState(false)
+  
   return(
       <>
         <div className='flex flex-row justify-between w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5'>
@@ -91,8 +92,22 @@ export default function NavigationBar() {
 
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
-  
   const index = 1
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleCloseNavigation = () => {
+      setIsOpen(false);
+    };
+
+    // Close navigation menu when a navigation event occurs
+    handleCloseNavigation();
+
+    return () => {
+      // Cleanup if necessary
+    };
+  }, [location, setIsOpen]);
   return (
     <div>
       <div className={`top-0 px-3 xl:px-12 py-4 flex-wrap z-[20] mx-auto flex w-full items-center justify-between ${
@@ -115,7 +130,7 @@ export default function NavigationBar() {
       <div>
       {isOpen && (
         <div className={`flex flex-col font-roboto font-[500] right-0 h-dvh z-10 bg-[#C4203B] text-white w-full overflow-hidden`} ref={wrapperRef}>
-          <DropDown/>
+          <DropDown />
         </div>
       )}
       </div>

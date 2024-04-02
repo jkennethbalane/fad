@@ -15,7 +15,10 @@ export default function About(ref){
             const element = document.getElementById(ref.scrollTo)
             element.scrollIntoView({behavior:'smooth'});
         }
-      };
+        else{
+            window.scrollTo({top: 0,behavior:'smooth'})
+        }
+    };
     useEffect(() => {
         handleClickScroll();
     }, [ref.scrollTo]);

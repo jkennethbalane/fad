@@ -50,6 +50,11 @@ import NAA10 from '../components/ui/assets/RAMON.jpg'
 import jsonData from "../assets/alumni.json"
 import { useEffect, useState } from 'react'
 
+import alumni1 from '../components/ui/assets/heraldo.png'
+import alumnimg1 from '../components/ui/assets/heraldo-1.png'
+import alumnimg2 from '../components/ui/assets/heraldo-2.png'
+import alumnimg3 from '../components/ui/assets/heraldo-3.png'
+
 function Gallery(){
     return(
     <div>
@@ -62,7 +67,7 @@ function Gallery(){
             <div className='grid xl:grid-cols-3 grid-cols-1 gap-1'>
                 <div className='flex flex-row space-x-1 w-full'>
                     <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                        <GalleryCard imgSrc={Gal1} title="Lorem Ipsum" material="Acrylic on Cartolina" canvas="22' x 28'" artist="Rafael O. Bodota" section="BFA-4C"/>
+                        <GalleryCard imgSrc={Gal1} title="Deadly Stubbornness" material="Acrylic on Cartolina" canvas="22' x 28'" artist="Rafael O. Bodota" section="BFA-4C"/>
                         <GalleryCard imgSrc={Gal3}/>
                     </div>
                     <div className='flex flex-col space-y-1 w-1/2'>
@@ -219,7 +224,9 @@ function NAAdialog(res){
                     <div className="flex flex-row justify-center"><img src={res.imgSrc} className='h-auto w-80'></img></div>
                     <div className="text-center font-ebgaramond flex flex-col text-white">
                     <span className="text-xl xl:text-3xl py-2">{res.title}</span>
-                    <span className="text-xs xl:text-xl py-2 text-center">{res.description}</span>
+                    <div className='w-full flex flex-row justify-center'>
+                        <span className="text-xs xl:text-xl py-2 w-full xl:w-1/2 text-left">{res.description}</span>
+                    </div>
                 </div>
                 </div>
             </DialogContent>
@@ -251,18 +258,113 @@ function NewsAndArticles(){
                 <span className="xl:text-3xl text-xl">NEWS / ARTICLES</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-3 gap-2 py-6'>
-                <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1}/>
-                <NAAdialog title="LUNETA ART FAIR" imgSrc={NAA2}/>
-                <NAAdialog title="BFA - 4B ORIGINAL PILIPINO MUSIC (OPM) ART DIRECTION EXHIBITION" imgSrc={NAA3}/>
-                <NAAdialog title="BFA - 4A FLAVORS OF HOME ART DIRECTION EXHIBITION" imgSrc={NAA4}/>
-                <NAAdialog title="Meet Dexter Fernandez, the Filipino Artist Behind This International Streetwear Collab" imgSrc={NAA5}/>
-                <NAAdialog title="CARE PROJECT “TRUST THE PROCESS” ART THERAPY" imgSrc={NAA6}/>
-                <NAAdialog title="UST ANNUAL INTER-SCHOOL ON-THE-SPOT PAINTING COMPETITION" imgSrc={NAA7}/>
-                <NAAdialog title="Art in the Park at Jaime Velasquez Park" imgSrc={NAA8}/>
-                <NAAdialog title="'Tara, G?' CAFAsyalan Advertising Art Direction" imgSrc={NAA9}/>
-                <NAAdialog title="Celebrating the 25th work anniversary of Sir Ramon Talaga Dela Cruz" imgSrc={NAA10}/>
+                <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1} description="Various student organizations have
+                    enthusiastically showcased their groups to the
+                    TUP Community through engaging booth
+                    setups, with the Booth Planning Committee
+                    selecting the top three 'Pinaka-kavogue na
+                    Booth' for TUP Indayog 2023. TUP - Institute
+                    for Visual Communication won TOP 3 - A prize
+                    of PHP 700 worth of SM Gift Certificates."/>
+                <NAAdialog title="LUNETA ART FAIR" imgSrc={NAA2} description="The Luneta Art Fair, taking place on
+                    February 4th and 5th, will transform Rizal
+                    Park into a vibrant showcase of emerging
+                    artists' works from diverse backgrounds.
+                    TUP - Institute for Visual Communication
+                    participated alongside the TUP Fine Arts
+                    Department faculty."/>
+                <NAAdialog title="BFA - 4B ORIGINAL PILIPINO MUSIC (OPM) ART DIRECTION EXHIBITION" imgSrc={NAA3} description="TUP FAD's BFA 4B students
+                    showcase their Art Direction
+                    Exhibition, celebrating Original
+                    Pilipino Music (OPM), offering a
+                    captivating dive into Filipino
+                    creativity where music and art
+                    intertwine seamlessly."/>
+                <NAAdialog title="BFA - 4A FLAVORS OF HOME ART DIRECTION EXHIBITION" imgSrc={NAA4} description="Experience the captivating journey of TUP
+                    FAD's BFA 4A Art Direction exhibition,
+                    celebrating the diverse culinary heritage of
+                    the Philippines with 'Flavors of Home.'
+                    Delve into the vibrant colors, intricate
+                    textures, and unforgettable experiences
+                    inspired by our beloved regional cuisines
+                    and treats."/>
+                <NAAdialog title="Meet Dexter Fernandez, the Filipino Artist Behind This International Streetwear Collab" imgSrc={NAA5} description="Meeting Dexter Fernandez (Garapata), the
+                    Filipino artist behind this global streetwear
+                    collaboration. Unveil the artistic essence
+                    of Dexter Fernandez as his mesmerizing
+                    street art seamlessly integrates into the
+                    realm of fashion alongside H&M and DBTK."/>
+                <NAAdialog title="CARE PROJECT “TRUST THE PROCESS” ART THERAPY" imgSrc={NAA6} description="Conducted on May 23, 2023, the 'Trust
+                    the Process' session offered an
+                    enriching and significant Art Therapy
+                    experience at Juan Luna Elementary
+                    School."/>
+                <NAAdialog title="UST ANNUAL INTER-SCHOOL ON-THE-SPOT PAINTING COMPETITION" imgSrc={NAA7} description="Mr. Ash Iverson Forlaje secured the first
+                    position in the UST annual inter-school
+                    on-the-spot painting competition this year
+                    alongside all the participating students."/>
+                <NAAdialog title="Art in the Park at Jaime Velasquez Park" imgSrc={NAA8} description="On March 19, 2023, 'Art in the Park'
+                    occurred at Jaime Velasquez Park
+                    in Makati City, featuring around 60
+                    exhibitors participating in the fair's
+                    17th edition."/>
+                <NAAdialog title="'Tara, G?' CAFAsyalan Advertising Art Direction" imgSrc={NAA9} description="CAFAsyalan is a design
+                    exhibition by BFA 4C students,
+                    presenting their creative branding
+                    projects for different cities as
+                    part of their ADV 441: Advertising
+                    Art Direction course. This
+                    showcase invites us to explore each location's unique beauty and celebrate the
+                    Philippines' diverse cultural identities. Visit the exhibition from January 26 to
+                    February 3, 2023, at CAFA Fine Arts Department (1st Floor)."/>
+                <NAAdialog title="Celebrating the 25th work anniversary of Sir Ramon Talaga Dela Cruz" imgSrc={NAA10} description="Manases Deneil Victor Mira Jr., Bj
+                    Domantay, and the other members of
+                    BFA-1A were highlighted in the Guhit Jes
+                    video for creating the Best Christmas
+                    Tree."/>
             </div>
         </div>
+    )
+}
+
+function StudentAlumniCards(res){
+    return(
+        <>
+            <Dialog>
+                <DialogTrigger asChild>
+                    <button className='w-full flex flex-row px-6 p-3 hover:bg-[#EED3D9] space-x-3'>
+                        <img src={res.picture}></img>
+                        <div className='flex flex-col text-left'>
+                            <span className='font-ebgaramond font-[600] text-xl'>{res.name}</span>
+                            <span>BATCH YEAR {res.year}</span>
+                        </div>
+                    </button>
+                </DialogTrigger>
+                <DialogContent className="w-full bg-transparent border-none overflow-y-scroll max-h-screen no-scrollbar">
+                    <div className="flex flex-col flex justify-center">
+                        <div className="flex flex-row justify-center"><img src={res.picture} className='h-auto w-40'></img></div>
+                        <div className="text-center font-ebgaramond flex flex-col text-white">
+                            <span className="text-xl xl:text-4xl font-[600]">{res.name}</span>
+                            <span className="text-xs xl:text-2xl text-center font-[600]">BATCH YEAR {res.year}</span>
+                            <span className="text-xs xl:text-xl text-center">{res.email}</span>
+                            <span className="text-xs xl:text-xl text-center">{res.genre}</span>
+                            <span>{res.quote}</span>
+                            <div className='flex flex-row w-full justify-center py-6'>
+                                <span className='text-left xl:w-1/2 w-full'>{res.bio}</span>
+                            </div>
+                            <div className='flex flex-row w-full justify-center py-6'>
+                                <span className='text-left xl:w-1/2 w-full'>{res.experience}</span>
+                            </div>
+                            <div className='flex xl:flex-row flex-col w-full justify-center'>
+                                <img src={res.img1} className='h-48'/>
+                                <img src={res.img2} className='h-48'/>
+                                <img src={res.img3} className='h-48'/>
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
+        </>
     )
 }
 function AlumniCards(res){
@@ -277,18 +379,34 @@ function AlumniCards(res){
                 <div className='border-0 border-b-2 border-[#9B9B9B]' id ={dynamicId} onClick={onClickDrop}><span className='text-3xl'>BATCH YEAR: {res.year}</span></div>
                 {isDrop && (
                     <div className='text-black animate-accordion-down w-full overflow-hidden'>
-                       {
-                        jsonData[2000].map(entry =>{
-                            console.log(entry)
-                        })
-                       }
-                        
+                        <StudentAlumniCards name='Heraldo G. Corpuz' year={res.year} email='corpusherald23@gmail.com' genre='Visual Artist / Painting' quote='"Success in life is a long hard climb"'
+                        bio="Herald Corpus says. As a young child, he developed a close kinship with the nature. That kinship is the basis for his art, in which the textures of his artwork turned into intricate line
+                        art.
+                       Herald Corpus is a multidisciplinary visual artist and environmentalist; his art practice traverses from theatre art to ethnomusicology. His ideology is rooted to his daily life
+                        experiences and encounters, navigating sociopolitical struggles and spiritual triumph of
+                        success. He is a trailblazer of many ideas, engaging off grid with “Mother Nature” that
+                        inspire and encompasses his creative work and cleanse his mind, body, and soul. His earliest art can be traced to his passion for climbing mountains."
+                       experience='“As a student, may mga certain experiences na naging bahagi ng aking journey. One such
+                       moment for me was receiving a grade of 1.0 in our Anatomy subject, a challenging subject
+                        that tested my perseverance and resilience. Yet, kahit may mga academic trials, isa sa mga
+                        nag stand out as vibrant highlight ng aking pagiging Fine Arts Student ay ang pag participate
+                       sa mga various student art competitions. Not only did these events ignite yung aking creative
+                       passion, but they also provided the opportunity to forge connections with students from other
+                       schools. Yung friendship, nanganak lang from shared artistic endeavors, mga struggle when
+                       joing a competitions, na I think nag-enriched sa aming mga buhay with lasting fellowship and
+                       support.”'
+                       picture={alumni1}
+                       img1={alumnimg1}
+                       img2={alumnimg2}
+                       img3={alumnimg3}
+                    />
                     </div>
                 )}
             </div>
         </>
     )
 }
+
 function Alumni(){
     return(
         <div className='p-6 space-y-2' id='alumniSection'>

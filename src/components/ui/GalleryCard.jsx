@@ -19,9 +19,9 @@ export default function GalleryCard(res){
         <DialogTrigger asChild>
             <img src={res.imgSrc} className='transition duration-300 transform hover:scale-105'></img>
         </DialogTrigger>
-        <DialogContent className="w-full  bg-transparent border-none overflow-y-scroll max-h-screen  no-scrollbar">
+        <DialogContent className="w-full bg-transparent border-none overflow-y-scroll max-h-screen no-scrollbar">
             <div className="flex flex-col flex justify-center">
-                <div className="flex flex-row justify-center"><div className="p-1 bg-white"><img src={res.imgSrc} className="h-auto xl:w-[60rem] w-40"></img></div></div>
+                <div className="flex flex-row justify-center"><div className="p-1 bg-white"><img src={res.imgSrc} className="h-auto xl:w-[20rem] w-40"></img></div></div>
                 <div className="text-center font-ebgaramond flex flex-col text-white">
                     <span className="text-3xl">{res.title}</span>
                     <span className="text-2xl">{res.material}</span>
