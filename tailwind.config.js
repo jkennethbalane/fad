@@ -9,6 +9,25 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1600px',
+      // => @media (min-width: 1536px) { ... }
+
+      '3xl': '3000px',
+      // => @media (min-width: 1536px) { ... }
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -51,7 +70,7 @@ module.exports = {
       },
       colors: {
         'learnmore-btn':  'rgba(254, 176, 0, 1)',
-        'cardbg': 'rgba(224, 227, 229, 1)',
+        'cardbg': 'rgba(196, 32, 59, 1)',
         'testimonialTitle' : 'rgba(71, 3, 2, 1)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

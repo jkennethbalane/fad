@@ -18,7 +18,7 @@ function Content(){
                         <span className='text-lg'>Technological University of the Philippines – Institute of Visual Communication</span>
                         <span className='text-lg font-[400] font-ebgaramond leading-5'>The Organization is founded in 2020</span>
                     </div>
-                    <img src={IVC} className='aspect-square h-20 max-h-20'></img>
+                    <img src={IVC} className='xl:h-40 h-20'></img>
                 </div>
                 {isMore &&
                     <>
@@ -47,43 +47,36 @@ function Events(){
                     <span className="xl:text-3xl text-xl text-testimonialTitle ">EVENTS</span>
                     <span className="xl:text-3xl text-xl font-[300]">Institute of Visual Communication</span>
                 </div>
-                <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-                
-                    <EventCard title="SHEESH, THAT'S CRAZY!: Graphic Design as an instrument for the minority" bgImg="bg-[url('/src/components/ui/assets/sheesh.jpg')]"
-                    description="This webinar event is held online, and the guest speakers are, Mr. Karl Castro
-                    and Mr. Ernest Joseph Garcia. The guest speakers talked about the
-                    application of graphic design in the filipino contemporary arts and spreading
-                    awareness about the minority through it. We, the IVC, aims to inform future
-                    designers, the effects of design in society, as well as its contribution to the
-                    minority and societal issues. As one global community, let us extend our help
-                    to the people around us and learn more knowledge about design arts."
+                <div className='flex 2xl:flex-row 2xl:space-y-0 space-y-9 py-6 justify-between flex-col'>
+                    <EventCard title="SHEESH, THAT'S CRAZY!: Graphic Design as an instrument for the minority (Dec. 17, 2021)" bgImg="bg-[url('/src/components/ui/assets/sheesh.jpg')]"
+                    description="Through the online webinar event, guest speakers, Mr. Karl Castro
+                    and Mr. Ernest Joseph Garcia discussed the application of graphic design in the Filipino 
+                    contemporary arts and spreading awareness about the minority through it. IVC aims to educate 
+                    future designers about the impact of design on society and its role in addressing social issues. 
+                     Let's extend a helping hand to those in need and deepen our knowledge of design arts as a global community."
                     />
                     <EventCard title="PRIDE MONTH ART SHOWCASE" bgImg="bg-[url('/src/components/ui/assets/pride.png')]" 
-                    description="This online exhibit is to celebrate Pride Month and it is open to all and any
+                    description="This online exhibit celebrated Pride Month and was open to all, and any
                     genre, including photography, digital art, digital manipulation, traditional art,
-                    etc., are accepted. This events aims to show the colorful creativity of queer
-                    artists as well as to reflect diverse perspectives on the LGBTQIA+ experiences."
+                    etc. This event aimed to show the colorful creativity of queer
+                    artists as well as to reflect diverse perspectives on the LGBTQIA+ experiences.
+                    "
                     fbLink="https://www.facebook.com/photo/?fbid=176799084790335&set=pcb.176803
                     721456538"
                     />
                     <EventCard title="TUP INDAYOG 2023: ANG SIMULA NG KABANATA" bgImg="bg-[url('/src/components/ui/assets/palette.jpg')]"
-                    description="This event invited and gathered all the organization to display their booths
-                    and showcased their organization’s name and to welcome the students who
-                    are interested to join them. The TUP-IVC booth named ‘PINOY PALETTE
-                    sari-sari store’ also won 3rd place in the Best in Booth Award"
+                    description="This event invited and gathered all the organizations to display their booths, showcase their organization’s name, and welcome the students who are interested in joining them. The TUP-IVC booth named ‘PINOY PALETTE Sari-sari Store’ also won 3 rd place Best in Booth Award."
                     fbLink="https://www.facebook.com/photo/?fbid=122116079528010186&set=a.122115
                     476672010186"
                     />
                     <EventCard title="2-Day Workshop Seminar at 122th TUP Foundation Day" bgImg="bg-[url('/src/components/ui/assets/vibe.png')]"
-                    description="The events aims to provide TUP-IVC members and Fine Arts students with
-                    extensive knowledge, insights and diverse range of subject relevant to visual
-                    designs, digital, branding and film."
+                    description="The events aimed to provide TUP-IVC members and Fine Arts students with extensive knowledge, insights, and diverse range of subjects relevant to visual and digital design, branding and film."
                     fbLink="https://www.facebook.com/profile.php?id=61553920576848"
                     />
-                    <EventCard title="LUNETA ART FAIR" bgImg="bg-[url('/src/components/ui/assets/LAF.jpg')]"
+                    <EventCard title="LUNETA ART FAIR (FEB. 3-4, 2024)" bgImg="bg-[url('/src/components/ui/assets/LAF.jpg')]"
                     description="The TUP-IVC participated in this year’s Luneta Art Fair held at Noli Me
-                    Tangere Garden, Rizal Park. We aim to showcased and sell the amazing
-                    artworks made by our faculty, IVC members and TUP alumni."
+                    Tangere Garden, Rizal Park. Our aim was to showcase and sell the amazing
+                    Artwork pieces made by our faculty, IVC members, and TUP alumni."
                     fbLink="https://www.facebook.com/TUPiVisCom/posts/397994486079417"
                     />
 
@@ -94,6 +87,7 @@ function Events(){
 }
 
 export default function Organization(){
+    window.scrollTo({top: 0,behavior:'smooth'})
     return(<div>
         <NavBar/>
         <div>

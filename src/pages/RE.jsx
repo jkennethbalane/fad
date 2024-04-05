@@ -1,7 +1,7 @@
 
 import Footer from "../components/ui/Footer";
 import NavBar from "../components/ui/NavBar";
-import header from '../components/ui/assets/R&E.png'
+import header from '../components/ui/assets/R&E.jpg'
 import { Button } from "@/components/ui/button"
 import GalleryCard from '../components/ui/GalleryCard.jsx'
 import Gal1 from '../components/ui/assets/Exhib1.png'
@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 function Exhibition(){
     return(
     <div>
-        <div className="bg-black p-6"  id='exhibitSection'>
+        <div className="bg-black p-6" id='exhibitSection'>
             <div className='text-center flex flex-col space-y-3 text-white'>
                 <span className="xl:text-3xl text-xl">ONLINE EXHIBITION</span>
                 <span className="xl:text-3xl text-xl text-[#FFEECE]">FINE ARTS GALLERY</span>
@@ -129,6 +129,7 @@ function Events(){
 
 export default function RandE(ref){
     const [isMore, setIsMore] = useState(false)
+    window.scrollTo({top: 0,behavior:'smooth'})
     const handleClickScroll = () => {
         if(ref.scrollTo != undefined){
             const element = document.getElementById(ref.scrollTo)
@@ -144,7 +145,7 @@ export default function RandE(ref){
             <NavBar />
             <div>
                 <div className=''>
-                    <img src={header} className='object-cover w-full'></img>
+                    <img src={header} className='object-cover w-full 2xl:h-[50rem] h-[18rem]'></img>
                 </div>
                 <div className={`font-roboto px-8 xl:px-12 py-12 flex flex-col font-[500] space-y-10 ${isMore ? 'bg-black text-white' : 'bg-white text-black'}`}>
                     <div className='flex flex-col space-y-5 w-full'>

@@ -6,6 +6,7 @@ import Testimonies from '../components/ui/Testimonies.jsx'
 import EmblaCarousel from '../components/ui/EmblaCarousel.jsx'
 
 export default function Index(){
+    window.scrollTo({top: 0,behavior:'smooth'})
     return(
     <>
         <NavBar />

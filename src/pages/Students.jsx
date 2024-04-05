@@ -12,6 +12,9 @@ import Gal9 from '../components/ui/assets/gal9.png'
 import Gal10 from '../components/ui/assets/gal10.png'
 import Gal11 from '../components/ui/assets/gal11.png'
 import Gal12 from '../components/ui/assets/gal12.png'
+import CP1 from '../components/ui/assets/CP1.jpg'
+import CP2 from '../components/ui/assets/CP2.jpg'
+import CP3 from '../components/ui/assets/CP3.jpg'
 import GalleryCard from '../components/ui/GalleryCard.jsx'
 import {
     Carousel,
@@ -54,6 +57,8 @@ import alumni1 from '../components/ui/assets/heraldo.png'
 import alumnimg1 from '../components/ui/assets/heraldo-1.png'
 import alumnimg2 from '../components/ui/assets/heraldo-2.png'
 import alumnimg3 from '../components/ui/assets/heraldo-3.png'
+import { NavLink, useLocation } from "react-router-dom"
+import facebook from '../components/ui/assets/Facebook.png'
 
 function Gallery(){
     return(
@@ -101,21 +106,36 @@ function Gallery(){
 )}
 
 function Testimony(){
+    const [count, setCount] = useState(0)
+
+    const handleClick = (param) => {
+        setCount(param); // Update the count state with the parameter value
+    };
     return(
-        <div className='py-6 font-roboto font-[400] text-black'>
+        <div className='py-6 font-roboto font-[400] text-black 2xl:h-[40rem] h-[30rem]'>
             <div className='text-center flex flex-col space-y-3 font-[500]'>
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">FINE ARTS DEPARTMENTS</span>
                 <span className="xl:text-3xl text-xl">EXPERIENCE TESTIMONIALS</span>
             </div>
             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                 <CarouselContent>
-                    <CarouselItem key="0" className="xl:basis-1/3">
+                    <CarouselItem key="0" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-2xs h-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
-                                    <span>“ As a person who was never really a fan of going to school, what kept me going was the people I met during my time in school. Studying fine arts isn't really the most simple thing, but the people who study alongside me really pushed and motivated me to strive better. One good experience I had so far is the showcasing of talents that the fine arts students do. They truly keep my spark going and give me the energy to become a better artist.
-                                    The fine arts community so far has been really welcoming and they also credit where it is due. In the most genuine way possible, I do feel like I am accepted and that I belong.”  </span>
+                                    <span className='font-[400]'>“As a person who was never really a fan of going to school, 
+                                    what kept me going was the people I met during my time in school. Studying fine arts isn't 
+                                    really the most simple thing, but the people who study alongside me really pushed and motivated 
+                                    me to strive better.
+                                        {count == 1 ? <span> One good experience I
+                                        had so far is the showcasing of talents that the fine arts students do. They truly keep my spark going
+                                        and give me the energy to become a better artist.<br/><br/>
+                                        The fine arts community so far has been really welcoming and they also credit where it is due. In
+                                        the most genuine way possible, I do feel like I am accepted and that I belong.” 
+                                        <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
+                                        <button onClick={() => setCount(1)} className='font-[600]'>..See More</button>}
+                                    </span>
                                 </div>
                                 <div>
                                     <span>Hannah Gozon<br></br></span>
@@ -126,13 +146,20 @@ function Testimony(){
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="1" className="xl:basis-1/3" >
+                    <CarouselItem key="1" className="2xl:basis-1/3" >
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-xs h-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
-                                    <span>“ First two years of my college have been bland because of the pandemic. I thought it would be like that all the way up to my senior year. TUP Fine Arts, guided me. They made sure my remaining two years would be full of magical learning and memorable experiences.
-                                    Aside from learning, there have been great opportunities that the faculty and staff gave me. It molded the artist who I am today.”  </span>
+                                    <span className='font-[400]'>“First two years of my college have been bland because of the pandemic. 
+                                    I thought it would be like that all the way up to my senior year. TUP Fine Arts, guided me.
+                                    {count == 2 ? <span>  They made sure my remaining
+                                    two years would be full of magical learning and memorable experiences. <br/><br/>
+                                    Aside from learning, there have been great opportunities that the faculty and staff gave me. It
+                                    molded the artist who I am today.” 
+                                    <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
+                                    <button onClick={() => setCount(2)} className='font-[600]'>..See More</button>}
+                                    </span>
                                 </div>
                                 <div>
                                     <span>Frank Genesis P. Lomboy<br></br></span>
@@ -143,13 +170,22 @@ function Testimony(){
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="2" className="xl:basis-1/3">
+                    <CarouselItem key="2" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-2xs h-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
-                                    <span>“As a student in Fine Arts, I can guarantee na may matututunan dito sa TUP Manila especially on enhancing your skills through traditional and digital arts. More so, sobrang thankful ako sa mga experience na nangyari sa'kin dahil mas lalo akong nag-grow as person and nagboost ang self confidence. 
-                                    Lahat ng bagay may impact, siguro dahil na rin sa magagaling ang mga professors, instructors and maging sa mga kaklase na willing kang turuan sa mga knowledge na di kapa pamilyar sa ganto. Kaya sa mga susunod na panahon bago makatapos ng pag-aaral, inaasahan kong mas magiging improving at memorable ang experience ko dito sa TUP Manila”. </span>
+                                    <span className='font-[400]'>“As a student in Fine Arts, I can guarantee na may matututunan dito sa TUP Manila especially on enhancing your skills through traditional and digital arts.
+                                        {count == 3 ? <span> More so, sobrang thankful ako sa mga
+                                        experience na nangyari sa'kin dahil mas lalo akong nag-grow as person and nagboost ang self
+                                        confidence.<br/><br/>
+                                        Lahat ng bagay may impact, siguro dahil na rin sa magagaling ang mga professors, instructors and
+                                        maging sa mga kaklase na willing kang turuan sa mga knowledge na di kapa pamilyar sa ganto. Kaya
+                                        sa mga susunod na panahon bago makatapos ng pag-aaral, inaasahan kong mas magiging
+                                        improving at memorable ang experience ko dito sa TUP Manila.” 
+                                        <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
+                                        <button onClick={() => setCount(3)} className='font-[600]'>..See More</button>}
+                                    </span>
                                 </div>
                                 <div>
                                     <span>Desirei G. Roca<br></br></span>
@@ -160,12 +196,21 @@ function Testimony(){
                     </div>
                     </CarouselItem>
 
-                    <CarouselItem key="3" className="xl:basis-1/3">
+                    <CarouselItem key="3" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg aspect-square font-[800] justify-between p-6 xl:h-[32rem] xl:text-base text-xs rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
-                                    <span>Nagpapasalamat ako sa Fine Arts Department ng TUP-Manila sa pagbibigay sa akin ng kaalaman at kasanayan sa sining at sa pagpapalago bilang indibidwal. Na-inspire ako ng mga guro at kasama ang aking mga kapwa mag-aaral, masigasig kaming nagtutulungan sa aming paglalakbay sa mundo ng sining. Ang departamento ay hindi lamang nagbibigay ng edukasyon kundi pati na rin ng isang komunidad na nagtataguyod ng pag-unlad ng kakayahan at kasanayan. Salamat sa lahat ng oportunidad at sa mga kaibigan at guro na aking nakilala.</span>
+                                    <span className='font-[400]'>“Nagpapasalamat ako sa Fine Arts Department ng TUP-Manila sa pagbibigay 
+                                    sa akin ng kaalaman at kasanayan sa sining at sa pagpapalago bilang indibidwal.
+                                        {count == 4 ? <span> Na-inspire ako ng mga guro at kasama
+                                        ang aking mga kapwa mag-aaral, masigasig kaming nagtutulungan sa aming paglalakbay sa mundo
+                                        ng sining. Ang departamento ay hindi lamang nagbibigay ng edukasyon kundi pati na rin ng isang
+                                        komunidad na nagtataguyod ng pag-unlad ng kakayahan at kasanayan. Salamat sa lahat ng
+                                        oportunidad at sa mga kaibigan at guro na aking nakilala.” 
+                                        <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
+                                        <button onClick={() => setCount(4)} className='font-[600]'>..See More</button>}
+                                    </span>
                                 </div>
                                 <div>
                                     <span>Carlos Hermo A. Baldemoro<br></br></span>
@@ -181,6 +226,32 @@ function Testimony(){
     )
 }   
 
+function ClassPicture(){
+    return(
+        <div className='py-12 px-12 font-roboto text-white' id='eventsSection'>
+            <div className='text-center flex flex-col space-y-3 text-black'>
+                <span className="xl:text-3xl text-xl text-testimonialTitle ">CLASS PICTURE</span>
+                <span className="xl:text-3xl text-xl">4TH YEAR BATCH 2023-2024</span>
+            </div>
+            <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
+                <CarouselContent>
+                    <CarouselItem key="0" className="2xl:basis-1/3 overflow-hidden">
+                        <img src={CP1} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    </CarouselItem>
+
+                    <CarouselItem key="1" className="2xl:basis-1/3 overflow-hidden">
+                        <img src={CP2} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    </CarouselItem>
+
+                    <CarouselItem key="2" className="2xl:basis-1/3 overflow-hidden">
+                        <img src={CP3} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    </CarouselItem>
+                </CarouselContent>
+            </Carousel>
+        </div>
+    )
+}
+
 function Events(){
     return(
         <div className='py-12 px-12 font-roboto text-white' id='eventsSection'>
@@ -188,8 +259,7 @@ function Events(){
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">FINE ARTS DEPARTMENTS</span>
                 <span className="xl:text-3xl text-xl">EVENTS</span>
             </div>
-            <div className='flex xl:flex-row xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-            
+            <div className='flex 2xl:flex-row 2xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
                 <EventCard title="KULTURA SA TELA 2023" bgImg="bg-[url('/src/components/ui/assets/KST.jpg')]" description="Experience the fusion of creativity and culture as the Bachelor of Fine Arts major in Advertising, 3rd-year students from sections A and B, along with their subject professor, Mrs. Leticia L. Paldez, proudly present 'KULTURA SA TELA: Philippine Culture through Fashion.' Held on June 14, 2023, from 1:00 PM to 5:00 PM at the prestigious IRTC Conference Hall, Technological University of the Philippines - Manila, this event redefines the essence of style and culture. More than just a fashion showcase, 'KULTURA SA TELA' celebrates Filipino heritage, innovation, and the transformative power of art. Prepare to be inspired as these talented students take you on a journey through the vibrant tapestry of Filipino culture, leaving an indelible mark on your senses and imagination."
                 description1=" Attendees were treated to a visual feast as models strutted down the runway in elaborate costumes that seamlessly blended contemporary fashion with traditional Filipino motifs. Vibrant colours, intricate beadwork, and flowing silhouettes captivated the audience, highlighting the students' ingenuity and dedication to their craft. Beyond the aesthetic appeal, 'Kultura sa Tela' served as a cultural exchange and appreciation platform, fostering a deeper understanding of Philippine heritage among local and international spectators. As the event came to a close, it left a lasting impression, inspiring admiration for the talent and creativity of the students and reinforcing the importance of preserving and celebrating Filipino culture through the art of fashion.
                     "/>
@@ -223,11 +293,16 @@ function NAAdialog(res){
                 <div className="flex flex-col flex justify-center">
                     <div className="flex flex-row justify-center"><img src={res.imgSrc} className='h-auto w-80'></img></div>
                     <div className="text-center font-ebgaramond flex flex-col text-white">
-                    <span className="text-xl xl:text-3xl py-2">{res.title}</span>
-                    <div className='w-full flex flex-row justify-center'>
-                        <span className="text-xs xl:text-xl py-2 w-full xl:w-1/2 text-left">{res.description}</span>
+                        <span className="text-xl xl:text-3xl py-2">{res.title}</span>
+                        <div className='w-full flex flex-row justify-center'>
+                            <span className="text-xs xl:text-xl py-2 w-full xl:w-1/2 text-left">{res.description}</span>
+                        </div>
                     </div>
-                </div>
+                    {res.fbLink && (
+                        <div className='flex flex-row w-full justify-center'>
+                            <NavLink to={res.fbLink}><img src={facebook} className='transition duration-300 transform hover:scale-105 aspect-square xl:w-10 w-8 justify-center'></img></NavLink>
+                        </div>
+                    )}
                 </div>
             </DialogContent>
         </Dialog>
@@ -241,7 +316,7 @@ function NAAcard(res){
                 <CardContent className="flex flex-row bg-[#D9D9D9] h-auto max-h-28 w-full transition duration-300 transform hover:scale-105 rounded-lg p-0 space-x-3">
                     <img src={res.imgSrc} className='aspect-square w-28'/>
                     <div className='flex flex-col font-ebgaramond justify-between p-3 text-left'>
-                        <span className='font-[500] xl:text-xl text-xs'>{res.title}</span>
+                        <span className='font-[500] 2xl:text-xl text-xs'>{res.title}</span>
                         <span>Learn More</span>
                     </div>
                 </CardContent>
@@ -265,21 +340,27 @@ function NewsAndArticles(){
                     selecting the top three 'Pinaka-kavogue na
                     Booth' for TUP Indayog 2023. TUP - Institute
                     for Visual Communication won TOP 3 - A prize
-                    of PHP 700 worth of SM Gift Certificates."/>
+                    of PHP 700 worth of SM Gift Certificates."
+                    fbLink="https://www.facebook.com/photo?fbid=122136709244010186&set=a.122117498048010186"
+                    />
                 <NAAdialog title="LUNETA ART FAIR" imgSrc={NAA2} description="The Luneta Art Fair, taking place on
                     February 4th and 5th, will transform Rizal
                     Park into a vibrant showcase of emerging
                     artists' works from diverse backgrounds.
                     TUP - Institute for Visual Communication
                     participated alongside the TUP Fine Arts
-                    Department faculty."/>
+                    Department faculty."
+                    fbLink="https://www.facebook.com/photo/?fbid=397991026079763&set=pcb.397994486079417"
+                    />
                 <NAAdialog title="BFA - 4B ORIGINAL PILIPINO MUSIC (OPM) ART DIRECTION EXHIBITION" imgSrc={NAA3} description="TUP FAD's BFA 4B students
                     showcase their Art Direction
                     Exhibition, celebrating Original
                     Pilipino Music (OPM), offering a
                     captivating dive into Filipino
                     creativity where music and art
-                    intertwine seamlessly."/>
+                    intertwine seamlessly."
+                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02HwfVJknHVsALMnwRgz6Sxx6oziDzLMEqMNjgKzYST6QqCArSWTBSCGhfLeUkUr6Sl"
+                    />
                 <NAAdialog title="BFA - 4A FLAVORS OF HOME ART DIRECTION EXHIBITION" imgSrc={NAA4} description="Experience the captivating journey of TUP
                     FAD's BFA 4A Art Direction exhibition,
                     celebrating the diverse culinary heritage of
@@ -287,27 +368,37 @@ function NewsAndArticles(){
                     Delve into the vibrant colors, intricate
                     textures, and unforgettable experiences
                     inspired by our beloved regional cuisines
-                    and treats."/>
+                    and treats."
+                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0TaAbsf2zTBTxhwjH4bFVV8SeGwne796gPvhp5oPVqJ8TRk3LWLZadRnRXnwKKpULl"
+                    />
                 <NAAdialog title="Meet Dexter Fernandez, the Filipino Artist Behind This International Streetwear Collab" imgSrc={NAA5} description="Meeting Dexter Fernandez (Garapata), the
                     Filipino artist behind this global streetwear
                     collaboration. Unveil the artistic essence
                     of Dexter Fernandez as his mesmerizing
                     street art seamlessly integrates into the
-                    realm of fashion alongside H&M and DBTK."/>
+                    realm of fashion alongside H&M and DBTK."
+                    fbLink="https://mega-onemega.com/meet-dexter-fernandez-the-filipino-artist-behind-this-international-streetwear-collab/"
+                    />
                 <NAAdialog title="CARE PROJECT “TRUST THE PROCESS” ART THERAPY" imgSrc={NAA6} description="Conducted on May 23, 2023, the 'Trust
                     the Process' session offered an
                     enriching and significant Art Therapy
                     experience at Juan Luna Elementary
-                    School."/>
+                    School."
+                    fbLink="https://www.facebook.com/permalink.php?story_fbid=pfbid0TAaRBt1fvgezQiueddT5LzJuVsqz7K4dTQxpv5CUdLzNQigZJs7y2sqPEZcnD7Jpl&id=100076854947611"
+                    />
                 <NAAdialog title="UST ANNUAL INTER-SCHOOL ON-THE-SPOT PAINTING COMPETITION" imgSrc={NAA7} description="Mr. Ash Iverson Forlaje secured the first
                     position in the UST annual inter-school
                     on-the-spot painting competition this year
-                    alongside all the participating students."/>
+                    alongside all the participating students."
+                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0xiJUA9K7uGiqTeDkmRZdmqp31EfGawUQ4ogMDwBScvfeSgf1tDNf7uYTjL3NkHLhl"
+                    />
                 <NAAdialog title="Art in the Park at Jaime Velasquez Park" imgSrc={NAA8} description="On March 19, 2023, 'Art in the Park'
                     occurred at Jaime Velasquez Park
                     in Makati City, featuring around 60
                     exhibitors participating in the fair's
-                    17th edition."/>
+                    17th edition."
+                    fbLink="https://www.facebook.com/photo?fbid=3432326520257411&set=a.182218585268237"
+                    />
                 <NAAdialog title="'Tara, G?' CAFAsyalan Advertising Art Direction" imgSrc={NAA9} description="CAFAsyalan is a design
                     exhibition by BFA 4C students,
                     presenting their creative branding
@@ -316,12 +407,16 @@ function NewsAndArticles(){
                     Art Direction course. This
                     showcase invites us to explore each location's unique beauty and celebrate the
                     Philippines' diverse cultural identities. Visit the exhibition from January 26 to
-                    February 3, 2023, at CAFA Fine Arts Department (1st Floor)."/>
+                    February 3, 2023, at CAFA Fine Arts Department (1st Floor)."
+                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02wy43fRu6zaAuyKujcMf5pg2yHu9N6XnKEu3Xr2UrU42NqRKRAt7kBpfheWLyPriVl"
+                    />
                 <NAAdialog title="Celebrating the 25th work anniversary of Sir Ramon Talaga Dela Cruz" imgSrc={NAA10} description="Manases Deneil Victor Mira Jr., Bj
                     Domantay, and the other members of
                     BFA-1A were highlighted in the Guhit Jes
                     video for creating the Best Christmas
-                    Tree."/>
+                    Tree."
+                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02Nm2LXBPnGdhn6sLLA8RPTT3mKPRqnj1wmR3jGimSY1rBTrqzsSs54FX5g21rJ6N8l"
+                    />
             </div>
         </div>
     )
@@ -443,7 +538,7 @@ export default function Student(ref){
             <NavBar/>
             <div className="w-full">
             <div className='relative'>
-                <img src={Header} className='xl:h-full object-cover h-[30rem] aspect-video w-full'></img>
+                <img src={Header} className='object-cover w-full 2xl:h-[50rem] h-[18rem]'></img>
                 <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-2xl xl:text-3xl'>STUDENT</span>
                     <span className='text-3xl xl:text-5xl'>LIFE</span>
@@ -451,6 +546,7 @@ export default function Student(ref){
             </div>
             <Gallery/>
             <Testimony/>
+            <ClassPicture />
             <Events />
             <NewsAndArticles/>
             <Alumni />

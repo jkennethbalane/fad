@@ -1,6 +1,6 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/aboutus.png'
+import header from '../components/ui/assets/aboutus.jpg'
 import header1 from '../components/ui/assets/about-1.png'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
@@ -30,17 +30,21 @@ export default function About(ref){
         <div className='w-full'>
             <div>
                 <div className=''>
-                    <img src={header} className='object-cover w-full'></img>
+                    <img src={header} className='object-cover w-full 2xl:h-[50rem] h-[18rem]'></img>
                 </div>
-                <div className='h-auto bg-black text-white py-3 xl:py-12'>
-                    <div className='font-roboto px-8 xl:px-12 py-6 flex flex-col font-[500] space-y-10'>
+                <div className='h-auto bg-black text-white'>
+                    <div className='font-roboto px-8 xl:px-12 flex flex-col font-[500] space-y-10 py-12 xl:w-1/2 w-full'>
+                        <div className='flex flex-col space-y-3' id='historySection'>
+                            <span className='text-4xl'>CAFA History</span>
+                            <span className='text-xl font-[400] font-ebgaramond leading-5'>The roots of the College of Architecture and Fine Arts (CAFA) can be traced from the drawing subjects required in all courses offered by the University since 1907. The college has been a consistent contributor in the University's achievements and recognition in various art competitions both local and abroad. The CAFA also produces top passers in the Licensure Examination given by the Professional Regulations Commission. Presently, the college is composed of three departments, namely: Architecture, Fine Arts, and Graphics. Furthermore, the college offers advance studies in the Graduate Programs: Master in Architecture (Major in Construction Technology Management) and Master in Graphics Technology.</span>
+                        </div>
                         <div className='flex flex-col space-y-3' id='aboutSection'>
-                            <span className='text-3xl'>ABOUT US</span>
-                            <span className='text-lg font-[400] font-ebgaramond leading-5'>Our Fine Arts Department at the Technological University of the Philippines-Manila, with a focus on Advertising, equips students to create visually appealing narratives that are relevant in today's digital world. We combine innovation and creativity with state-of-the-art technology to prepare graduates for success in the fast-paced fields of visual communication and advertising.</span>
+                            <span className='text-4xl'>ABOUT US</span>
+                            <span className='text-xl font-[400] font-ebgaramond leading-5 '>The Fine Arts Department at the Technological University of the Philippines, Manila, with a focus on Advertising, equips students to create visually appealing narratives that are relevant in today's digital world. We combine innovation and creativity with technology to prepare students for success in the fast-paced fields of visual communication and advertising.</span>
                         </div>
                         <div className='flex flex-col space-y-3'>
-                            <span className='text-3xl'>RATIONALE</span>
-                            <div className='text-lg font-[400] font-ebgaramond leading-5'>
+                            <span className='text-4xl'>RATIONALE</span>
+                            <div className='text-xl font-[400] font-ebgaramond leading-5'>
                                 <span >Fine Arts Program Description<br/><br/>
                                 CHED MEMORANDUM ORDER No. 43 Series of 2017<br/><br/>
                                 The degree name under this program shall be called BACHELOR OF FINE ARTS, specialization in Advertising. The Fine Arts course is a program that combines a context of firm foundation (Fine Arts Core subjects, Advertising Design, Creative Visual Perception and Management, Digital Design, Photography, and Other Media Development). Initially, these are treated as separate subject areas leading to a production experience in each of the different Fine Arts disciplines. However, as the course develops over the four years, students are encouraged to look at the ways in which these different media forms relate and feed into each other. In-depth studies may be pursued in different areas</span>
@@ -72,7 +76,7 @@ export default function About(ref){
                         <span className='font-[400] font-ebgaramond'>The College of Architecture and Fine Arts shall prepare the students to become the world’s leading Architects, Artists, Designers and Draftsmen who are creative, competent, morally upright and innovative in their respective disciplines for environmental, cultural, national, and international advantage. </span>
                     </div>
                     <div className='flex flex-col xl:w-1/2 w-full'>
-                        <span className='font-[500] text-3xl' >Fine Arts Program Educational Objectives (PEOs)</span>
+                        <span className='font-[500] text-2xl' >FINE ARTS PROGRAM EDUCATIONAL OBJECTIVES (PEOs)</span>
                         <span className='font-[400] font-ebgaramond' id='objectiveSection'>CMO 43 S.2017Art. IV Section 5.3 page 4<br/><br/>
                         To produce art and design professionals:<br/>
                         1. Whose creative works exhibit core Filipino values;<br/>

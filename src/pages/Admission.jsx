@@ -1,6 +1,6 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/admission.png'
+import header from '../components/ui/assets/admission.jpg'
 import { Button } from "@/components/ui/button"
 import { NavLink } from 'react-router-dom'
 
@@ -30,12 +30,13 @@ function Content(){
 }
 
 export default function Admission(){
+    window.scrollTo({top: 0,behavior:'smooth'})
     return(
         <div>
             <NavBar/>
             <div>
                 <div className=''>
-                    <img src={header} className='object-cover w-full'></img>
+                    <img src={header} className='object-cover w-full 2xl:h-[50rem] h-[18rem]'></img>
                     <Content/>
                 </div>
             </div>

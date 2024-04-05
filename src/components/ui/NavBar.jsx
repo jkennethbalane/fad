@@ -109,7 +109,7 @@ export default function NavigationBar() {
     };
   }, [location, setIsOpen]);
   return (
-    <div>
+    <div className='sticky top-0 z-10'>
       <div className={`top-0 px-3 xl:px-12 py-4 flex-wrap z-[20] mx-auto flex w-full items-center justify-between ${
     isOpen ? 'bg-[#C4203B]' : 'bg-white'
   }`} id='navBar'>
@@ -123,7 +123,7 @@ export default function NavigationBar() {
                 <NavLinks />
             </div>
             <div className="xl:hidden">
-                <button onClick={toggleNavbar} >{isOpen ? <X className='bg-white rounded rounded-[1px]'/> : <Menu />}</button>
+                <button onClick={toggleNavbar} className='flex flex-col justify-center'>{isOpen ? <X className='bg-white rounded rounded-[1px]'/> : <Menu />}</button>
             </div>
         </nav>
       </div>

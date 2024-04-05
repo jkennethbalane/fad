@@ -29,13 +29,14 @@ import { useState } from 'react'
 
 export default function Faculty() {
     const [open, setOpen] = useState(0)
+    window.scrollTo({top: 0,behavior:'smooth'})
     return(
         <div>
             
             <NavBar />
             <div className='w-full'>
                 <div className='relative'>
-                    <img src={Header} className='xl:h-full object-cover h-[28rem] aspect-video w-full'></img>
+                    <img src={Header} className='object-cover w-full 2xl:h-[50rem] h-[18rem]'></img>
                     <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
                         <span className='text-2xl xl:text-3xl'>MEET THE</span>
                         <span className='text-3xl xl:text-5xl'>FACULTY</span>
@@ -50,7 +51,7 @@ export default function Faculty() {
                     {/* Cards */}
                     <div className='py-6'>
                         <div className='grid xl:grid-cols-3 grid-cols-1'>
-                            <button onClick={()=> setOpen(1)}><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' index={open == 1 ? true : false} picture={Fac1} description=" Ramon Talaga De La Cruz, current Head of the Fine Arts Department at the
+                            <button onClick={()=> setOpen(1)} className='xl:col-start-2'><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' index={open == 1 ? true : false} picture={Fac1} description=" Ramon Talaga De La Cruz, current Head of the Fine Arts Department at the
                                 Technological University of the Philippines (T.U.P.) in Manila, has been pursuing a
                                 Master's in Graphics Technology since 2015. He holds a Master of Fine Arts from the
                                 University of the Philippines (U.P.) Diliman completed in 2001 and received his
@@ -63,7 +64,7 @@ export default function Faculty() {
                                 <span className='text-[#9B9B9B] w-full'>Full-time Permanent</span>
                             </div>
                             <div className='grid xl:grid-cols-3 grid-cols-1'>
-                                <button onClick={()=> setOpen(2)}><FacultyCard name='Almina T. Tengco-Chan' position='Full-time Permanent' index={open == 2 ? true : false} picture={Fac2} description="Almina T. Tengco-Chan is a former Dean of the College of Architecture and Fine
+                                <button onClick={()=> setOpen(2)}><FacultyCard name='Almina T. Tengco-Chan' position='Painting, Art History, Arts and Crafts' index={open == 2 ? true : false} picture={Fac2} description="Almina T. Tengco-Chan is a former Dean of the College of Architecture and Fine
                                     Arts (2015-2019), previously serving as Head of the Fine Arts Department
                                     (2010-2015). Currently an Associate Professor 1 at the Fine Arts Department.
                                     "/></button>
@@ -102,7 +103,7 @@ export default function Faculty() {
                                 <span className='text-[#9B9B9B] w-full'>Full-time Temporary</span>
                             </div>
                             <div className='grid xl:grid-cols-3 grid-cols-1'>
-                                <button onClick={()=> setOpen(5)}><FacultyCard name='Ernest Joseph Garcia' position='Full-time Temporary' index={open == 5 ? true : false} picture={Fac5} description="Ernest Joseph Garcia is an Art director, graphic designer, academic, and a creative
+                                <button onClick={()=> setOpen(5)}><FacultyCard name='Ernest Joseph Garcia' position='- Graphic Design, Art Direction, Research' index={open == 5 ? true : false} picture={Fac5} description="Ernest Joseph Garcia is an Art director, graphic designer, academic, and a creative
                                     entrepreneur based in Manila, Philippines. Mr. Garcia finished his bachelor's degree
                                     in Fine Arts major in Advertising at the Technological University of the Philippines,
                                     Manila, and currently, he is finishing his graduate studies at Philippine Women's
@@ -215,7 +216,7 @@ export default function Faculty() {
                                     TUP-Manila, where she earned her Bachelor of Fine Arts majoring in Advertising and
                                     later completed her Master's in Graphics Technology.
                                     "/></button>
-                                <button onClick={()=> setOpen(18)}><FacultyCard name='Lorena P. Pacampara' position='Part-time' index={open == 18 ? true : false} picture={Fac18} description="Lorena P. Pacampara’s interest is project development from conceptualization,
+                                <button onClick={()=> setOpen(18)}><FacultyCard name='Lorena P. Pacampara' position='Costume and Special Effects' index={open == 18 ? true : false} picture={Fac18} description="Lorena P. Pacampara’s interest is project development from conceptualization,
                                     implementation monitoring, and evaluation. She graduated from the Technological
                                     University of the Philippines Manila in 1991 with a degree in Fine Arts, majoring in
                                     advertising, dabbled in animation as an in-betweener and worked briefly for a design
@@ -242,7 +243,7 @@ export default function Faculty() {
                                     the Department of Fine Arts at the Technological University of the Philippines.
                                     "/></button>
                                 <button onClick={()=> setOpen(19)}><FacultyCard name='Paul M. Alfonso' position='Part-time' index={open == 19 ? true : false} picture={Fac19} description=""/></button>
-                                <button onClick={()=> setOpen(20)}><FacultyCard name='Rolando Jr. Defeo' position='Part-time' index={open == 20 ? true : false} picture={Fac20} description=""/></button>
+                                <button onClick={()=> setOpen(20)}><FacultyCard name='Rolando Jr. Defeo' position='Media and Communication' index={open == 20 ? true : false} picture={Fac20} description=""/></button>
                             </div>
                         </div>
                     </div>

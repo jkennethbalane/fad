@@ -12,7 +12,7 @@ export default function Footer(){
                 <img src={foot} className='w-full object-cover h-full'></img>
                 <div className='text-white py-3 px-6 absolute left-0 top-0 flex flex-col h-full justify-between'>
                     <div>
-                        <span className='text-4xl xl:text-4xl'>CONNECT WITH US</span>
+                        <span className='text-3xl xl:text-4xl'>CONNECT WITH US</span>
                         <div className='flex flex-row space-x-5'>
                             <NavLink to="https://www.facebook.com/ExpressYourheART2o17?mibextid=ZbWKwL"><img src={facebook} className='transition duration-300 transform hover:scale-105 aspect-square xl:w-10 w-8'></img></NavLink>
                             <NavLink to="https://www.instagram.com/fineartstup?igsh=MTFxMDFnOXU1d2tvYg=="><img src={instagram} className='transition duration-300 transform hover:scale-105 aspect-square xl:w-10 w-8'></img></NavLink>

@@ -37,9 +37,16 @@ export default function EmblaCarousel() {
       });
     }
   }, [emblaApi])
-  
 
-  
+  document.onkeydown = function (e) {
+    var keyCode = e.key;
+    if(keyCode === 'ArrowRight') {
+      emblaApi.scrollNext();
+    }
+    else if(keyCode === 'ArrowLeft') {
+      emblaApi.scrollPrev();
+    }
+    };
 
   return (
     <div className="embla relative" ref={emblaRef}>

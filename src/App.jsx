@@ -27,7 +27,7 @@ function App() {
         <Route path= '/aboutus-vision' element={<About scrollTo='visionSection'/>}/>
         <Route path= '/aboutus-goals' element={<About scrollTo='goalSection'/>}/>
         <Route path= '/aboutus-objectives' element={<About scrollTo='objectiveSection'/>}/>
-      </Routes>
+      </Routes> 
     </BrowserRouter>
   )
 }  
