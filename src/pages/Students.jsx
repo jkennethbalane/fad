@@ -53,7 +53,7 @@ import NAA10 from '../components/ui/assets/RAMON.jpg'
 import jsonData from "../assets/alumni.json"
 import { useEffect, useState } from 'react'
 
-import alumni1 from '../components/ui/assets/heraldo.png'
+import alumni1 from '../components/ui/assets/HERALD.jpg'
 import alumnimg1 from '../components/ui/assets/heraldo-1.png'
 import alumnimg2 from '../components/ui/assets/heraldo-2.png'
 import alumnimg3 from '../components/ui/assets/heraldo-3.png'
@@ -428,7 +428,7 @@ function StudentAlumniCards(res){
             <Dialog>
                 <DialogTrigger asChild>
                     <button className='w-full flex flex-row px-6 p-3 hover:bg-[#EED3D9] space-x-3'>
-                        <img src={res.picture}></img>
+                        <img src={res.picture} className='aspect-square h-[4rem]'></img>
                         <div className='flex flex-col text-left'>
                             <span className='font-ebgaramond font-[600] text-xl'>{res.name}</span>
                             <span>BATCH YEAR {res.year}</span>
