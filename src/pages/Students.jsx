@@ -59,6 +59,11 @@ import alumnimg2 from '../components/ui/assets/heraldo-2.png'
 import alumnimg3 from '../components/ui/assets/heraldo-3.png'
 import { NavLink, useLocation } from "react-router-dom"
 import facebook from '../components/ui/assets/Facebook.png'
+import test1 from '../components/ui/assets/HANNAH.jpeg'
+import test2 from '../components/ui/assets/FRANK.jpg'
+import test3 from '../components/ui/assets/DESIREI.jpeg'
+import test4 from '../components/ui/assets/CARLOS.jpeg'
+
 
 function Gallery(){
     return(
@@ -137,9 +142,12 @@ function Testimony(){
                                         <button onClick={() => setCount(1)} className='font-[600]'>..See More</button>}
                                     </span>
                                 </div>
-                                <div>
-                                    <span>Hannah Gozon<br></br></span>
-                                    <span>BFA - 1A</span>
+                                <div className='flex flex-row space-x-4'>
+                                    <img src={test1} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <div className='flex flex-col'>
+                                        <span>Hannah Gozon<br></br></span>
+                                        <span>BFA - 1A</span>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -161,9 +169,12 @@ function Testimony(){
                                     <button onClick={() => setCount(2)} className='font-[600]'>..See More</button>}
                                     </span>
                                 </div>
-                                <div>
-                                    <span>Frank Genesis P. Lomboy<br></br></span>
-                                    <span>BFA - 4A</span>
+                                <div className='flex flex-row space-x-4'>
+                                    <img src={test2} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <div className='flex flex-col'>
+                                        <span>Frank Genesis P. Lomboy<br></br></span>
+                                        <span>BFA - 4A</span>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -187,9 +198,12 @@ function Testimony(){
                                         <button onClick={() => setCount(3)} className='font-[600]'>..See More</button>}
                                     </span>
                                 </div>
-                                <div>
-                                    <span>Desirei G. Roca<br></br></span>
-                                    <span>BFA - 3A</span>
+                                <div className='flex flex-row space-x-4'>
+                                    <img src={test3} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <div className='flex flex-col'>
+                                        <span>Desirei G. Roca<br></br></span>
+                                        <span>BFA - 3A</span>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -212,9 +226,12 @@ function Testimony(){
                                         <button onClick={() => setCount(4)} className='font-[600]'>..See More</button>}
                                     </span>
                                 </div>
-                                <div>
-                                    <span>Carlos Hermo A. Baldemoro<br></br></span>
-                                    <span>BFA - 3B</span>
+                                <div className='flex flex-row space-x-4'>
+                                    <img src={test4} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <div className='flex flex-col'>
+                                        <span>Carlos Hermo A. Baldemoro<br></br></span>
+                                        <span>BFA - 3B</span>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
