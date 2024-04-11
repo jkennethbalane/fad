@@ -16,14 +16,14 @@ function Content(){
                 <div className='flex flex-row justify-between'>
                     <div className='flex flex-col space-y-3'>
                         <span className='text-lg'>Technological University of the Philippines – Institute of Visual Communication</span>
-                        <span className='text-lg font-[400] font-ebgaramond leading-5'>The Organization is founded in 2020</span>
+                        <span className='text-lg font-[400] font-roboto leading-5'>The Organization is founded in 2020</span>
                     </div>
                     <img src={IVC} className='xl:h-40 h-20'></img>
                 </div>
                 {isMore &&
                     <>
-                        <span className='text-lg font-[400] font-ebgaramond leading-5 w-full xl:w-1/2'>The Technological University of the Philippines – Institute of Visual Communication (TUP-IVC) is a non-collage-based organization at the Technological University of the Philippines-Manila. The organization is dedicated to merging design craftsmanship and articulate artistic expressions. The organization aims to generate creative strategic concepts and ideas to inspire fellow designers and artists to create works that are intended to promote creative, timely and meaningful messages that produce highly creative individuals.</span>
-                        <NavLink to="https://www.facebook.com/ExpressYourheART2o17?mibextid=ZbWKwL"><img src={facebook} className='transition duration-300 transform hover:scale-105'></img></NavLink>                
+                        <span className='text-lg font-[400] font-roboto leading-5 w-full xl:w-1/2'>The Technological University of the Philippines – Institute of Visual Communication (TUP-IVC) is a non-collage-based organization at the Technological University of the Philippines-Manila. The organization is dedicated to merging design craftsmanship and articulate artistic expressions. The organization aims to generate creative strategic concepts and ideas to inspire fellow designers and artists to create works that are intended to promote creative, timely and meaningful messages that produce highly creative individuals.</span>
+                        <NavLink to="https://www.facebook.com/ExpressYourheART2o17?mibextid=ZbWKwL" className='w-auto'><img src={facebook} className='transition duration-300 transform hover:scale-105 w-auto'></img></NavLink>                
                     </>
                 }
                 <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"}</Button>

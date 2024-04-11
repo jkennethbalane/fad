@@ -14,6 +14,16 @@ import Gal7 from '../components/ui/assets/Exhib7.png'
 import Gal8 from '../components/ui/assets/Exhib8.png'
 import Gal9 from '../components/ui/assets/Exhib9.png'
 import Gal10 from '../components/ui/assets/Exhib10.png'
+import sGal1 from '../components/ui/assets/sExhib1.jpg'
+import sGal2 from '../components/ui/assets/sExhib2.jpg'
+import sGal3 from '../components/ui/assets/sExhib3.jpg'
+import sGal4 from '../components/ui/assets/sExhib4.jpg'
+import sGal5 from '../components/ui/assets/sExhib5.jpeg'
+import sGal6 from '../components/ui/assets/sExhib6.jpg'
+import sGal7 from '../components/ui/assets/sExhib7.jpg'
+import sGal8 from '../components/ui/assets/sExhib8.jpg'
+import sGal9 from '../components/ui/assets/sExhib9.jpg'
+import sGal10 from '../components/ui/assets/sExhib10.jpg'
 import EventCard from '../components/ui/EventCard.jsx'
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -26,53 +36,53 @@ function Exhibition(){
                 <span className="xl:text-3xl text-xl">ONLINE EXHIBITION</span>
                 <span className="xl:text-3xl text-xl text-[#FFEECE]">FINE ARTS GALLERY</span>
             </div>
-            <div className='grid xl:grid-cols-2 grid-cols-1 gap-1 py-6 px-8'>
-                <div className="flex flex-col">
-                    <div className='flex flex-row space-x-1 w-full'>
-                        <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                            <GalleryCard imgSrc={Gal1} title="A Message For The Bystanders" material="Acrylic" canvas="24' x 36'" artist="Beej"/>
-                            <GalleryCard imgSrc={Gal3} title="Peanut Butter" material="Acrylic on Canvas" canvas="20' x 28'" artist="Rai"/>
+            <div className='grid xl:grid-cols-2 grid-cols-1 gap-2 py-6 px-8'>
+                <div className="grid grid-rows-3 space-y-2 overflow-hidden">
+                    <div className='grid grid-cols-2 space-x-2 w-full overflow-hidden row-span-2'>
+                        <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                            <GalleryCard imgSrc={Gal1} simgSrc={sGal1} title="A Message For The Bystanders" material="Acrylic" canvas="24' x 36'" artist="Beej" span='2'/>
+                            <GalleryCard imgSrc={Gal3} simgSrc={sGal3} title="Peanut Butter" material="Acrylic on Canvas" canvas="20' x 28'" artist="Rai"/>
                         </div>
-                        <div className='flex flex-col space-y-1 w-1/2'>
-                            <GalleryCard imgSrc={Gal2} title="Whim-Sea-Cal Rift" material="Mixed Media on Canvas" canvas="12' x 12'" artist="Rayka Martin"/>
-                            <GalleryCard imgSrc={Gal4} title="Portrait" material="Acrylic on Canvas" canvas="8' x 12'" artist="Elisha Kentzie"/>
+                        <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                            <GalleryCard imgSrc={Gal2} simgSrc={sGal2} title="Whim-Sea-Cal Rift" material="Mixed Media on Canvas" canvas="12' x 12'" artist="Rayka Martin"/>
+                            <GalleryCard imgSrc={Gal4} simgSrc={sGal4} title="Portrait" material="Acrylic on Canvas" canvas="8' x 12'" artist="Elisha Kentzie" span='2'/>
                         </div>
                     </div>
-                    <GalleryCard imgSrc={Gal5} title="Femme Fatale" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
+                    <GalleryCard imgSrc={Gal5} simgSrc={sGal5} title="Femme Fatale" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
                 </div>
-                <div className="flex flex-col">
-                    <div className='flex flex-row space-x-1 w-full'>
-                        <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                            <GalleryCard imgSrc={Gal6} title="Impermanence I" material="Acrylic on Canvas" canvas="12' x 12'" artist="Joseph Lawrence Domasian"/>
-                            <GalleryCard imgSrc={Gal7} title="Vexexd" material="Oil Paint" canvas="20' x 23'" artist="Cynkit"/>
+                <div className="grid grid-rows-3 space-y-2 overflow-hidden">
+                    <div className='grid grid-cols-2 space-x-2 w-full overflow-hidden row-span-2'>
+                        <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                            <GalleryCard imgSrc={Gal6} simgSrc={sGal6} title="Impermanence I" material="Acrylic on Canvas" canvas="12' x 12'" artist="Joseph Lawrence Domasian" span='2'/>
+                            <GalleryCard imgSrc={Gal7} simgSrc={sGal7} title="Vexexd" material="Oil Paint" canvas="20' x 23'" artist="Cynkit"/>
                         </div>
-                        <div className='flex flex-col space-y-1 w-1/2'>
-                            <GalleryCard imgSrc={Gal8} title="forward" material="Mixed Media on Paper" canvas="10' x 8'" artist="Kimkim"/>
-                            <GalleryCard imgSrc={Gal9} title="Liwanag sa Oras ng Kapaguran" material="Acrylic" canvas="10' x 14'" artist="Litol M."/>
+                        <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                            <GalleryCard imgSrc={Gal8} simgSrc={sGal8} title="forward" material="Mixed Media on Paper" canvas="10' x 8'" artist="Kimkim"/>
+                            <GalleryCard imgSrc={Gal9} simgSrc={sGal9} title="Liwanag sa Oras ng Kapaguran" material="Acrylic" canvas="10' x 14'" artist="Litol M." span='2'/>
                         </div>
                     </div>
-                    <GalleryCard imgSrc={Gal10} title="Psychedelic Pop" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
+                    <GalleryCard imgSrc={Gal10} simgSrc={sGal10} title="Psychedelic Pop" material="Mixed Media" canvas="18' x 24'" artist="Alexi"/>
                 </div>
             </div>
             <div className="flex flex-row justify-center">
                 <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3">Learn More</Button>
             </div>
         </div>
-        <div className="bg-white py-12 px-8">
+        <div className="bg-white py-12 px-8" id='researchSection'>
             <div className='text-center flex flex-col space-y-3 text-black font-[500]'>
                 <span className="xl:text-3xl text-xl">Research</span>
                 <span className="xl:text-3xl text-xl">Work In Progress</span>
             </div>
         </div>
-        <div className="bg-black py-12 px-8">
+        <div className="bg-black py-12 px-8" id='urdsSection'>
             <div className='flex flex-col space-y-3 text-white font-[500] font-roboto'>
                 <span className="xl:text-3xl text-xl">URDS</span>
-                <span className="xl:text-3xl text-xl font-ebgaramond font-[400]">University Research and Development Services</span>
+                <span className="xl:text-3xl text-xl font-roboto font-[400]">University Research and Development Services</span>
                 <NavLink to="https://tup.edu.ph/?"><Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3">Learn More</Button></NavLink>
             </div>
         </div>
         <div className="bg-white py-12 px-8">
-            <div className=' text-center flex flex-col space-y-3 text-black font-[500] font-roboto justify-between'>
+            <div className=' text-center flex flex-col space-y-3 text-black font-[500] font-roboto justify-between' id='journalSection'>
                 <div className="flex flex-col">
                     <span className="xl:text-3xl text-xl">Scholarly Journal</span>
                     <span className="xl:text-3xl text-xl">Work in Progress</span>
@@ -89,7 +99,7 @@ function Exhibition(){
 
 function Events(){
     return(
-        <div>
+        <div id='extensionSection'>
             <div className='py-12 px-12 font-roboto text-white'>
                 <div className='text-center flex flex-col space-y-3 text-black'>
                     <span className="xl:text-3xl text-xl text-testimonialTitle ">EVENTS</span>
@@ -150,7 +160,7 @@ export default function RandE(ref){
                 <div className={`font-roboto px-8 xl:px-12 py-12 flex flex-col font-[500] space-y-10 ${isMore ? 'bg-black text-white' : 'bg-white text-black'}`}>
                     <div className='flex flex-col space-y-5 w-full'>
                         <span className='text-3xl'>CARE Project</span>
-                        <span className='text-lg font-[400] font-ebgaramond leading-5 w-full xl:w-1/4'>CARE Project is a collaboration of Art and Psychology to address the increasing mental health problem in the Philippines. This is a partnership between Technological University of the Philippines (TUP) and AMARA Counselling and Training.</span>
+                        <span className='text-lg font-[400] font-roboto leading-5 w-full xl:w-1/4'>CARE Project is a collaboration of Art and Psychology to address the increasing mental health problem in the Philippines. This is a partnership between Technological University of the Philippines (TUP) and AMARA Counselling and Training.</span>
                         <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"}</Button>
                     </div>
                 </div>

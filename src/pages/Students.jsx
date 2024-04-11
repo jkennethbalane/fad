@@ -12,9 +12,9 @@ import Gal9 from '../components/ui/assets/gal9.png'
 import Gal10 from '../components/ui/assets/gal10.png'
 import Gal11 from '../components/ui/assets/gal11.png'
 import Gal12 from '../components/ui/assets/gal12.png'
-import CP1 from '../components/ui/assets/CP1.jpg'
-import CP2 from '../components/ui/assets/CP2.jpg'
-import CP3 from '../components/ui/assets/CP3.jpg'
+import CP1 from '../components/ui/assets/CP1.png'
+import CP2 from '../components/ui/assets/CP2.png'
+import CP3 from '../components/ui/assets/CP3.png'
 import GalleryCard from '../components/ui/GalleryCard.jsx'
 import {
     Carousel,
@@ -74,35 +74,35 @@ function Gallery(){
                 <span className="xl:text-3xl text-xl font-[500]">BEST PLATES</span>
                 <span className='xl:text-3xl text-md xl:text-center text-left px-8  font-ebgaramond font-[400]'>"Unique artworks crafted by students as part of their academic curriculum, each plate representing their specific subject or field of study."</span>
             </div>
-            <div className='grid xl:grid-cols-3 grid-cols-1 gap-1'>
-                <div className='flex flex-row space-x-1 w-full'>
-                    <div className='flex flex-col space-y-1 w-1/2 h-full'>
-                        <GalleryCard imgSrc={Gal1} title="Deadly Stubbornness" material="Acrylic on Cartolina" canvas="22' x 28'" artist="Rafael O. Bodota" section="BFA-4C"/>
-                        <GalleryCard imgSrc={Gal3}/>
+            <div className='grid xl:grid-cols-3 grid-cols-1 gap-1 h-1/2'>
+                <div className='grid grid-cols-2 space-x-2 w-full overflow-hidden'>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                        <GalleryCard imgSrc={Gal1} title="Deadly Stubbornness" material="Acrylic on Cartolina" canvas="22' x 28'" artist="Rafael O. Bodota" section="BFA-4C" span="2"/>
+                        <GalleryCard imgSrc={Gal3} />
                     </div>
-                    <div className='flex flex-col space-y-1 w-1/2'>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
                         <GalleryCard imgSrc={Gal2}/>
-                        <GalleryCard imgSrc={Gal4}/>
+                        <GalleryCard imgSrc={Gal4} span="2"/>
                     </div>
                 </div>
-                <div className='flex flex-row space-x-1 w-full'>
-                    <div className='flex flex-col space-y-1 w-1/2'>
+                <div className='grid grid-cols-2 space-x-2 w-full overflow-hidden'>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
                         <GalleryCard imgSrc={Gal5}/>
-                        <GalleryCard imgSrc={Gal7}/>
+                        <GalleryCard imgSrc={Gal7} span="2"/>
                     </div>
-                    <div className='flex flex-col space-y-1 w-1/2'>
-                        <GalleryCard imgSrc={Gal6}/>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                        <GalleryCard imgSrc={Gal6} span="2"/>
                         <GalleryCard imgSrc={Gal8}/>
                     </div>
                 </div>
-                <div className='flex flex-row space-x-1 w-full'>
-                    <div className='flex flex-col space-y-1 w-1/2'>
-                        <GalleryCard imgSrc={Gal9}/>
+                <div className='grid grid-cols-2 space-x-2 w-full overflow-hidden'>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
+                        <GalleryCard imgSrc={Gal9} span="2"/>
                         <GalleryCard imgSrc={Gal11}/>
                     </div>
-                    <div className='flex flex-col space-y-1 w-1/2'>
+                    <div className='grid grid-rows-3 space-y-2 overflow-hidden'>
                         <GalleryCard imgSrc={Gal10}/>
-                        <GalleryCard imgSrc={Gal12}/>
+                        <GalleryCard imgSrc={Gal12} span="2"/>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@ function Testimony(){
         setCount(param); // Update the count state with the parameter value
     };
     return(
-        <div className='py-6 font-roboto font-[400] text-black 2xl:h-[40rem] h-[30rem]'>
+        <div className='py-6 font-roboto font-[400] text-black h-auto'>
             <div className='text-center flex flex-col space-y-3 font-[500]'>
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">FINE ARTS DEPARTMENTS</span>
                 <span className="xl:text-3xl text-xl">EXPERIENCE TESTIMONIALS</span>
@@ -127,7 +127,7 @@ function Testimony(){
                     <CarouselItem key="0" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto h-auto min-h-[16rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“As a person who was never really a fan of going to school, 
                                     what kept me going was the people I met during my time in school. Studying fine arts isn't 
@@ -143,7 +143,7 @@ function Testimony(){
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={test1} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <img src={test1} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Hannah Gozon<br></br></span>
                                         <span>BFA - 1A</span>
@@ -157,7 +157,7 @@ function Testimony(){
                     <CarouselItem key="1" className="2xl:basis-1/3" >
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto h-auto min-h-[16rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“First two years of my college have been bland because of the pandemic. 
                                     I thought it would be like that all the way up to my senior year. TUP Fine Arts, guided me.
@@ -170,7 +170,7 @@ function Testimony(){
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={test2} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <img src={test2} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Frank Genesis P. Lomboy<br></br></span>
                                         <span>BFA - 4A</span>
@@ -184,7 +184,7 @@ function Testimony(){
                     <CarouselItem key="2" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto h-auto min-h-[16rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“As a student in Fine Arts, I can guarantee na may matututunan dito sa TUP Manila especially on enhancing your skills through traditional and digital arts.
                                         {count == 3 ? <span> More so, sobrang thankful ako sa mga
@@ -199,7 +199,7 @@ function Testimony(){
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={test3} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <img src={test3} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Desirei G. Roca<br></br></span>
                                         <span>BFA - 3A</span>
@@ -213,7 +213,7 @@ function Testimony(){
                     <CarouselItem key="3" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto min-h-[16rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“Nagpapasalamat ako sa Fine Arts Department ng TUP-Manila sa pagbibigay 
                                     sa akin ng kaalaman at kasanayan sa sining at sa pagpapalago bilang indibidwal.
@@ -227,7 +227,7 @@ function Testimony(){
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={test4} className='h-[3rem] aspect-square object-cover rounded-full'></img>
+                                    <img src={test4} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Carlos Hermo A. Baldemoro<br></br></span>
                                         <span>BFA - 3B</span>
@@ -250,18 +250,18 @@ function ClassPicture(){
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">CLASS PICTURE</span>
                 <span className="xl:text-3xl text-xl">4TH YEAR BATCH 2023-2024</span>
             </div>
-            <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
+            <Carousel className="w-full flex justify-center max-w-full py-6">
                 <CarouselContent>
-                    <CarouselItem key="0" className="2xl:basis-1/3 overflow-hidden">
-                        <img src={CP1} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    <CarouselItem key="0" className="xl:basis-1/3 overflow-hidden">
+                        <img src={CP1} className='rounded-xl w-full aspect-video min-h-[10rem] object-cover'></img>
                     </CarouselItem>
 
-                    <CarouselItem key="1" className="2xl:basis-1/3 overflow-hidden">
-                        <img src={CP2} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    <CarouselItem key="1" className="xl:basis-1/3 overflow-hidden">
+                        <img src={CP2} className='rounded-xl w-full aspect-video min-h-[10rem] object-cover'></img>
                     </CarouselItem>
 
-                    <CarouselItem key="2" className="2xl:basis-1/3 overflow-hidden">
-                        <img src={CP3} className='rounded-xl w-full 2xl:h-[24rem] h-[48rem] object-cover'></img>
+                    <CarouselItem key="2" className="xl:basis-1/3 overflow-hidden">
+                        <img src={CP3} className='rounded-xl w-full aspect-video min-h-[10rem] object-cover'></img>
                     </CarouselItem>
                 </CarouselContent>
             </Carousel>
@@ -309,7 +309,7 @@ function NAAdialog(res){
             <DialogContent className="w-full bg-transparent border-none overflow-y-scroll max-h-screen no-scrollbar">
                 <div className="flex flex-col flex justify-center">
                     <div className="flex flex-row justify-center"><img src={res.imgSrc} className='h-auto w-80'></img></div>
-                    <div className="text-center font-ebgaramond flex flex-col text-white">
+                    <div className="text-center flex flex-col text-white">
                         <span className="text-xl xl:text-3xl py-2">{res.title}</span>
                         <div className='w-full flex flex-row justify-center'>
                             <span className="text-xs xl:text-xl py-2 w-full xl:w-1/2 text-left">{res.description}</span>
@@ -332,9 +332,9 @@ function NAAcard(res){
             <Card className="flex">
                 <CardContent className="flex flex-row bg-[#D9D9D9] h-auto max-h-28 w-full transition duration-300 transform hover:scale-105 rounded-lg p-0 space-x-3">
                     <img src={res.imgSrc} className='aspect-square w-28'/>
-                    <div className='flex flex-col font-ebgaramond justify-between p-3 text-left'>
+                    <div className='flex flex-col font-roboto justify-between p-3 text-left'>
                         <span className='font-[500] 2xl:text-xl text-xs'>{res.title}</span>
-                        <span>Learn More</span>
+                        <span className='font-[300] 2xl:text-xl text-xs'>Learn More</span>
                     </div>
                 </CardContent>
             </Card>
@@ -447,15 +447,15 @@ function StudentAlumniCards(res){
                     <button className='w-full flex flex-row px-6 p-3 hover:bg-[#EED3D9] space-x-3'>
                         <img src={res.picture} className='aspect-square h-[4rem]'></img>
                         <div className='flex flex-col text-left'>
-                            <span className='font-ebgaramond font-[600] text-xl'>{res.name}</span>
-                            <span>BATCH YEAR {res.year}</span>
+                            <span className='font-roboto font-[600] text-xl'>{res.name}</span>
+                            <span className='font-roboto font-[300] text-lg'>BATCH YEAR {res.year}</span>
                         </div>
                     </button>
                 </DialogTrigger>
                 <DialogContent className="w-full bg-transparent border-none overflow-y-scroll max-h-screen no-scrollbar">
                     <div className="flex flex-col flex justify-center">
                         <div className="flex flex-row justify-center"><img src={res.picture} className='h-auto w-40'></img></div>
-                        <div className="text-center font-ebgaramond flex flex-col text-white">
+                        <div className="text-center font-roboto flex flex-col text-white">
                             <span className="text-xl xl:text-4xl font-[600]">{res.name}</span>
                             <span className="text-xs xl:text-2xl text-center font-[600]">BATCH YEAR {res.year}</span>
                             <span className="text-xs xl:text-xl text-center">{res.email}</span>

@@ -22,7 +22,7 @@ function Testimonies() {
 
   return (
     <>
-        <div className='py-6 font-roboto font-[400] text-black 2xl:h-[40rem] h-[38rem]'>
+        <div className='py-6 font-roboto font-[400] text-black h-auto'>
             <div className='text-center flex flex-col space-y-3 font-[500]'>
                 <span className="xl:text-3xl text-xl text-testimonialTitle ">Testimonials</span>
                 <span className="xl:text-3xl text-xl">We taught thousands of<br></br>amazing students</span>
@@ -32,7 +32,7 @@ function Testimonies() {
                     <CarouselItem key="0" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“I would say that being a TUPian was not an easy feat and a fine art student at that. Some would
                                         say that fine arts is an easy course. Some of my mates even chose to be a fine arts student because of
@@ -42,7 +42,7 @@ function Testimonies() {
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={alum2} className='h-[3rem] aspect-square rounded-full'></img>
+                                    <img src={alum2} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Patricia Serrano<br></br></span>
                                         <span>Painting & 3D Artist</span>
@@ -56,7 +56,7 @@ function Testimonies() {
                     <CarouselItem key="1" className="2xl:basis-1/3" >
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“Marami akong nadiscover like building a connection. Kumuha lang talaga ako ng fine arts course kasi ayoko maging boring pagkatao ko and hindi ko rin aakalain na magiging career ko ito and 'yung opportunities na binigay ng TUP grinab ko na like art in the Park
                                         {count == 2 ? <span>. It's cool kasi doon ako nakapag build ng connection. All throughout ng college life ko nakafocus sa career ko na mismo.” <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
@@ -64,7 +64,7 @@ function Testimonies() {
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={alum3} className='h-[3rem] aspect-square rounded-full'></img>
+                                    <img src={alum3} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Poula Andrei Sitjar<br></br></span>
                                         <span>Painting</span>
@@ -78,7 +78,7 @@ function Testimonies() {
                     <CarouselItem key="2" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“As a student, may mga certain experiences na naging bahagi ng aking journey. 
                                         One such moment for me was receiving a grade of 1.0 in our Anatomy subject, a challenging subject that 
@@ -94,7 +94,7 @@ function Testimonies() {
                                     </span>
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={alum1} className='h-[3rem] aspect-square rounded-full'></img>
+                                    <img src={alum1} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>Heraldo G. Corpus<br></br></span>
                                         <span>Visual Artist & Painting</span>
@@ -108,7 +108,7 @@ function Testimonies() {
                     <CarouselItem key="3" className="2xl:basis-1/3">
                     <div className='p-1'>
                         <Card className="flex justify-center border-none">
-                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto 2xl:min-h-[18rem] min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
+                            <CardContent className="flex flex-col bg-cardbg font-[600] justify-between p-6 h-auto min-h-[10rem] lg:w-[32rem] lg:text-base text-2xs w-80 rounded-xl space-y-5">
                                 <div>
                                     <span className='font-[400]'>“Being TUP fine arts student the education that they offer to me amplify my skills and shaped my personality to become professional with the help of our dear instructor
                                         {count == 4 ? 
@@ -118,7 +118,7 @@ function Testimonies() {
 
                                 </div>
                                 <div className='flex flex-row space-x-4'>
-                                    <img src={alum4} className='h-[3rem] aspect-square rounded-full'></img>
+                                    <img src={alum4} className='xl:h-[3rem] h-[2rem] aspect-square object-cover rounded-full'></img>
                                     <div className='flex flex-col'>
                                         <span>John Cris Marquez<br></br></span>
                                         <span>Visual Artist & Freelance Photographer</span>

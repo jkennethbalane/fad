@@ -13,20 +13,28 @@ function App() {
       <Routes>
         <Route index element={<Index/>}/>
         <Route path='/fad' element={<Index/>}/>
-        <Route path='/academics' element={<Faculty/>}/>
-        <Route path='/RandE' element={<RandE />}/>
-        <Route path='/exhibit' element={<RandE scrollTo='exhibitSection'/>}/>
-        <Route path='/organization' element={<Organization />}/>
-        <Route path='/admission' element={<Admission />}/>
-        <Route path='/students' element={<Students/>}/>
-        <Route path='/plates' element={<Students scrollTo='platesSection'/>}/>
-        <Route path='/events' element={<Students scrollTo='eventsSection'/>}/>
-        <Route path='/alumni' element={<Students scrollTo='alumniSection'/>}/>
-        <Route path= '/aboutus' element={<About/>}/>
-        <Route path= '/aboutus-mission' element={<About scrollTo='missionSection'/>}/>
-        <Route path= '/aboutus-vision' element={<About scrollTo='visionSection'/>}/>
-        <Route path= '/aboutus-goals' element={<About scrollTo='goalSection'/>}/>
-        <Route path= '/aboutus-objectives' element={<About scrollTo='objectiveSection'/>}/>
+
+        <Route path='/fad/academics' element={<Faculty/>}/>
+
+        <Route path='/fad/RE-extension' element={<RandE scrollTo='extensionSection'/>}/>
+        <Route path='/fad/RE-research' element={<RandE scrollTo='researchSection'/>}/>
+        <Route path='/fad/RE-urds' element={<RandE scrollTo='urdsSection'/>}/>
+        <Route path='/fad/RE-journal' element={<RandE scrollTo='journalSection'/>}/>
+        <Route path='/fad/exhibit' element={<RandE scrollTo='exhibitSection'/>}/>
+
+        <Route path='/fad/organization' element={<Organization />}/>
+        <Route path='/fad/admission' element={<Admission />}/>
+
+        <Route path='/fad/students' element={<Students/>}/>
+        <Route path='/fad/plates' element={<Students scrollTo='platesSection'/>}/>
+        <Route path='/fad/events' element={<Students scrollTo='eventsSection'/>}/>
+        <Route path='/fad/alumni' element={<Students scrollTo='alumniSection'/>}/>
+
+        <Route path='/fad/aboutus' element={<About/>}/>
+        <Route path='/fad/aboutus-mission' element={<About scrollTo='missionSection'/>}/>
+        <Route path='/fad/aboutus-vision' element={<About scrollTo='visionSection'/>}/>
+        <Route path='/fad/aboutus-goals' element={<About scrollTo='goalSection'/>}/>
+        <Route path='/fad/aboutus-objectives' element={<About scrollTo='objectiveSection'/>}/>
       </Routes> 
     </BrowserRouter>
   )

@@ -32,7 +32,6 @@ export default function Faculty() {
     window.scrollTo({top: 0,behavior:'smooth'})
     return(
         <div>
-            
             <NavBar />
             <div className='w-full'>
                 <div className='relative'>
@@ -254,7 +253,7 @@ export default function Faculty() {
                     <span className="xl:text-3xl text-xs text-testimonialTitle">Our Student Life</span>
                     <span className="xl:text-3xl text-md text-black">Learn More About Us</span>
                 </div>
-                <NavLink to='/students'><Button className="text-white text-3xs bg-learnmore-btn rounded hover:bg-white h-auto font-roboto w-full xl:text-xl">Learn More</Button></NavLink>
+                <NavLink to='/fad/students'><Button className="text-white text-3xs bg-learnmore-btn rounded hover:bg-white h-auto font-roboto w-full xl:text-xl">Learn More</Button></NavLink>
             </div>
             <Footer/>
         </div>

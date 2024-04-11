@@ -21,9 +21,9 @@ function ECard(res){
             <Card className="flex justify-center">
                 <CardContent className={cardContentStyle}> 
                     <div className="flex flex-col justify-end h-full w-full">
-                        <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center text-left'>
-                            <span className='font-ebgaramond text-lg'>{res.title}</span>
-                            <span className='font-roboto text-sm'>Learn More</span>
+                        <div className='px-6 py-2 bg-[#841E1C]/[.8] rounded-b-xl flex flex-col h-1/3 justify-center text-left font-roboto'>
+                            <span className='text-lg font-[500]'>{res.title}</span>
+                            <span className='text-sm font-[400]'>Learn More</span>
                         </div>
                     </div>
                 </CardContent>

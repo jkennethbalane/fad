@@ -8,49 +8,85 @@ const NavLinks =() =>{
       <>
       <ul className='flex flex-row justify-between w-full'>
         <li className='relative group flex flex-row justify-center'>
-          <NavLink to="/aboutus" className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
-          {/* <div className='fixed flex flex-col z-10 bg-white p-3 border-2 border-black invisible group-hover:visible space-y-2'>
-            <NavLink to="/aboutus" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">About Us</NavLink>
-            <NavLink to="/aboutus-mission" className="font-roboto border-0 border-y border-solid border-white px-16 py-5" >MISSION</NavLink>
-            <NavLink to="/aboutus-vision" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">VISION</NavLink>
-            <NavLink to="/aboutus-goals" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">GOALS</NavLink>
-            <NavLink to="/aboutus-objectives" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
-          </div> */}
+          <NavLink to="/fad/aboutus" className="font-roboto font-medium hover:text-gray-400">About Us</NavLink>
+          <div className='fixed flex flex-col z-10 bg-white p-3 border-2 border-black invisible group-hover:visible space-y-2'>
+            <NavLink to="/fad/aboutus" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">ABOUT US</NavLink>
+            <NavLink to="/fad/aboutus-mission" className="font-roboto border-0 border-y border-solid border-white px-16 py-5" >MISSION</NavLink>
+            <NavLink to="/fad/aboutus-vision" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">VISION</NavLink>
+            <NavLink to="/fad/aboutus-goals" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">GOALS</NavLink>
+            <NavLink to="/fad/aboutus-objectives" className="font-robotoborder-0 border-y border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
+          </div>
         </li>
-        <li><NavLink to="/academics" className="font-roboto font-medium hover:text-gray-400">Academics</NavLink></li>
-        <li><NavLink to="/RandE" className="font-roboto font-medium hover:text-gray-400">R & E</NavLink></li>
-        <li><NavLink to="/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink></li>
-        <li><NavLink to="/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink></li>
+        <li className='relative group flex flex-row justify-center'><NavLink to="/fad/academics" className="font-roboto font-medium hover:text-gray-400">Academics</NavLink>
+          <div className='fixed flex flex-col z-10 bg-white p-3 border-2 border-black invisible group-hover:visible space-y-2'>
+            <NavLink to="/fad/academics" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">FACULTY</NavLink>
+            <NavLink to="/fad/students" className="font-roboto border-0 border-y border-solid border-white px-16 py-5" >STUDENT LIFE</NavLink>
+          </div>
+        </li>
+        <li className='relative group flex flex-row justify-center'><NavLink to="/fad/RandE" className="font-roboto font-medium hover:text-gray-400">R & E</NavLink>
+          <div className='fixed flex flex-col z-10 bg-white p-3 border-2 border-black invisible group-hover:visible space-y-2'>
+            <NavLink to="/fad/RE-extension" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">EXTENSION</NavLink>
+            <NavLink to="/fad/exhibit" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">EXHIBITION</NavLink>
+            <NavLink to="/fad/RE-research" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">RESEARCH</NavLink>
+            <NavLink to="/fad/RE-urds" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">URDS</NavLink>
+            <NavLink to="/fad/RE-journal" className="font-roboto border-0 border-y border-solid border-white px-16 py-5">SCHOLARLY JOURNAL</NavLink>
+          </div>
+        </li>
+        <li><NavLink to="/fad/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink></li>
+        <li><NavLink to="/fad/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink></li>
       </ul>
       </>
   );
 };
 
 const DropDown =() =>{
-  const [isDrop, setIsDrop] = useState(false)
+  const [isDrop, setIsDrop] = useState(0)
   
   return(
       <>
-        <div className='flex flex-row justify-between w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5'>
-          <NavLink to="/aboutus" className="font-roboto hover:bg-[#852838]">ABOUT US</NavLink>
-          {
-            isDrop ? <ChevronDown className='flex flex-col items-center h-auto aspect-square' onClick={() => setIsDrop(!isDrop)}/> : <ChevronLeft className='flex flex-col items-center h-auto aspect-square' onClick={() => setIsDrop(!isDrop)}/>
-          }
+        <div className={`flex flex-row w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5 ${isDrop== 1 ? 'bg-[#852838]' : 'bg-[#C4203B]' }`} onClick={() => isDrop != 1 ? setIsDrop(1) : setIsDrop(0)}>
+          <span className="font-roboto w-11/12">ABOUT US</span>
+          <ChevronDown className={`flex flex-col items-center h-auto aspect-square justify-end ${isDrop == 1 ? 'visible' : 'hidden'}`}/>
         </div>
         {
-            isDrop && (
-              <div className='flex flex-col'>
-                <NavLink to="/aboutus-mission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">MISSION</NavLink>
-                <NavLink to="/aboutus-vision" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">VISION</NavLink>
-                <NavLink to="/aboutus-goals" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">GOALS</NavLink>
-                <NavLink to="/aboutus-objectives" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
-              </div>
-            )
-          }
-        <NavLink to="/academics" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ACADEMICS</NavLink>
-        <NavLink to="/RandE" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">R & E</NavLink>
-        <NavLink to="/organization" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
-        <NavLink to="/admission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ADMISSION</NavLink>
+          isDrop==1 && (
+            <div className='flex flex-col bg-[#a13044]'>
+              <NavLink to="/fad/aboutus-mission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">MISSION</NavLink>
+              <NavLink to="/fad/aboutus-vision" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">VISION</NavLink>
+              <NavLink to="/fad/aboutus-goals" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">GOALS</NavLink>
+              <NavLink to="/fad/aboutus-objectives" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">OBJECTIVES</NavLink>
+            </div>
+          )
+        }
+        <div className={`flex flex-row w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5 ${isDrop== 2 ? 'bg-[#852838]' : 'bg-[#C4203B]' }`} onClick={() => isDrop != 2 ? setIsDrop(2) : setIsDrop(0)}>
+          <span className="font-roboto w-11/12">ACADEMICS</span>
+          <ChevronDown className={`flex flex-col items-center h-auto aspect-square justify-end ${isDrop == 2 ? 'visible' : 'hidden'}`}/>
+        </div>
+        {
+          isDrop==2 && (
+            <div className='flex flex-col bg-[#a13044]'>
+              <NavLink to="/fad/academics" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">FACULTY</NavLink>
+              <NavLink to="/fad/students" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">STUDENT LIFE</NavLink>
+            </div>
+          )
+        }
+        <div className={`flex flex-row w-full hover:border-none border-0 border-y border-solid border-white px-12 py-5 ${isDrop== 3 ? 'bg-[#852838]' : 'bg-[#C4203B]' }`} onClick={() => isDrop != 3 ? setIsDrop(3) : setIsDrop(0)}>
+          <span className="font-roboto w-11/12">R & E</span>
+          <ChevronDown className={`flex flex-col items-center h-auto aspect-square justify-end ${isDrop == 3 ? 'visible' : 'hidden'}`}/>
+        </div>
+        {
+          isDrop==3 && (
+            <div className='flex flex-col bg-[#a13044]'>
+              <NavLink to="/fad/RE-extension" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">EXTENSION</NavLink>
+              <NavLink to="/fad/exhibit" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">EXHIBITION</NavLink>
+              <NavLink to="/fad/RE-research" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">RESEARCH</NavLink>
+              <NavLink to="/fad/RE-urds" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">URDS</NavLink>
+              <NavLink to="/fad/RE-journal" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-16 py-5">SCHOLARLY JOURNAL</NavLink>
+            </div>
+          )
+        }
+        <NavLink to="/fad/organization" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
+        <NavLink to="/fad/admission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ADMISSION</NavLink>
       </>
   );
 };
@@ -114,7 +150,7 @@ export default function NavigationBar() {
     isOpen ? 'bg-[#C4203B]' : 'bg-white'
   }`} id='navBar'>
         <div className="logo w-2/3 xl:w-1/2 h-full">
-          <NavLink to="/" >
+          <NavLink to="/fad/" >
             <img id='logo' src={logo} className={`${isOpen ? 'hidden' : 'visible'}`}></img>
           </NavLink>
         </div>

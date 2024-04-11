@@ -17,11 +17,11 @@ export default function GalleryCard(res){
         <>
         <Dialog>
         <DialogTrigger asChild>
-            <img src={res.imgSrc} className='transition duration-300 transform hover:scale-105'></img>
+            <img src={res.imgSrc} className={`transition duration-300 transform hover:scale-105 overflow-hidden w-full h-full row-span-${res.span ? res.span : '1'}`}></img>
         </DialogTrigger>
         <DialogContent className="w-full bg-transparent border-none overflow-y-scroll max-h-screen no-scrollbar">
             <div className="flex flex-col flex justify-center">
-                <div className="flex flex-row justify-center"><div className="p-1 bg-white"><img src={res.imgSrc} className="h-auto xl:w-[40rem] w-60"></img></div></div>
+                <div className="flex flex-row justify-center"><div className="p-1 bg-white"><img src={res.simgSrc ? res.simgSrc : res.imgSrc} className="h-auto xl:w-[40rem] w-60"></img></div></div>
                 <div className="text-center font-ebgaramond flex flex-col text-white">
                     <span className="text-3xl">{res.title}</span>
                     <span className="text-2xl">{res.material}</span>

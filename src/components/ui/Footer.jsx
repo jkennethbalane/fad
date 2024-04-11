@@ -39,7 +39,7 @@ export default function Footer(){
                 </div>
             </div>
             <div className='text-center bg-gradient-to-r from-[#0C0808] to-[#841E1C]'>
-                <span className='text-[#8c8c8c] font-ebgaramond'>©2024 TUP-FAD. ALL RIGHTS RESERVE</span>
+                <span className='text-[#8c8c8c] font-ebgaramond text-2xs'>©2024 TUP-FAD. ALL RIGHTS RESERVE</span>
             </div>
         </>
     )
