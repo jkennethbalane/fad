@@ -34,6 +34,7 @@ const NavLinks =() =>{
         </li>
         <li><NavLink to="/fad/organization" className="font-roboto font-medium hover:text-gray-400">Organization</NavLink></li>
         <li><NavLink to="/fad/admission" className="font-roboto font-medium hover:text-gray-400">Admission </NavLink></li>
+        <li><NavLink to="/fad/FAQ" className="font-roboto font-medium hover:text-gray-400">FAQ </NavLink></li>
       </ul>
       </>
   );
@@ -87,6 +88,7 @@ const DropDown =() =>{
         }
         <NavLink to="/fad/organization" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ORGANIZATION</NavLink>
         <NavLink to="/fad/admission" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">ADMISSION</NavLink>
+        <NavLink to="/fad/FAQ" className="font-roboto hover:bg-[#852838] hover:border-none border-0 border-y  border-solid border-white px-12 py-5">FAQ</NavLink>
       </>
   );
 };

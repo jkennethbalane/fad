@@ -6,6 +6,8 @@ import Students from "./pages/Students.jsx"
 import RandE from "./pages/RE.jsx"
 import Organization from "./pages/Organization.jsx"
 import Admission from "./pages/Admission.jsx"
+import Credits from "./pages/Credits.jsx"
+import FAQ from "./pages/FAQ.jsx"
 
 function App() {
   return(
@@ -35,6 +37,9 @@ function App() {
         <Route path='/fad/aboutus-vision' element={<About scrollTo='visionSection'/>}/>
         <Route path='/fad/aboutus-goals' element={<About scrollTo='goalSection'/>}/>
         <Route path='/fad/aboutus-objectives' element={<About scrollTo='objectiveSection'/>}/>
+
+        <Route path='/fad/FAQ' element={<FAQ/>}/>
+        <Route path='/fad/credits' element={<Credits/>}/>
       </Routes> 
     </BrowserRouter>
   )

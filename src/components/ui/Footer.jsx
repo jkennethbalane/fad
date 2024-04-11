@@ -33,7 +33,9 @@ export default function Footer(){
                                 <span className=''>09326587416</span>
         
                             </div>
-                            <span>Credits and Attribution</span>
+                            <NavLink to="/fad/credits">
+                                <span>Credits and Attribution</span>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

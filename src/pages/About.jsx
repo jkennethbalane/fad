@@ -10,19 +10,18 @@ export default function About(ref){
     function toggleMore(){
         setIsMore(!isMore)
     };
-    // const handleClickScroll = () => {
-    //     if(ref.scrollTo != undefined){
-    //         const element = document.getElementById(ref.scrollTo)
-    //         element.scrollIntoView({behavior:'smooth'});
-    //     }
-    //     else{
-    //         window.scrollTo({top: 0,behavior:'smooth'})
-    //     }
-    // };
-    // useEffect(() => {
-    //     handleClickScroll();
-    // }, [ref.scrollTo]);
-    
+    const handleClickScroll = () => {
+        if(ref.scrollTo != undefined){
+            const element = document.getElementById(ref.scrollTo)
+            element.scrollIntoView({behavior:'smooth'});
+        }
+        else{
+            window.scrollTo({top: 0,behavior:'smooth'})
+        }
+    };
+    useEffect(() => {
+        handleClickScroll();
+    }, [ref.scrollTo]);
 
     return(
     <div>
