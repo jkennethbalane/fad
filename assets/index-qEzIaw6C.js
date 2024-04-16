@@ -207,7 +207,7 @@ Error generating stack: `+o.message+`
                                         temporary professor at TUP, Maria specializes in teaching Graphics and Floral\r
                                         Arrangement.\r
                                         \r
-                                        `})})}),s.jsx(_,{className:"2xl:basis-1/3",children:s.jsx("button",{onClick:()=>e==7?t(0):t(8),children:s.jsx(ue,{name:"Majhalina I. Apuyan",position:"Full-time Temporary",specialty:"Graphic Design",index:e==7,picture:Dw,description:`Majhalina I. Apuyan, who specializes in graphic design, is a\r
+                                        `})})}),s.jsx(_,{className:"2xl:basis-1/3",children:s.jsx("button",{onClick:()=>e==7?t(0):t(7),children:s.jsx(ue,{name:"Majhalina I. Apuyan",position:"Full-time Temporary",specialty:"Graphic Design",index:e==7,picture:Dw,description:`Majhalina I. Apuyan, who specializes in graphic design, is a\r
                                         Graphic Artist and Designer passionate about traditional and digital mediums.\r
                                         Currently serving as an Instructor 1 at the Technological University of the Philippines\r
                                         in Ermita, Manila, she is dedicated to shaping the next generation of creative minds.\r
