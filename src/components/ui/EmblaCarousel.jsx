@@ -49,14 +49,14 @@ export default function EmblaCarousel() {
     };
 
   return (
-    <div className="embla relative" ref={emblaRef}>
-      <div className="embla__container flex relative">
-        <div className='embla__slide relative' key='0'>
-          <div>
-            <Card className="border-black">
-              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full">
-                <div className='relative'>
-                  <video src={vid} autoPlay loop muted className='xl:h-full object-cover h-[30rem]'></video>
+    <div className="embla relative w-full h-auto" ref={emblaRef}>
+      <div className="embla__container flex relative w-full xl:h-[50rem] h-[30rem]">
+        <div className='embla__slide relative h-full' key='0'>
+          <div className='h-full'>
+            <Card className="border-black h-full">
+              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
+                <div className='relative w-full'>
+                  <video src={vid} autoPlay loop muted className='object-cover w-full h-full'></video>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-2xs xl:text-3xl'>TECHNOLOGICAL UNIVERSITY<br/> OF THE PHILIPPINES - MANILA</span>
                     <span className='text-3xl xl:text-5xl'>FINE ARTS DEPARTMENT</span>
@@ -66,48 +66,48 @@ export default function EmblaCarousel() {
             </Card>
           </div>
         </div>
-        <div className='embla__slide relative' key='1'>
-          <div>
-            <Card className="border-black">
-              <CardContent className="p-0 bg-cover flex items-left justify-left flex">
-                <div className='relative'>
-                  <img src={picture} className='xl:h-full object-cover h-[30rem]'></img>
+        <div className='embla__slide relative h-full' key='1'>
+          <div className='h-full'>
+            <Card className="border-black h-full">
+              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
+                <div className='relative w-full'>
+                  <img src={picture} className='object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>PLATES</span>
-                    <NavLink to='/plates'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
+                    <NavLink to='/fad/plates' className="w-1/3 xl:w-1/6"><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-full font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
-        <div className='embla__slide relative' key='2'>
-          <div>
-            <Card className="border-black">
-              <CardContent className="p-0 bg-cover flex items-left justify-left flex">
-                <div className='relative'>
-                  <img src={eventimg} className='xl:h-full object-cover h-[30rem]'></img>
+        <div className='embla__slide relative h-full' key='2'>
+          <div className='h-full'>
+            <Card className="border-black h-full">
+              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
+                <div className='relative w-full h-full'>
+                  <img src={eventimg} className='object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EVENTS</span>
-                    <NavLink to='/events'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
+                    <NavLink to='/fad/events' className="w-1/4 xl:w-1/6"><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-full font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
-        <div className='embla__slide relative' key='3'>
-          <div>
-            <Card className="border-black">
-              <CardContent className="p-0 bg-cover flex items-left justify-left flex">
-                <div className='relative'>
-                  <img src={exhibitimg} className='xl:h-full object-cover h-[30rem]' ></img>
+        <div className='embla__slide relative h-full' key='3'>
+          <div className='h-full'>
+            <Card className="border-black h-full">
+              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
+                <div className='relative w-full h-full'>
+                  <img src={exhibitimg} className='object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EXHIBIT</span>
-                    <NavLink to='/exhibit'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
+                    <NavLink to='/fad/exhibit' className="w-1/4 xl:w-1/6"><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-full font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>
@@ -115,15 +115,15 @@ export default function EmblaCarousel() {
           </div>
         </div>
         <div className='embla__slide' key='4'>
-          <div>
-            <Card className="w-full">
-              <CardContent className="p-0 bg-cover flex items-left justify-left flex">
-                <div className='relative'>
-                  <img src={alumimg} className='xl:h-full object-cover h-[30rem] transform'></img>
+          <div className='h-full'>
+            <Card className="border-black h-full">
+              <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
+                <div className='relative w-full h-full'>
+                  <img src={alumimg} className='object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>ALUMNI</span>
-                    <NavLink to='/alumni'><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-1/2 xl:w-1/6 font-roboto">Learn More</Button></NavLink>
+                    <NavLink to='/fad/alumni' className="w-1/4 xl:w-1/6"><Button className="text-white bg-learnmore-btn rounded hover:bg-white w-full font-roboto">Learn More</Button></NavLink>
                   </div>
                 </div>
               </CardContent>

@@ -1,6 +1,6 @@
 {
   "name": "fad-application",
-  "homepage": "https://jkennethbalane.github.io/fad/",
+  "homepage": ".",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -1,9 +1,5 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/aboutus.jpg'
-import header1 from '../components/ui/assets/about-1.png'
-import { Button } from "@/components/ui/button"
-import { useEffect, useState } from 'react'
 
 function Content(){
     return(
@@ -12,7 +8,7 @@ function Content(){
             <div className='text-center flex flex-col space-y-12 py-12'>
                 <span className="xl:text-3xl text-xs text-testimonialTitle">CREDITS AND ATTRIBUTION</span>
                 <div className='flex flex-col'>
-                    <span className="xl:text-3xl text-md text-black">KATARINA FRANSCHESCA O. STA CLARA</span>
+                    <span className="xl:text-3xl text-md text-black">KATARINA FRANCHESCA O. STA CLARA</span>
                     <span className="xl:text-3xl text-md text-black">DARRYL ROSE P. LEGARDE</span>
                 </div>
             </div>

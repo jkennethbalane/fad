@@ -10,11 +10,11 @@ export default function Index(){
     return(
     <>
         <NavBar />
-        <div className='bg-black'>
+        <div className='bg-black w-full'>
         <EmblaCarousel />
         <Description />
         </div>
-        <div className='bg-white'>
+        <div className='bg-white w-full'>
         <Testimonies/>
         </div>
         <Footer />

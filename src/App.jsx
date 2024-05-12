@@ -17,7 +17,7 @@ function App() {
         <Route path='/fad' element={<Index/>}/>
 
         <Route path='/fad/academics' element={<Faculty/>}/>
-
+        <Route path='/fad/RandE' element={<RandE/>}/>
         <Route path='/fad/RE-extension' element={<RandE scrollTo='extensionSection'/>}/>
         <Route path='/fad/RE-research' element={<RandE scrollTo='researchSection'/>}/>
         <Route path='/fad/RE-urds' element={<RandE scrollTo='urdsSection'/>}/>

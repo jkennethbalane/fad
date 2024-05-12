@@ -30,7 +30,7 @@ export default function Footer(){
                             </div>
                             <div className='flex flex-row items-center space-x-5'>
                                 <img src={phone} className='transition duration-300 transform hover:scale-105'></img>
-                                <span className=''>09326587416</span>
+                                <span className=''>5301.3001 loc 310</span>
         
                             </div>
                             <NavLink to="/fad/credits">

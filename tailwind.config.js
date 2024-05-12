@@ -10,6 +10,8 @@ module.exports = {
   prefix: "",
   theme: {
     screens: {
+      '2xs': '300px',
+      'xs': '450px',
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -36,6 +38,7 @@ module.exports = {
       },
     },
     fontSize: {
+      '6xs': '0.2rem',
       '5xs': '0.35rem',
       '4xs': '0.45rem',
       '3xs': '0.5rem',
@@ -63,6 +66,15 @@ module.exports = {
        black: 900,
      },
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite'
+      },
       backgroundImage: {
         'alumni-img': "url('/src/components/ui/assets/ALUMNI.JPG')",
         'event-img' : "url('/src/components/ui/assets/EVENT.jpg')",

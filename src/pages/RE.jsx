@@ -78,7 +78,7 @@ function Exhibition(){
             <div className='flex flex-col space-y-3 text-white font-[500] font-roboto'>
                 <span className="xl:text-3xl text-xl">URDS</span>
                 <span className="xl:text-3xl text-xl font-roboto font-[400]">University Research and Development Services</span>
-                <NavLink to="https://tup.edu.ph/?"><Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3">Learn More</Button></NavLink>
+                <NavLink to="https://tup.edu.ph/?" className='xl:w-1/6 w-1/3'><Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto w-full">Learn More</Button></NavLink>
             </div>
         </div>
         <div className="bg-white py-12 px-8">
@@ -97,9 +97,10 @@ function Exhibition(){
     )
 }
 
-function Events(){
+function Events(ref){
+    console.log(ref.hidden)
     return(
-        <div id='extensionSection'>
+        <div id='extensionSection' className={`${ref.hidden ? 'visible' : 'hidden'}`}>
             <div className='py-12 px-12 font-roboto text-white'>
                 <div className='text-center flex flex-col space-y-3 text-black'>
                     <span className="xl:text-3xl text-xl text-testimonialTitle ">EVENTS</span>
@@ -138,7 +139,7 @@ function Events(){
 
 
 export default function RandE(ref){
-    const [isMore, setIsMore] = useState(false)
+    const [isMore, setIsMore] = useState((data) => ref.scrollTo === 'extensionSection' ? true : false)
     window.scrollTo({top: 0,behavior:'smooth'})
     const handleClickScroll = () => {
         if(ref.scrollTo != undefined){
@@ -164,7 +165,7 @@ export default function RandE(ref){
                         <Button className="text-white hover:text-black bg-learnmore-btn rounded hover:bg-white w-40 font-roboto xl:w-1/6 w-1/3" onClick={()=> setIsMore(!isMore)}>{isMore ? "See Less" : "Learn More"}</Button>
                     </div>
                 </div>
-                {isMore && <Events/> }
+                <Events hidden={isMore}/>
                 <Exhibition/>
             </div>
             <Footer />

@@ -37,7 +37,8 @@ function Testimonies() {
                                     <span className='font-[400]'>“I would say that being a TUPian was not an easy feat and a fine art student at that. Some would
                                         say that fine arts is an easy course. Some of my mates even chose to be a fine arts student because of
                                         that notion.
-                                        {count == 1 ? <span> But honestly, it wasn't. It takes a lot of grit and the never-ending explosion of ideas to continue with this course, especially in TUP. You have to be resourceful and could often feel like you are at your end wits. But at the end of the day, it's how we always stand up after crying our eyes out, wiping the tears from our cheeks, and moving on to our next plate; until The Pomp and Circumstance marches play that is.” <button onClick={() => setCount(0)} className='font-[600]'> See Less</button></span> : 
+                                        {count == 1 ? <span className=''> But honestly, it wasn't. It takes a lot of grit and the never-ending explosion of ideas to continue with this course, especially in TUP. You have to be resourceful and could often feel like you are at your end wits. But at the end of the day, it's how we always stand up after crying our eyes out, wiping the tears from our cheeks, and moving on to our next plate; until The Pomp and Circumstance marches play that is.”
+                                        <button onClick={() => setCount(0)} className='font-[600] animate-wiggle'> See Less</button></span> : 
                                         <button onClick={() => setCount(1)} className='font-[600]'>..See More</button>}
                                     </span>
                                 </div>
@@ -129,6 +130,8 @@ function Testimonies() {
                     </div>
                     </CarouselItem>
                 </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
             </Carousel>
         </div>
         <div className='py-6 px-12 font-roboto text-white'>
@@ -137,17 +140,18 @@ function Testimonies() {
                 <span className="xl:text-3xl text-xs font-[300]">LATEST NEWS AND EVENTS</span>
             </div>
             <div className='flex 2xl:flex-row 2xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]" 
-                description="Various student organizations enthusiastically showcased their groups to the TUP Community through engaging booth setups, with the Booth Planning Committee selecting the top three 'Pinaka-kavogue na Booth' for TUP Indayog 2023. TUP - Institute for Visual Communication won third place, receiving a price of PHP 700 worth of SM Gift Certificates."/>
-                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]"
-                description="The Luneta Art Fair, taking place on February 4th and 5th, transformed Rizal Park into a vibrant showcase of emerging artists' works from diverse backgrounds. TUP - Institute for Visual Communication participated alongside the TUP Fine Arts Department faculty."
-                />
-                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]"
-                description="Meeting Dexter Fernandez (Garapata), the Filipino artist behind this global streetwear collaboration. Behold the artistic essence of Dexter Fernandez as his mesmerizing street art seamlessly integrates into the realm of fashion alongside H&M and DBTK."
-                />
-                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]"
-                description="On March 19, 2023, 'Art in the Park' was held at the Jaime Velasquez Park in Makati City, featuring around 60 exhibitors participating in the fair's 17th edition."
-                />
+                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]">
+                Various student organizations enthusiastically showcased their groups to the TUP Community through engaging booth setups, with the Booth Planning Committee selecting the top three 'Pinaka-kavogue na Booth' for TUP Indayog 2023. TUP - Institute for Visual Communication won third place, receiving a price of PHP 700 worth of SM Gift Certificates.
+                </EventCard>
+                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]">
+                The Luneta Art Fair, taking place on February 4th and 5th, transformed Rizal Park into a vibrant showcase of emerging artists' works from diverse backgrounds. TUP - Institute for Visual Communication participated alongside the TUP Fine Arts Department faculty.
+                </EventCard>
+                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]">
+                Meeting Dexter Fernandez (Garapata), the Filipino artist behind this global streetwear collaboration. Behold the artistic essence of Dexter Fernandez as his mesmerizing street art seamlessly integrates into the realm of fashion alongside H&M and DBTK.
+                </EventCard>
+                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]">
+                On March 19, 2023, 'Art in the Park' was held at the Jaime Velasquez Park in Makati City, featuring around 60 exhibitors participating in the fair's 17th edition.
+                </EventCard>
             </div>
             <div className='text-center flex flex-col space-y-0 py-6'>
                 <span className="xl:text-3xl text-xs text-testimonialTitle">Want to connect with us?</span>
