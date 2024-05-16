@@ -56,7 +56,7 @@ export default function EmblaCarousel() {
             <Card className="border-black h-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
                 <div className='relative w-full'>
-                  <video src={vid} autoPlay loop muted className='object-cover w-full h-full'></video>
+                  <video src={vid} autoPlay loop muted className='object-cover object-cover w-full h-full'></video>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col space-y-1 font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-2xs xl:text-3xl'>TECHNOLOGICAL UNIVERSITY<br/> OF THE PHILIPPINES - MANILA</span>
                     <span className='text-3xl xl:text-5xl'>FINE ARTS DEPARTMENT</span>
@@ -71,7 +71,7 @@ export default function EmblaCarousel() {
             <Card className="border-black h-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
                 <div className='relative w-full'>
-                  <img src={picture} className='object-cover w-full h-full'></img>
+                  <img src={picture} className='lg:object-fill object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>PLATES</span>
@@ -87,7 +87,7 @@ export default function EmblaCarousel() {
             <Card className="border-black h-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
                 <div className='relative w-full h-full'>
-                  <img src={eventimg} className='object-cover w-full h-full'></img>
+                  <img src={eventimg} className='lg:object-fill object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EVENTS</span>
@@ -103,7 +103,7 @@ export default function EmblaCarousel() {
             <Card className="border-black h-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
                 <div className='relative w-full h-full'>
-                  <img src={exhibitimg} className='object-cover w-full h-full'></img>
+                  <img src={exhibitimg} className='lg:object-fill object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>EXHIBIT</span>
@@ -119,7 +119,7 @@ export default function EmblaCarousel() {
             <Card className="border-black h-full">
               <CardContent className="p-0 bg-cover flex items-left justify-left flex max-w-full w-full h-full">
                 <div className='relative w-full h-full'>
-                  <img src={alumimg} className='object-cover w-full h-full'></img>
+                  <img src={alumimg} className='lg:object-fill object-cover w-full h-full'></img>
                   <div className='text-white py-3 xl:px-12 px-3 absolute left-0 bottom-0 flex flex-col font-ebgaramond font-[500] w-full leading-tight'>
                     <span className='text-md xl:text-3xl'>FINE ARTS DEPARTMENT</span>
                     <span className='text-5xl xl:text-5xl'>ALUMNI</span>
