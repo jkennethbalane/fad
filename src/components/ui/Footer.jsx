@@ -1,8 +1,8 @@
-import foot from './assets/Footer.png'
-import facebook from './assets/Facebook.png'
-import instagram from './assets/Instagram.png'
-import mail from './assets/Letter.png'
-import phone from './assets/Phone.png'
+import foot from '/assets/Footer.png'
+import facebook from '/assets/Facebook.png'
+import instagram from '/assets/Instagram.png'
+import mail from '/assets/Letter.png'
+import phone from '/assets/Phone.png'
 import { NavLink } from 'react-router-dom'
 
 export default function Footer(){

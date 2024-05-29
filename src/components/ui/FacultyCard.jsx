@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { useRef, useState, useEffect } from "react"
-import gradient from './assets/cut.png'
+import gradient from '/assets/cut.png'
 
 export default function FacultyCard(name){
     

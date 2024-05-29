@@ -2,11 +2,11 @@ import React, { useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import './css/carousel.css'
 import { useState } from 'react'
-import vid from './assets/FAD-VIDEO-COMPILATION_1.mp4'
-import alumimg from './assets/ALUMNI.png'
-import eventimg from './assets/EVENT.png'
-import exhibitimg from './assets/Exhibit.png'
-import picture from './assets/PLATE.png'
+import vid from '/assets/FAD-VIDEO-COMPILATION_1.mp4'
+import alumimg from '/assets/ALUMNI.png'
+import eventimg from '/assets/EVENT.png'
+import exhibitimg from '/assets/Exhibit.png'
+import picture from '/assets/PLATE.png'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Autoplay from "embla-carousel-autoplay"

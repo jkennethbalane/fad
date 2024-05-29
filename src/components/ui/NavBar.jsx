@@ -1,4 +1,4 @@
-import logo from './assets/logo.png'
+import logo from '/assets/logo.png'
 import { NavLink, useLocation } from "react-router-dom"
 import { ChevronDown, ChevronLeft, Menu , X} from "lucide-react"
 import { useState, useEffect, useRef } from "react";

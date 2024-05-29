@@ -1,6 +1,6 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/admission.jpg'
+import header from '/assets/admission.jpg'
 import { Button } from "@/components/ui/button"
 import { NavLink } from 'react-router-dom'
 

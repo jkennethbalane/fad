@@ -1,7 +1,7 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/aboutus.jpg'
-import header1 from '../components/ui/assets/about.jpg'
+import header from '/assets/aboutus.jpg'
+import header1 from '/assets/about.jpg'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
 

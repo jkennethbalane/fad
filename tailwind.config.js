@@ -76,9 +76,9 @@ module.exports = {
         wiggle: 'wiggle 1s ease-in-out infinite'
       },
       backgroundImage: {
-        'alumni-img': "url('/src/components/ui/assets/ALUMNI.JPG')",
-        'event-img' : "url('/src/components/ui/assets/EVENT.jpg')",
-        'fad-video' : "url('/src/components/ui/assets/FAD-VIDEO-COMPILATION.mp4')",
+        'alumni-img': "url('/assets/ALUMNI.JPG')",
+        'event-img' : "url('/assets/EVENT.jpg')",
+        'fad-video' : "url('/assets/FAD-VIDEO-COMPILATION.mp4')",
       },
       colors: {
         'learnmore-btn':  'rgba(254, 176, 0, 1)',

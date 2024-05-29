@@ -1,31 +1,33 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import Header from '../components/ui/assets/FacultyHead.png'
+import Header from '/assets/FacultyHead.png'
 import FacultyCard from '../components/ui/FacultyCard.jsx'
-import Fac1 from '../components/ui/assets/fac1.png'
-import Fac2 from '../components/ui/assets/fac2.png'
-import Fac3 from '../components/ui/assets/fac3.png'
-import Fac4 from '../components/ui/assets/fac4.png'
-import Fac5 from '../components/ui/assets/fac5.png'
-import Fac6 from '../components/ui/assets/fac6.png'
-import Fac7 from '../components/ui/assets/fac7.png'
-import Fac8 from '../components/ui/assets/fac8.png'
-import Fac9 from '../components/ui/assets/fac9.png'
-import Fac10 from '../components/ui/assets/fac10.png'
-import Fac11 from '../components/ui/assets/fac11.png'
-import Fac12 from '../components/ui/assets/fac12.png'
-import Fac13 from '../components/ui/assets/fac13.png'
-import Fac14 from '../components/ui/assets/fac14.png'
-import Fac15 from '../components/ui/assets/fac15.png'
-import Fac16 from '../components/ui/assets/fac16.png'
-import Fac17 from '../components/ui/assets/fac17.png'
-import Fac18 from '../components/ui/assets/fac18.png'
-import Fac19 from '../components/ui/assets/fac19.png'
-import Fac20 from '../components/ui/assets/fac20.png'
+import Fac1 from '/assets/fac1.png'
+import Fac2 from '/assets/fac2.png'
+import Fac3 from '/assets/fac3.png'
+import Fac4 from '/assets/fac4.png'
+import Fac5 from '/assets/fac5.png'
+import Fac6 from '/assets/fac6.png'
+import Fac7 from '/assets/fac7.png'
+import Fac8 from '/assets/fac8.png'
+import Fac9 from '/assets/fac9.png'
+import Fac10 from '/assets/fac10.png'
+import Fac11 from '/assets/fac11.png'
+import Fac12 from '/assets/fac12.png'
+import Fac13 from '/assets/fac13.png'
+import Fac14 from '/assets/fac14.png'
+import Fac15 from '/assets/fac15.png'
+import Fac16 from '/assets/fac16.png'
+import Fac17 from '/assets/fac17.png'
+import Fac18 from '/assets/fac18.png'
+import Fac19 from '/assets/fac19.png'
+import Fac20 from '/assets/fac20.png'
 
 import { Button } from "@/components/ui/button"
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import {  useEffect, useState } from 'react'
+
+import axios from 'axios'
 
 import {
     Carousel,
@@ -37,7 +39,49 @@ import {
 
 export default function Faculty() {
     const [open, setOpen] = useState(0)
-    // window.scrollTo({top: 0,behavior:'smooth'})
+    const [faculty, setFaculty] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchFaculty = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/faculties?populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                  }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedFaculty = data.map(item => {
+                const { id, attributes } = item;
+                const { Name, Specialty, Bio, Position, Picture} = attributes;
+                const pictureURL = Picture.data.attributes.url;
+                return {
+                    id,
+                    name: Name,
+                    specialty: Specialty,
+                    bio: Bio,
+                    position : Position,
+                    picture : import.meta.env.VITE_API_URL + pictureURL,
+                };
+                });
+                setFaculty(mappedFaculty);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchFaculty(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
+
+    const headFaculties = faculty.filter(prof => prof.position === 'H');
+    const fttFaculties = faculty.filter(prof => prof.position === 'FTT');
+    const ftpFaculties = faculty.filter(prof => prof.position === 'FTP');
+    const ptFaculties = faculty.filter(prof => prof.position === 'PT');
+
     return(
         <div>
             <NavBar/>
@@ -58,7 +102,7 @@ export default function Faculty() {
                     {/* Cards */}
                     <div className='py-6'>
                         <div className='grid xl:grid-cols-3 grid-cols-1'>
-                            <button onClick={()=> open == 1 ? setOpen(0): setOpen(1)} className='xl:col-start-2'><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' specialty="Advertising" index={open == 1 ? true : false} picture={Fac1} 
+                            {/* <button onClick={()=> open == 1 ? setOpen(0): setOpen(1)} className='xl:col-start-2'><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' specialty="Advertising" index={open == 1 ? true : false} picture={Fac1} 
                                 description="Ramon Talaga De La Cruz, who specializes in advertising, is the
                                 current Head of the Fine Arts Department at the Technological University of the
                                 Philippines (T.U.P.) in Manila, has been pursuing a Master's in Graphics Technology
@@ -68,7 +112,23 @@ export default function Faculty() {
                                 academic background, Ramon brings a wealth of knowledge and experience to his
                                 leadership role in the fine arts field.
                                 "/>
-                            </button>
+                            </button> */}
+                            {
+                                headFaculties.map(faculty => (
+                                    <button 
+                                        key={faculty.id}
+                                        onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)} 
+                                        className='xl:col-start-2'>
+                                            <FacultyCard
+                                                name={faculty.name}
+                                                position="Head, Fine Arts Department"
+                                                specialty={faculty.specialty}
+                                                index={open === faculty.id} 
+                                                picture={faculty.picture}
+                                                description={faculty.bio}/>
+                                    </button>
+                                ))
+                            }
                         </div>
                         <div className='py-3'>
                             <div className='border-0 border-b border-[#9B9B9B] w-full'>
@@ -76,7 +136,22 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                                 <CarouselContent>
-                                    <CarouselItem className="2xl:basis-1/3">
+                                {
+                                    ftpFaculties.map(faculty => (
+                                        <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
+                                            <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
+                                                <FacultyCard
+                                                    name={faculty.name} 
+                                                    position="Full-time Permanent"
+                                                    specialty={faculty.specialty} 
+                                                    index={open === faculty.id} 
+                                                    picture={faculty.picture}
+                                                    description={faculty.bio}/>
+                                                </button>
+                                        </CarouselItem>
+                                    ))
+                                }
+                                    {/* <CarouselItem className="2xl:basis-1/3">
                                         <button onClick={()=> open == 2 ? setOpen(0): setOpen(2)}><FacultyCard name='Almina T. Tengco-Chan' position='Full-time Permanent' specialty="Arts and Crafts" index={open == 2 ? true : false} picture={Fac2} 
                                         description="Almina T. Tengco-Chan, who specializes in painting, art history,
                                         and arts and crafts, is a former Dean of the College of Architecture and Fine Arts
@@ -119,7 +194,7 @@ export default function Faculty() {
                                         Architecture and Fine Arts, And one of the serving officers of the TUPManila Faculty
                                         Association in the same university. Beck’s distinctive impression as an artist is to have
                                         a positive outlook in life. It shows in every single artwork that she creates."/></button>
-                                    </CarouselItem>
+                                    </CarouselItem> */}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />
@@ -132,7 +207,22 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                                 <CarouselContent className="">
-                                    <CarouselItem className="2xl:basis-1/3">
+                                    {
+                                        fttFaculties.map(faculty => (
+                                            <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
+                                                <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
+                                                    <FacultyCard
+                                                        name={faculty.name} 
+                                                        position="Full-time Temporary"
+                                                        specialty={faculty.specialty} 
+                                                        index={open === faculty.id} 
+                                                        picture={faculty.picture}
+                                                        description={faculty.bio}/>
+                                                    </button>
+                                            </CarouselItem>
+                                        ))
+                                    }
+                                    {/* <CarouselItem className="2xl:basis-1/3">
                                         <button onClick={()=> open == 5 ? setOpen(0): setOpen(5)}><FacultyCard name='Ernest Joseph Garcia' position='Full-time Temporary' specialty="Art Direction" index={open == 5 ? true : false} picture={Fac5} 
                                         description="Ernest Joseph Garcia, who specializes in art direction, graphic
                                         design, and research, is an Art director, graphic designer, academic, and creative
@@ -170,7 +260,7 @@ export default function Faculty() {
                                         crafting, painting, and digital art, Majhalina's interests extend to fashion trends,
                                         forecasting, and product development.                                        
                                         "/></button>
-                                    </CarouselItem>
+                                    </CarouselItem> */}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />
@@ -182,7 +272,22 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full xl:px-6 px-3 xl:py-6 py-3">
                                 <CarouselContent>
-                                    <CarouselItem className="2xl:basis-1/3">
+                                    {
+                                        ptFaculties.map(faculty => (
+                                            <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
+                                                <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
+                                                    <FacultyCard
+                                                        name={faculty.name} 
+                                                        position="Part-time"
+                                                        specialty={faculty.specialty} 
+                                                        index={open === faculty.id} 
+                                                        picture={faculty.picture}
+                                                        description={faculty.bio}/>
+                                                    </button>
+                                            </CarouselItem>
+                                        ))
+                                    }
+                                    {/* <CarouselItem className="2xl:basis-1/3">
                                         <button onClick={()=> open == 8 ? setOpen(0): setOpen(8)}><FacultyCard name='Edward Simon' position='Part-time' specialty="Photography" index={open == 8 ? true : false} picture={Fac8} 
                                         description="Edward Simon, who specializes in architecture/commercial
                                         photography, is an architecture photographer professional who specializes in
@@ -400,7 +505,7 @@ export default function Faculty() {
                                         different schools, teaching journalistic and creative writing, Radio, TV & Film
                                         production. He is an active communication practitioner, lecturer and a community
                                         speaker"/></button>
-                                    </CarouselItem>
+                                    </CarouselItem> */}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -8,10 +7,12 @@ import {
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import EventCard from './EventCard.jsx'
-import alum1 from './assets/HERALD.jpg'
-import alum2 from './assets/PATRICIA.jpg'
-import alum3 from './assets/POULAI.jpg'
-import alum4 from './assets/JOHN.jpeg'
+import alum1 from '/assets/HERALD.jpg'
+import alum2 from '/assets/PATRICIA.jpg'
+import alum3 from '/assets/POULAI.jpg'
+import alum4 from '/assets/JOHN.jpeg'
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 function Testimonies() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,42 @@ function Testimonies() {
   const handleClick = (param) => {
     setCount(param); // Update the count state with the parameter value
   };
+  const [events, setEvents] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchEvents = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events?filters[Page][$eq]=Landing&populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                    }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedEvents = data.map(item => {
+                const { id, attributes } = item;
+                const { Title, Description, FacebookURL, Picture} = attributes;
+                const imageUrl = Picture.data.attributes.url;
+                return {
+                    id,
+                    title: Title,
+                    description: Description,
+                    facebookURL: FacebookURL,
+                    picture : import.meta.env.VITE_API_URL + imageUrl,
+                };
+                });
+                setEvents(mappedEvents);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
 
+        fetchEvents(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
   return (
     <>
         <div className='py-6 font-roboto font-[400] text-black h-auto'>
@@ -139,19 +175,26 @@ function Testimonies() {
                 <span className="xl:text-3xl text-xl font-[500]">Highlights</span>
                 <span className="xl:text-3xl text-xs font-[300]">LATEST NEWS AND EVENTS</span>
             </div>
-            <div className='flex 2xl:flex-row 2xl:space-y-0 space-y-6 py-6 justify-between flex-col'>
-                <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/src/components/ui/assets/indayog.png')]">
+            <div className='grid grid-cols-1 xl:grid-cols-4 gap-2 py-6'>
+                {
+                    events.map(event => (
+                        <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
+                            {event.description}
+                        </EventCard>
+                    ))
+                }
+                {/* <EventCard title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" bgImg="bg-[url('/assets/indayog.png')]">
                 Various student organizations enthusiastically showcased their groups to the TUP Community through engaging booth setups, with the Booth Planning Committee selecting the top three 'Pinaka-kavogue na Booth' for TUP Indayog 2023. TUP - Institute for Visual Communication won third place, receiving a price of PHP 700 worth of SM Gift Certificates.
                 </EventCard>
-                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/src/components/ui/assets/LunetaArt.png')]">
+                <EventCard title="Luneta Art Fair" bgImg="bg-[url('/assets/LunetaArt.png')]">
                 The Luneta Art Fair, taking place on February 4th and 5th, transformed Rizal Park into a vibrant showcase of emerging artists' works from diverse backgrounds. TUP - Institute for Visual Communication participated alongside the TUP Fine Arts Department faculty.
                 </EventCard>
-                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/src/components/ui/assets/Dexter.png')]">
+                <EventCard title="Meet Dexter Fernandez" bgImg="bg-[url('/assets/Dexter.png')]">
                 Meeting Dexter Fernandez (Garapata), the Filipino artist behind this global streetwear collaboration. Behold the artistic essence of Dexter Fernandez as his mesmerizing street art seamlessly integrates into the realm of fashion alongside H&M and DBTK.
                 </EventCard>
-                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/src/components/ui/assets/ArtInThePark.png')]">
+                <EventCard title="Art in the Park at Jaime Velasquez Park" bgImg="bg-[url('/assets/ArtInThePark.png')]">
                 On March 19, 2023, 'Art in the Park' was held at the Jaime Velasquez Park in Makati City, featuring around 60 exhibitors participating in the fair's 17th edition.
-                </EventCard>
+                </EventCard> */}
             </div>
             <div className='text-center flex flex-col space-y-0 py-6'>
                 <span className="xl:text-3xl text-xs text-testimonialTitle">Want to connect with us?</span>

@@ -1,6 +1,6 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/FAQ.jpg'
+import header from '/assets/FAQ.jpg'
 
 function Content(){
     return(

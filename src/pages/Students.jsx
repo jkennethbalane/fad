@@ -1,20 +1,20 @@
-import Header from '../components/ui/assets/StudentHead.png'
+import Header from '/assets/StudentHead.png'
 import NavBar from '../components/ui/NavBar.jsx'
-import Gal1 from '../components/ui/assets/gal1.jpg'
-import Gal2 from '../components/ui/assets/gal2.jpeg'
-import Gal3 from '../components/ui/assets/gal3.jpeg'
-import Gal4 from '../components/ui/assets/gal4.png'
-import Gal5 from '../components/ui/assets/gal5.jpg'
-import Gal6 from '../components/ui/assets/gal6.png'
-import Gal7 from '../components/ui/assets/gal7.jpg'
-import Gal8 from '../components/ui/assets/gal8.jpg'
-import Gal9 from '../components/ui/assets/gal9.jpg'
-import Gal10 from '../components/ui/assets/gal10.jpg'
-import Gal11 from '../components/ui/assets/gal11.png'
-import Gal12 from '../components/ui/assets/gal12.jpg'
-import CP1 from '../components/ui/assets/CP1.png'
-import CP2 from '../components/ui/assets/CP2.png'
-import CP3 from '../components/ui/assets/CP3.png'
+import Gal1 from '/assets/gal1.jpg'
+import Gal2 from '/assets/gal2.jpeg'
+import Gal3 from '/assets/gal3.jpeg'
+import Gal4 from '/assets/gal4.png'
+import Gal5 from '/assets/gal5.jpg'
+import Gal6 from '/assets/gal6.png'
+import Gal7 from '/assets/gal7.jpg'
+import Gal8 from '/assets/gal8.jpg'
+import Gal9 from '/assets/gal9.jpg'
+import Gal10 from '/assets/gal10.jpg'
+import Gal11 from '/assets/gal11.png'
+import Gal12 from '/assets/gal12.jpg'
+import CP1 from '/assets/CP1.png'
+import CP2 from '/assets/CP2.png'
+import CP3 from '/assets/CP3.png'
 import GalleryCard from '../components/ui/GalleryCard.jsx'
 import {
     Carousel,
@@ -39,40 +39,42 @@ import { Label } from "@/components/ui/label"
 import Footer from '../components/ui/Footer.jsx'
 import EventCard from '../components/ui/EventCard.jsx'
 
-import NAA1 from '../components/ui/assets/indayog.png'
-import NAA2 from '../components/ui/assets/LunetaArt.png'
-import NAA3 from '../components/ui/assets/BFA4B.jpg'
-import NAA4 from '../components/ui/assets/BFA4A.jpg'
-import NAA5 from '../components/ui/assets/Dexter.png'
-import NAA6 from '../components/ui/assets/CARE.jpg'
-import NAA7 from '../components/ui/assets/UST.jpg'
-import NAA8 from '../components/ui/assets/ArtInThePark.png'
-import NAA9 from '../components/ui/assets/CAFASYALAN.jpg'
-import NAA10 from '../components/ui/assets/RAMON.jpg'
+import NAA1 from '/assets/indayog.png'
+import NAA2 from '/assets/LunetaArt.png'
+import NAA3 from '/assets/BFA4B.jpg'
+import NAA4 from '/assets/BFA4A.jpg'
+import NAA5 from '/assets/Dexter.png'
+import NAA6 from '/assets/CARE.jpg'
+import NAA7 from '/assets/UST.jpg'
+import NAA8 from '/assets/ArtInThePark.png'
+import NAA9 from '/assets/CAFASYALAN.jpg'
+import NAA10 from '/assets/RAMON.jpg'
 
 import jsonData from "../assets/alumni.json"
 import { useEffect, useState, useCallback } from 'react'
+import axios from 'axios'
 
-import alumni1 from '../components/ui/assets/HERALD.jpg'
-import alumni2 from '../components/ui/assets/Jesa.jpg'
-import alumni3 from '../components/ui/assets/Jhosa.jpg'
-import alumni4 from '../components/ui/assets/JOHN.jpeg'
-import alumni5 from '../components/ui/assets/Mary.jpg'
-import alumni6 from '../components/ui/assets/PATRICIA.jpg'
-import alumni7 from '../components/ui/assets/Ash.png'
-import alumni8 from '../components/ui/assets/Mary.png'
-import alumni9 from '../components/ui/assets/Poula.jpg'
-import alumni10 from '../components/ui/assets/fac9.png'
-import alumni11 from '../components/ui/assets/Kevin.jpg'
-import alumnimg1 from '../components/ui/assets/heraldo-1.png'
-import alumnimg2 from '../components/ui/assets/heraldo-2.png'
-import alumnimg3 from '../components/ui/assets/heraldo-3.png'
+
+import alumni1 from '/assets/HERALD.jpg'
+import alumni2 from '/assets/Jesa.jpg'
+import alumni3 from '/assets/Jhosa.jpg'
+import alumni4 from '/assets/JOHN.jpeg'
+import alumni5 from '/assets/Mary.jpg'
+import alumni6 from '/assets/PATRICIA.jpg'
+import alumni7 from '/assets/Ash.png'
+import alumni8 from '/assets/Mary.png'
+import alumni9 from '/assets/Poula.jpg'
+import alumni10 from '/assets/fac9.png'
+import alumni11 from '/assets/Kevin.jpg'
+import alumnimg1 from '/assets/heraldo-1.png'
+import alumnimg2 from '/assets/heraldo-2.png'
+import alumnimg3 from '/assets/heraldo-3.png'
 import { NavLink, useLocation } from "react-router-dom"
-import facebook from '../components/ui/assets/Facebook.png'
-import test1 from '../components/ui/assets/HANNAH.jpeg'
-import test2 from '../components/ui/assets/FRANK.jpg'
-import test3 from '../components/ui/assets/DESIREI.jpeg'
-import test4 from '../components/ui/assets/CARLOS.jpeg'
+import facebook from '/assets/Facebook.png'
+import test1 from '/assets/HANNAH.jpeg'
+import test2 from '/assets/FRANK.jpg'
+import test3 from '/assets/DESIREI.jpeg'
+import test4 from '/assets/CARLOS.jpeg'
 
 
 function Gallery(){
@@ -283,6 +285,42 @@ function ClassPicture(){
 }
 
 function Events(){
+    const [events, setEvents] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchEvents = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events?filters[Page][$eq]=Students&populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                  }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedEvents = data.map(item => {
+                const { id, attributes } = item;
+                const { Title, Description, FacebookURL, Picture} = attributes;
+                const imageUrl = Picture.data.attributes.url;
+                return {
+                    id,
+                    title: Title,
+                    description: Description,
+                    facebookURL: FacebookURL,
+                    picture : "http://localhost:1337" + imageUrl,
+                };
+                });
+                setEvents(mappedEvents);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchEvents(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
     return(
         <div className='py-12 px-12 font-roboto text-white' id='eventsSection'>
             <div className='text-center flex flex-col space-y-3 text-black'>
@@ -290,15 +328,22 @@ function Events(){
                 <span className="xl:text-3xl text-xl">EVENTS</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-4 gap-2'>
-                <EventCard title="GAWAD DAKILA YEAR 2 2024" bgImg="bg-[url('/src/components/ui/assets/GAWAD.jpg')]">
+                {
+                    events.map(event => (
+                        <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
+                            {event.description}
+                        </EventCard>
+                    ))
+                }
+                {/* <EventCard title="GAWAD DAKILA YEAR 2 2024" bgImg="bg-[url('/assets/GAWAD.jpg')]">
                 In its second year, Gawad Dakila, spearheaded by the Fine Arts students of the Technological University of the Philippines-Manila, under the mentorship of their esteemed professor, Mr. Rolando Jay Defero, continues to serve as a beacon of recognition for stories illuminating the diverse facets of human existence. Featuring narratives both on camera and behind the lenses, showcased through documentaries such as 'Ani ni Ina' by Istudyo Kolab, 'Ambisyong Tumaliwas' by BeeHype, 'Walang Patay, Walang Buhay' by Kariman, and 'Araw-Araw sa Gilid-Gilid' by Aimfire, each serving as a testament to the power of visual storytelling in capturing the essence of the human experience, where the four life stories depicted transcend mere tales, offering profound reflections of resilience, hope, and the intricacies of existence. This invites viewers to empathise, reflect, and appreciate the rich tapestry of life's stories portrayed through the lens of Gawad Dakila Year 2.<br/>
                 On February 9, 2024, at 5 PM, the Gawad Dakila YouTube Channel unveiled a series of films designed to take viewers on a profound journey through the depths of human existence. These cinematic creations promise to immerse audiences in a rich tapestry of raw emotions and genuine insights into the complexities of life. Delving into real-life narratives, they explore a range of themes, including women's empowerment, the challenges faced when one's occupation diverges from one's educational background, the remarkable resilience exhibited by communities residing amidst cemetery grounds, and the daily trials and triumphs experienced by street vendors. Each documentary serves as a poignant testament to the boundless diversity and unwavering fortitude of the human spirit, offering viewers a compelling glimpse into the multifaceted nature of the human experience.
                 </EventCard>
-                <EventCard title="HALA HALA 2023" bgImg="bg-[url('/src/components/ui/assets/HALA.jpg')]">
+                <EventCard title="HALA HALA 2023" bgImg="bg-[url('/assets/HALA.jpg')]">
                 'Hala-Hala: Pinong Sining Paningningin' was an electrifying showcase of creativity and talent organised by the Bachelor of Fine Arts major in Advertising, 4th-year students of section B, under their esteemed subject professor, Ernest Joseph Garcia. The event, which took place on December 14-15 at the CAFA atrium during the Technological University of the Philippines Foundation Day, was a testament to the dedication and passion of these budding artists.<br/>
                 The event featured various attractions, including captivating band performances by renowned acts such as Maize, Longganisa, Da Flamingguards, and Lil Kingdom Crew, setting the stage for an energetic and dynamic atmosphere. Adding to the excitement were the mesmerising drag performances by Draga Queen performers Maki Doll, Veronica Storm, It's WXYZ, Tangerine, and the one and only Slaytina, captivating the audience with their dazzling performances. Additionally, the event boasted vibrant dancing, engaging booths showcasing various artworks and crafts, food stalls, interactive games, and an open mic session where attendees could showcase their talents. Culminating the festivities is the eagerly anticipated Fine Arts night, where the spotlight will shine on the incredible talents of TUP's aspiring artists, leaving a lasting impression on all who attend. 'Hala-Hala: Pinong Sining Paningningin' is more than just an event; it's a celebration of creativity, passion, and the indomitable spirit of the artistic community at TUP.
                 </EventCard>
-                <EventCard title="SIKHAY LAWIN" bgImg="bg-[url('/src/components/ui/assets/Sikhay.jpg')]">
+                <EventCard title="SIKHAY LAWIN" bgImg="bg-[url('/assets/Sikhay.jpg')]">
                     <span>SIKHAY LAWIN: CINEMULAN SA ATIN 2023
                     The crew's enthusiastic shouts of 'ROLLING NA RAW!' filled the air, signaling the start of
                     the cinematic journey. Come and witness the seven Filipino films brought to you by BFA-1A;
@@ -320,21 +365,21 @@ function Events(){
                     "Yung painting sa kanta ng Eheads
                     </span>
                 </EventCard>
-                <EventCard title="KULTURA SA TELA 2023" bgImg="bg-[url('/src/components/ui/assets/KST.jpg')]">
+                <EventCard title="KULTURA SA TELA 2023" bgImg="bg-[url('/assets/KST.jpg')]">
                 Experience the fusion of creativity and culture as the Bachelor of Fine Arts major in Advertising, 3rd-year students from sections A and B, along with their subject professor, Mrs. Leticia L. Paldez, proudly present 'KULTURA SA TELA: Philippine Culture through Fashion.' Held on June 14, 2023, from 1:00 PM to 5:00 PM at the prestigious IRTC Conference Hall, Technological University of the Philippines - Manila, this event redefines the essence of style and culture. More than just a fashion showcase, 'KULTURA SA TELA' celebrates Filipino heritage, innovation, and the transformative power of art. Prepare to be inspired as these talented students take you on a journey through the vibrant tapestry of Filipino culture, leaving an indelible mark on your senses and imagination.<br/>
                 Attendees were treated to a visual feast as models strutted down the runway in elaborate costumes that seamlessly blended contemporary fashion with traditional Filipino motifs. Vibrant colours, intricate beadwork, and flowing silhouettes captivated the audience, highlighting the students' ingenuity and dedication to their craft. Beyond the aesthetic appeal, 'Kultura sa Tela' served as a cultural exchange and appreciation platform, fostering a deeper understanding of Philippine heritage among local and international spectators. As the event came to a close, it left a lasting impression, inspiring admiration for the talent and creativity of the students and reinforcing the importance of preserving and celebrating Filipino culture through the art of fashion.
                 </EventCard>
-                <EventCard title="GAWAD DAKILA THE FIRST FILM FESTIVAL 2022-2023" bgImg="bg-[url('/src/components/ui/assets/GAWAD23.jpg')]">
+                <EventCard title="GAWAD DAKILA THE FIRST FILM FESTIVAL 2022-2023" bgImg="bg-[url('/assets/GAWAD23.jpg')]">
                 The highly anticipated Gawad Dakila Film Festival 2023 commences with a riveting presentation from Lente Productions as the talented filmmakers of BFA-4E unveil their masterpiece, 'Hanggang Dulo.' This compelling creation promises to captivate audiences with its depth and resonance, setting the stage for an extraordinary cinematic journey. Meanwhile, Himuyong Productions, representing BFA-4C, presents their contribution, a captivating Class Film tailored for the esteemed festival. With meticulous craftsmanship and unwavering dedication, they create a cinematic marvel that will leave a lasting impression. As anticipation peaks, the film festival's grand premiere is set for December 22, 2022, at 3:00 PM, exclusively on the Gawad Dakila YouTube account, marking the beginning of an exhilarating showcase of talent and creativity.<br/>
                 Launching into the digital realm on December 31, 2022, is an electrifying talent showcase as BFA-4C and BFA-4E present their latest creations. Comprising six gripping narratives each, these Pandemic Short Films for the GAWAD DAKILA FILM FESTIVAL 2023 promise to enthral audiences with diverse themes and compelling storytelling. From BFA-4C, viewers can expect thought-provoking tales such as 'PaperPlanes' by StudioBlue5, 'RealWorld' by MundoProduction, the intriguing 'SpaghettingPalabas' by BadlingsProduction, the reflective 'Hiatus' by NineOclockProduction, the resonant 'AyudaPo' by DaluyongProductions, and the dreamy 'PaHinga' by MarahuyoProductions. Meanwhile, BFA-4E presents an equally riveting lineup, featuring the dynamic 'Rife' by EliteProductions, the strategic 'Checkmate' by GurumatikaProductions, the poignant 'KasamaKa' by FlickedProductions, the gripping 'Hawakamay' by PathfindersProductions, the profound 'ProvisionDay' by MovileProductions, and the enigmatic 'Masked' by SnapProductions. As the curtain rises on these cinematic endeavours, audiences are in for an immersive experience that transcends boundaries and captivates the imagination.<br/>
                 The third wave of films showcased at the GAWAD DAKILA FILM FESTIVAL 2023, set for January 10, presents an enthralling assortment of movies meticulously crafted by BFA 4C/4E. These Official Genre Films for the festival offer a diverse array of genres, including Romance, Adventure, Musical, Film Noir, Sci-Fi, and Horror, ensuring an unforgettable viewing experience. Immerse yourself in the rich tapestry of storytelling with selections such as 'Room 474' by StudioBlue5xMundoProductions, 'Usahay Nagamahay Ako' by 9OClockxDaluyongProductions, the enigmatic 'Okulus' by BadlingsProduction, the evocative 'Makapiling Ka' by MarahuyoProduction, the lyrical 'The Lyricist' by ElitexMovileProductions, and the intriguing 'Project Redo' by FlickedxSnapProductions, as well as the captivating 'Cupid Pysche' by GurumatikaxPathfinders. Each film poster serves as a portal to a world teeming with mystery, emotion, and thrills, beckoning viewers to embark on a journey of discovery. Dive into the unknown and lose yourself in the enchantment of cinema with these captivating and thought-provoking films.<br/>
                 </EventCard>
-                <EventCard title="ART FOR THE SOUL 2022" bgImg="bg-[url('/src/components/ui/assets/AFTS.jpg')]">
+                <EventCard title="ART FOR THE SOUL 2022" bgImg="bg-[url('/assets/AFTS.jpg')]">
                     On November 23, 2022, a transformative event took place, the 'Art for the Soul' webinar, hosted by the Bachelor of Fine Arts major in Advertising, 3rd-year students of section A, under the expert guidance of Professor Leticia L. Paldez. This event served as a crucible for innovation, igniting participants' imaginations and propelling them into the dynamic intersection of art and advertising. From the early hours of 9:00 AM to the afternoon's close at 1:00 PM via Ms Teams, students delved into various disciplines, including media production, video storyboarding, videography, video editing (animation), and art therapy.<br/>
                     Led by distinguished speakers Mr Rommel Pastrana Celespara, Mr Angelo Luigi A. Domingo, and Ms Filipina Deguzman, this event promises to be an enlightening journey through creativity, expression, and healing. Through engaging discussions, practical demonstrations, and interactive exercises, attendees will learn about the technical aspects of media production and discover art's profound impact on mental health and well-being. Whether you're a seasoned media professional, a budding artist, or simply someone interested in the healing power of creativity, 'Art for the Soul' promises to be an enriching experience that transcends the boundaries of traditional webinars, leaving a lasting impression on hearts and minds alike.<br/>
                 /
                 </EventCard>
-                <EventCard title="SINEDEMYA: CINESIGAW NG KABATAAN" bgImg="bg-[url('/src/components/ui/assets/Cinegaw.jpg')]">
+                <EventCard title="SINEDEMYA: CINESIGAW NG KABATAAN" bgImg="bg-[url('/assets/Cinegaw.jpg')]">
                     SineDemya: CineSigaw ng Kabataan” 2022
                     Despite facing new challenges, such as limitations in expressing their thoughts and feelings,
                     Filipino youth managed to connect through art, particularly in the form of films. With the
@@ -360,7 +405,7 @@ function Events(){
                     14. "Tasteless Adobo"<br/>
                     15. "Truth to Nowhere"
                 </EventCard>
-                <EventCard title="SINEDEMYA 2021" bgImg="bg-[url('/src/components/ui/assets/Sine21.jpg')]">
+                <EventCard title="SINEDEMYA 2021" bgImg="bg-[url('/assets/Sine21.jpg')]">
                     During the pandemic, filmmakers and film enthusiasts faced many challenges. Despite these
                     difficulties, the power of art remained strong and continued to bring people together. Our
                     Fine Arts Department recently held its first-ever film exhibition, showcasing the
@@ -382,7 +427,7 @@ function Events(){
                     beacon of hope and inspiration, reminding us of the transformative power of storytelling. We
                     came together to celebrate the creativity and ingenuity of our students as we embarked on this
                     cinematic voyage together.
-                </EventCard>
+                </EventCard> */}
             </div>
         </div>
     )
@@ -433,6 +478,46 @@ function NAAcard(res){
 }
 
 function NewsAndArticles(){
+    const [articles, setArticles] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchArticles = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/articles?populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                  }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedArticles = data.map(item => {
+                const { id, attributes } = item;
+                const { Title, Description, FacebookURL, createdAt, updatedAt, publishedAt , Image} = attributes;
+                const imageUrl = Image.data.attributes.url;
+                return {
+                    id,
+                    title: Title,
+                    description: Description,
+                    facebookURL: FacebookURL,
+                    image : "http://localhost:1337" + imageUrl,
+                    createdAt,
+                    updatedAt,
+                    publishedAt,
+                    fullTitle: `Title: ${Title}`
+                };
+                });
+                setArticles(mappedArticles);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchArticles(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
     return(
         <div className='p-6 space-y-2'>
             <div className='text-center flex flex-col space-y-3 text-black'>
@@ -440,7 +525,14 @@ function NewsAndArticles(){
                 <span className="xl:text-3xl text-xl">NEWS / ARTICLES</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-3 gap-2 py-6'>
-                <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1} description="Various student organizations have
+                {
+                    articles.map(article => (
+                        <NAAdialog key={article.id} title={article.title} imgSrc={article.image} description={article.description}
+                            fbLink={article.FacebookURL}
+                    />
+                    ))
+                }
+                {/* <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1} description="Various student organizations have
                     enthusiastically showcased their groups to the
                     TUP Community through engaging booth
                     setups, with the Booth Planning Committee
@@ -523,7 +615,7 @@ function NewsAndArticles(){
                     video for creating the Best Christmas
                     Tree."
                     fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02Nm2LXBPnGdhn6sLLA8RPTT3mKPRqnj1wmR3jGimSY1rBTrqzsSs54FX5g21rJ6N8l"
-                    />
+                    /> */}
             </div>
         </div>
     )
@@ -873,6 +965,8 @@ function AlumniCards(res){
           picture={item.picture}
         />
     ));
+
+
     
     return(
         <>
@@ -886,6 +980,55 @@ function AlumniCards(res){
     )
 }
 function Alumni(){
+    const [isDrop, setIsDrop] = useState(false);
+    const onClickDrop=()=>{
+        setIsDrop(!isDrop)
+    }
+    const [alumni, setAlumni] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchAlumni = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/alumni?populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                  }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedAlumni = data.map(item => {
+                const { id, attributes } = item;
+                const { Name, Year, Email, Genre, Quote, Bio, Experience , Picture} = attributes;
+                const imageUrl = Picture.data.attributes.url;
+                return {
+                    id,
+                    name: Name,
+                    year: Year,
+                    email: Email,
+                    picture : import.meta.env.VITE_API_URL + imageUrl,
+                    genre: Genre,
+                    quote: Quote,
+                    bio: Bio,
+                    experience: Experience
+                };
+                });
+                setAlumni(mappedAlumni);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchAlumni(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
+
+    const years = alumni.map(alumna => alumna.year);
+    const uniqueYears = [...new Set(years)].sort((a, b) => a - b);
+
+
     return(
         <div className='p-6 space-y-2' id='alumniSection'>
             <div className='text-center flex flex-col space-y-3 text-black'>
@@ -893,12 +1036,37 @@ function Alumni(){
                 <span className="xl:text-3xl text-xl">ALUMNI</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-3 gap-3 py-6 text-[#9B9B9B] gap-y-3'>
-                <AlumniCards year="2000"/>
+                {/* <AlumniCards year="2000"/>
                 <AlumniCards year="2009"/>
                 <AlumniCards year="2010"/>
                 <AlumniCards year="2015"/>
                 <AlumniCards year="2022"/>
-                <AlumniCards year="2023"/>
+                <AlumniCards year="2023"/> */}
+                {/* <div className='border-0 border-b-2 border-[#9B9B9B]' id ={dynamicId} onClick={onClickDrop}><span className='text-3xl'>BATCH YEAR: {res.year}</span></div> */}
+                {
+                    uniqueYears.map((year,index) => (
+                        <div key = {index}>
+                            <div>
+                                <div className='border-0 border-b-2 border-[#9B9B9B]' id={index} onClick={onClickDrop}><span className='text-3xl'>BATCH YEAR: {year}</span></div>
+                                {
+                                    alumni.filter(alumna => alumna.year === year).map( alumna =>(
+                                        <StudentAlumniCards 
+                                            key={alumna.id}
+                                            year={alumna.year} 
+                                            name={alumna.name} 
+                                            email={alumna.email} 
+                                            genre={alumna.genre} 
+                                            quote={alumna.quote} 
+                                            bio={alumna.bio} 
+                                            experience={alumna.experience} 
+                                            picture={alumna.picture}
+                                            />
+                                    ))
+                                }
+                            </div>    
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )

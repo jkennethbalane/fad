@@ -1,10 +1,11 @@
 import NavBar from '../components/ui/NavBar.jsx'
 import Footer from '../components/ui/Footer.jsx'
-import header from '../components/ui/assets/organization.jpg'
-import IVC from '../components/ui/assets/IVC.png'
-import { useState } from 'react'
+import header from '/assets/organization.jpg'
+import IVC from '/assets/IVC.png'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Button } from "@/components/ui/button"
-import facebook from '../components/ui/assets/Facebook.png'
+import facebook from '/assets/Facebook.png'
 import { NavLink } from 'react-router-dom'
 import EventCard from '../components/ui/EventCard.jsx'
 
@@ -40,6 +41,42 @@ function Content(){
 }
 
 function Events(){
+    const [events, setEvents] = useState([]); // Initialize state to an empty array
+    useEffect(() => {
+        // Define an async function to fetch data
+        const fetchEvents = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events?filters[Page][$eq]=IVC&populate=*`,{
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`
+                    }
+            });
+            const data = response.data.data;
+            // Check if data is an array and set state
+            if (Array.isArray(data)) {
+                const mappedEvents = data.map(item => {
+                const { id, attributes } = item;
+                const { Title, Description, FacebookURL, Picture} = attributes;
+                const imageUrl = Picture.data.attributes.url;
+                return {
+                    id,
+                    title: Title,
+                    description: Description,
+                    facebookURL: FacebookURL,
+                    picture : import.meta.env.VITE_API_URL + imageUrl,
+                };
+                });
+                setEvents(mappedEvents);
+            } else {
+            console.error('Response data is not an array');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchEvents(); // Call the fetch function
+    }, []); // Empty dependency array to run only on mount
     return(
         <div>
             <div className='py-6 px-12 font-roboto text-white'>
@@ -47,33 +84,40 @@ function Events(){
                     <span className="xl:text-3xl text-xl text-testimonialTitle ">EVENTS</span>
                     <span className="xl:text-3xl text-xl font-[300]">Institute of Visual Communication</span>
                 </div>
-                <div className='flex 2xl:flex-row 2xl:space-y-0 space-y-9 py-6 justify-between flex-col'>
-                    <EventCard title="SHEESH, THAT'S CRAZY!: Graphic Design as an instrument for the minority (Dec. 17, 2021)" bgImg="bg-[url('/src/components/ui/assets/sheesh.jpg')]">
+                <div className='grid grid-cols-1 xl:grid-cols-4 gap-2'>
+                    {
+                        events.map(event => (
+                            <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
+                                {event.description}
+                            </EventCard>
+                        ))
+                    }
+                    {/* <EventCard title="SHEESH, THAT'S CRAZY!: Graphic Design as an instrument for the minority (Dec. 17, 2021)" bgImg="bg-[url('/assets/sheesh.jpg')]">
                     Through the online webinar event, guest speakers, Mr. Karl Castro
                     and Mr. Ernest Joseph Garcia discussed the application of graphic design in the Filipino 
                     contemporary arts and spreading awareness about the minority through it. IVC aims to educate 
                     future designers about the impact of design on society and its role in addressing social issues. 
                      Let's extend a helping hand to those in need and deepen our knowledge of design arts as a global community.
                     </EventCard>
-                    <EventCard title="PRIDE MONTH ART SHOWCASE" bgImg="bg-[url('/src/components/ui/assets/pride.png')]" fbLink="https://www.facebook.com/photo/?fbid=176799084790335&set=pcb.176803
+                    <EventCard title="PRIDE MONTH ART SHOWCASE" bgImg="bg-[url('/assets/pride.png')]" fbLink="https://www.facebook.com/photo/?fbid=176799084790335&set=pcb.176803
                     721456538">
                     This online exhibit celebrated Pride Month and was open to all, and any
                     genre, including photography, digital art, digital manipulation, traditional art,
                     etc. This event aimed to show the colorful creativity of queer
                     artists as well as to reflect diverse perspectives on the LGBTQIA+ experiences.
                     </EventCard>
-                    <EventCard title="TUP INDAYOG 2023: ANG SIMULA NG KABANATA" bgImg="bg-[url('/src/components/ui/assets/palette.jpg')]" fbLink="https://www.facebook.com/photo/?fbid=122116079528010186&set=a.122115
+                    <EventCard title="TUP INDAYOG 2023: ANG SIMULA NG KABANATA" bgImg="bg-[url('/assets/palette.jpg')]" fbLink="https://www.facebook.com/photo/?fbid=122116079528010186&set=a.122115
                     476672010186">
                     This event invited and gathered all the organizations to display their booths, showcase their organization’s name, and welcome the students who are interested in joining them. The TUP-IVC booth named ‘PINOY PALETTE Sari-sari Store’ also won 3 rd place Best in Booth Award.
                     </EventCard>
-                    <EventCard title="2-Day Workshop Seminar at 122th TUP Foundation Day" bgImg="bg-[url('/src/components/ui/assets/vibe.png')]" fbLink="https://www.facebook.com/profile.php?id=61553920576848">
+                    <EventCard title="2-Day Workshop Seminar at 122th TUP Foundation Day" bgImg="bg-[url('/assets/vibe.png')]" fbLink="https://www.facebook.com/profile.php?id=61553920576848">
                     The events aimed to provide TUP-IVC members and Fine Arts students with extensive knowledge, insights, and diverse range of subjects relevant to visual and digital design, branding and film.
                     </EventCard>
-                    <EventCard title="LUNETA ART FAIR (FEB. 3-4, 2024)" bgImg="bg-[url('/src/components/ui/assets/LAF.jpg')]" fbLink="https://www.facebook.com/TUPiVisCom/posts/397994486079417">
+                    <EventCard title="LUNETA ART FAIR (FEB. 3-4, 2024)" bgImg="bg-[url('/assets/LAF.jpg')]" fbLink="https://www.facebook.com/TUPiVisCom/posts/397994486079417">
                     The TUP-IVC participated in this year’s Luneta Art Fair held at Noli Me
                     Tangere Garden, Rizal Park. Our aim was to showcase and sell the amazing
                     Artwork pieces made by our faculty, IVC members, and TUP alumni.
-                    </EventCard>
+                    </EventCard> */}
                 </div>
             </div>
         </div>
