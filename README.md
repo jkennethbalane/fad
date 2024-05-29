@@ -19,12 +19,12 @@ A web applcation created using React JS-Vite with Tailwind CSS in Node JS. It co
 - run 'npm run dev'
 
 **TO BUILD**
-- run the 'npm run build'\
+- run the 'npm run build'
 - adn the build files is inside the dist directory.
 
-**TO NOTE**
+**TO NOTE**\
 /src/pages/ contains the pages.\
-/src/components/ contains the components.\
+/src/components/ contains the components.
 
 **PAGES**
 - Index.jsx or Landing Page
