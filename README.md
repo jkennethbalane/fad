@@ -19,12 +19,30 @@ A web applcation created using React JS-Vite with Tailwind CSS in Node JS. It co
 - run 'npm run dev'
 
 **TO BUILD**
-- run the 'npm run build'
+- run the 'npm run build'\
 - adn the build files is inside the dist directory.
 
 **TO NOTE**
-/src/pages/ contains the pages.
-/src/components/ contains the components.
+/src/pages/ contains the pages.\
+/src/components/ contains the components.\
+
+**PAGES**
+- Index.jsx or Landing Page
+  - Contains the landing page or the highlight of the fine arts department
+- About.jsx
+  - History, Mission, and Vision of the Fine Arts Department.
+- Students.jsx or Organization page
+  - Student Artworks, Alumni, Student Events, and etc.
+- Faculty.jsx
+  - Current Faculty in Fine ARts Department.
+- Organization.jsx
+  - Information about IVC or Institute of Visual Communication
+- Admission.jsx
+  - How to enter in Technological University of the Philippines.
+- Credits.jsx
+  - Acknowledgements.
+- RE.jsx
+  - CARE Project
 
 **Acknowledgement**
 KATARINA FRANCHESCA O. STA CLARA
