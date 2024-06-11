@@ -38,6 +38,7 @@ import {
   } from "@/components/ui/carousel"
 
 export default function Faculty() {
+    const isAdminActivated = import.meta.env.VITE_ADMIN_ACTIVATED === 'true';
     const [open, setOpen] = useState(0)
     const [faculty, setFaculty] = useState([]); // Initialize state to an empty array
     useEffect(() => {
@@ -102,7 +103,24 @@ export default function Faculty() {
                     {/* Cards */}
                     <div className='py-6'>
                         <div className='grid xl:grid-cols-3 grid-cols-1'>
-                            {/* <button onClick={()=> open == 1 ? setOpen(0): setOpen(1)} className='xl:col-start-2'><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' specialty="Advertising" index={open == 1 ? true : false} picture={Fac1} 
+                        {isAdminActivated ? (
+                            headFaculties.map(faculty => (
+                                <button 
+                                    key={faculty.id}
+                                    onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)} 
+                                    className='xl:col-start-2'>
+                                        <FacultyCard
+                                            name={faculty.name}
+                                            position="Head, Fine Arts Department"
+                                            specialty={faculty.specialty}
+                                            index={open === faculty.id} 
+                                            picture={faculty.picture}
+                                            description={faculty.bio}/>
+                                </button>
+                            ))
+                        ) : (
+                            <>
+                                <button onClick={()=> open == 1 ? setOpen(0): setOpen(1)} className='xl:col-start-2'><FacultyCard name='Ramon Talaga De La Cruz' position='Head, Fine Arts Department' specialty="Advertising" index={open == 1 ? true : false} picture={Fac1} 
                                 description="Ramon Talaga De La Cruz, who specializes in advertising, is the
                                 current Head of the Fine Arts Department at the Technological University of the
                                 Philippines (T.U.P.) in Manila, has been pursuing a Master's in Graphics Technology
@@ -112,23 +130,9 @@ export default function Faculty() {
                                 academic background, Ramon brings a wealth of knowledge and experience to his
                                 leadership role in the fine arts field.
                                 "/>
-                            </button> */}
-                            {
-                                headFaculties.map(faculty => (
-                                    <button 
-                                        key={faculty.id}
-                                        onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)} 
-                                        className='xl:col-start-2'>
-                                            <FacultyCard
-                                                name={faculty.name}
-                                                position="Head, Fine Arts Department"
-                                                specialty={faculty.specialty}
-                                                index={open === faculty.id} 
-                                                picture={faculty.picture}
-                                                description={faculty.bio}/>
-                                    </button>
-                                ))
-                            }
+                                </button>
+                            </>
+                        )}
                         </div>
                         <div className='py-3'>
                             <div className='border-0 border-b border-[#9B9B9B] w-full'>
@@ -136,7 +140,7 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                                 <CarouselContent>
-                                {
+                                {isAdminActivated ? (
                                     ftpFaculties.map(faculty => (
                                         <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
                                             <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
@@ -150,51 +154,54 @@ export default function Faculty() {
                                                 </button>
                                         </CarouselItem>
                                     ))
-                                }
-                                    {/* <CarouselItem className="2xl:basis-1/3">
-                                        <button onClick={()=> open == 2 ? setOpen(0): setOpen(2)}><FacultyCard name='Almina T. Tengco-Chan' position='Full-time Permanent' specialty="Arts and Crafts" index={open == 2 ? true : false} picture={Fac2} 
-                                        description="Almina T. Tengco-Chan, who specializes in painting, art history,
-                                        and arts and crafts, is a former Dean of the College of Architecture and Fine Arts
-                                        (2015-2019), previously serving as Head of the Fine Arts Department (2010-2015).
-                                        Currently an Associate Professor 1 at the Fine Arts Department.                           
-                                        "/></button>
-                                    </CarouselItem>
-                                    <CarouselItem className="2xl:basis-1/3" >
-                                        <button onClick={()=> open == 3 ? setOpen(0): setOpen(3)}><FacultyCard name='Ferdinand R. Doctolero' position='Full-time Permanent' specialty="Painting and Advertising" index={open == 3 ? true : false} picture={Fac3} 
-                                        description="Ferdinand R. Doctolero, who specializes in painting, and
-                                        advertising, is an acclaimed Filipino visual artist and faculty member at the
-                                        Technological University of the Philippines, College of Architecture and Fine Arts, is
-                                        renowned for his dynamic and vibrant artworks. With a background in the College of
-                                        Fine Arts at the University of the Philippines, Quezon City, Doctolero's paintings,
-                                        illustrations, and graphic designs have been featured in numerous group and solo
-                                        exhibitions since 1978. His works adorn the collections of banks, museums, and
-                                        private collectors, showcasing his talent and versatility. Additionally, he has
-                                        contributed to children's literature as a designer and illustrator for publishers such as
-                                        Adarna, Bookmark, and Lampara. As a member of the U.P. Artist Circle and Ang
-                                        Illustrador ng Kabataan, he continues to inspire through his art and workshops,
-                                        capturing life's essence with acrylics and charcoal pencil on canvas.
-                                        
-                                        "/></button>
-                                    </CarouselItem>
-                                    <CarouselItem key="2" className="2xl:basis-1/3">
-                                        <button onClick={()=> open == 4 ? setOpen(0): setOpen(4)}><FacultyCard name='Wima Dollisen-Enriquez' position='Full-time Permanent' specialty="Graphic Design" index={open == 4 ? true : false} picture={Fac4} 
-                                        description="Wima Dollisen-Enriquez, who specializes in art education,
-                                        graphic design, creative consultant, and ballpoint pen, also known as Beck F.
-                                        Dollisen, explores her art using a ballpoint pen that gives an illuminated or illuminati
-                                        effect on each finished artwork. The portraits of her models, with ornamental
-                                        backgrounds give a unique composition, which emphasizes and speaks for the
-                                        subject's personality. Beck’s artworks do not just portray faces but reflect the inner
-                                        beauty of the models, a style that attracted the attention of a prominent art group,
-                                        Pilipino Art.ph. Some of her artworks are featured on their website. Ms. Enriquez is a
-                                        product of Technological University of the Philippines, graduated in Fine Arts
-                                        majoring in Advertising and completed a Master's Degree in Graphic Technology
-                                        major in Industrial Design. She worked with various well- known industries like Pepsi
-                                        Cola, Phils. and Tutuban Mall as a graphic artist, designer , and event photographer .
-                                        Now, currently an assistant professor and an art educator at the College of
-                                        Architecture and Fine Arts, And one of the serving officers of the TUPManila Faculty
-                                        Association in the same university. Beck’s distinctive impression as an artist is to have
-                                        a positive outlook in life. It shows in every single artwork that she creates."/></button>
-                                    </CarouselItem> */}
+                                ) : (
+                                    <>
+                                        <CarouselItem className="2xl:basis-1/3">
+                                                <button onClick={()=> open == 2 ? setOpen(0): setOpen(2)}><FacultyCard name='Almina T. Tengco-Chan' position='Full-time Permanent' specialty="Arts and Crafts" index={open == 2 ? true : false} picture={Fac2} 
+                                                description="Almina T. Tengco-Chan, who specializes in painting, art history,
+                                                and arts and crafts, is a former Dean of the College of Architecture and Fine Arts
+                                                (2015-2019), previously serving as Head of the Fine Arts Department (2010-2015).
+                                                Currently an Associate Professor 1 at the Fine Arts Department.                           
+                                                "/></button>
+                                            </CarouselItem>
+                                            <CarouselItem className="2xl:basis-1/3" >
+                                                <button onClick={()=> open == 3 ? setOpen(0): setOpen(3)}><FacultyCard name='Ferdinand R. Doctolero' position='Full-time Permanent' specialty="Painting and Advertising" index={open == 3 ? true : false} picture={Fac3} 
+                                                description="Ferdinand R. Doctolero, who specializes in painting, and
+                                                advertising, is an acclaimed Filipino visual artist and faculty member at the
+                                                Technological University of the Philippines, College of Architecture and Fine Arts, is
+                                                renowned for his dynamic and vibrant artworks. With a background in the College of
+                                                Fine Arts at the University of the Philippines, Quezon City, Doctolero's paintings,
+                                                illustrations, and graphic designs have been featured in numerous group and solo
+                                                exhibitions since 1978. His works adorn the collections of banks, museums, and
+                                                private collectors, showcasing his talent and versatility. Additionally, he has
+                                                contributed to children's literature as a designer and illustrator for publishers such as
+                                                Adarna, Bookmark, and Lampara. As a member of the U.P. Artist Circle and Ang
+                                                Illustrador ng Kabataan, he continues to inspire through his art and workshops,
+                                                capturing life's essence with acrylics and charcoal pencil on canvas.
+                                                
+                                                "/></button>
+                                            </CarouselItem>
+                                            <CarouselItem key="2" className="2xl:basis-1/3">
+                                                <button onClick={()=> open == 4 ? setOpen(0): setOpen(4)}><FacultyCard name='Wima Dollisen-Enriquez' position='Full-time Permanent' specialty="Graphic Design" index={open == 4 ? true : false} picture={Fac4} 
+                                                description="Wima Dollisen-Enriquez, who specializes in art education,
+                                                graphic design, creative consultant, and ballpoint pen, also known as Beck F.
+                                                Dollisen, explores her art using a ballpoint pen that gives an illuminated or illuminati
+                                                effect on each finished artwork. The portraits of her models, with ornamental
+                                                backgrounds give a unique composition, which emphasizes and speaks for the
+                                                subject's personality. Beck’s artworks do not just portray faces but reflect the inner
+                                                beauty of the models, a style that attracted the attention of a prominent art group,
+                                                Pilipino Art.ph. Some of her artworks are featured on their website. Ms. Enriquez is a
+                                                product of Technological University of the Philippines, graduated in Fine Arts
+                                                majoring in Advertising and completed a Master's Degree in Graphic Technology
+                                                major in Industrial Design. She worked with various well- known industries like Pepsi
+                                                Cola, Phils. and Tutuban Mall as a graphic artist, designer , and event photographer .
+                                                Now, currently an assistant professor and an art educator at the College of
+                                                Architecture and Fine Arts, And one of the serving officers of the TUPManila Faculty
+                                                Association in the same university. Beck’s distinctive impression as an artist is to have
+                                                a positive outlook in life. It shows in every single artwork that she creates."/></button>
+                                            </CarouselItem>
+                                    </>
+                                )}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />
@@ -207,22 +214,23 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full px-6 py-6">
                                 <CarouselContent className="">
-                                    {
-                                        fttFaculties.map(faculty => (
-                                            <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
-                                                <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
-                                                    <FacultyCard
-                                                        name={faculty.name} 
-                                                        position="Full-time Temporary"
-                                                        specialty={faculty.specialty} 
-                                                        index={open === faculty.id} 
-                                                        picture={faculty.picture}
-                                                        description={faculty.bio}/>
-                                                    </button>
-                                            </CarouselItem>
-                                        ))
-                                    }
-                                    {/* <CarouselItem className="2xl:basis-1/3">
+                                {isAdminActivated ? (
+                                    fttFaculties.map(faculty => (
+                                        <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
+                                            <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
+                                                <FacultyCard
+                                                    name={faculty.name} 
+                                                    position="Full-time Temporary"
+                                                    specialty={faculty.specialty} 
+                                                    index={open === faculty.id} 
+                                                    picture={faculty.picture}
+                                                    description={faculty.bio}/>
+                                                </button>
+                                        </CarouselItem>
+                                    ))
+                                ) : (
+                                    <>
+                                        <CarouselItem className="2xl:basis-1/3">
                                         <button onClick={()=> open == 5 ? setOpen(0): setOpen(5)}><FacultyCard name='Ernest Joseph Garcia' position='Full-time Temporary' specialty="Art Direction" index={open == 5 ? true : false} picture={Fac5} 
                                         description="Ernest Joseph Garcia, who specializes in art direction, graphic
                                         design, and research, is an Art director, graphic designer, academic, and creative
@@ -260,7 +268,9 @@ export default function Faculty() {
                                         crafting, painting, and digital art, Majhalina's interests extend to fashion trends,
                                         forecasting, and product development.                                        
                                         "/></button>
-                                    </CarouselItem> */}
+                                    </CarouselItem>
+                                    </>
+                                )}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />
@@ -272,22 +282,23 @@ export default function Faculty() {
                             </div>
                             <Carousel className="w-full flex justify-center max-w-full xl:px-6 px-3 xl:py-6 py-3">
                                 <CarouselContent>
-                                    {
-                                        ptFaculties.map(faculty => (
-                                            <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
-                                                <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
-                                                    <FacultyCard
-                                                        name={faculty.name} 
-                                                        position="Part-time"
-                                                        specialty={faculty.specialty} 
-                                                        index={open === faculty.id} 
-                                                        picture={faculty.picture}
-                                                        description={faculty.bio}/>
-                                                    </button>
-                                            </CarouselItem>
-                                        ))
-                                    }
-                                    {/* <CarouselItem className="2xl:basis-1/3">
+                                {isAdminActivated ? (
+                                    ptFaculties.map(faculty => (
+                                        <CarouselItem className="2xl:basis-1/3" key={faculty.id}>
+                                            <button onClick={()=> open == faculty.id ? setOpen(0): setOpen(faculty.id)}>
+                                                <FacultyCard
+                                                    name={faculty.name} 
+                                                    position="Part-time"
+                                                    specialty={faculty.specialty} 
+                                                    index={open === faculty.id} 
+                                                    picture={faculty.picture}
+                                                    description={faculty.bio}/>
+                                                </button>
+                                        </CarouselItem>
+                                    ))
+                                ) : (
+                                    <>
+                                    <CarouselItem className="2xl:basis-1/3">
                                         <button onClick={()=> open == 8 ? setOpen(0): setOpen(8)}><FacultyCard name='Edward Simon' position='Part-time' specialty="Photography" index={open == 8 ? true : false} picture={Fac8} 
                                         description="Edward Simon, who specializes in architecture/commercial
                                         photography, is an architecture photographer professional who specializes in
@@ -505,7 +516,9 @@ export default function Faculty() {
                                         different schools, teaching journalistic and creative writing, Radio, TV & Film
                                         production. He is an active communication practitioner, lecturer and a community
                                         speaker"/></button>
-                                    </CarouselItem> */}
+                                    </CarouselItem>
+                                    </>
+                                )}
                                 </CarouselContent>
                                 <CarouselPrevious />
                                 <CarouselNext />

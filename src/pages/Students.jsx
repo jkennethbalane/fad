@@ -285,6 +285,7 @@ function ClassPicture(){
 }
 
 function Events(){
+    const isAdminActivated = import.meta.env.VITE_ADMIN_ACTIVATED === 'true';
     const [events, setEvents] = useState([]); // Initialize state to an empty array
     useEffect(() => {
         // Define an async function to fetch data
@@ -328,106 +329,109 @@ function Events(){
                 <span className="xl:text-3xl text-xl">EVENTS</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-4 gap-2'>
-                {
+                {isAdminActivated ? (
                     events.map(event => (
                         <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
                             {event.description}
                         </EventCard>
                     ))
-                }
-                {/* <EventCard title="GAWAD DAKILA YEAR 2 2024" bgImg="bg-[url('/assets/GAWAD.jpg')]">
-                In its second year, Gawad Dakila, spearheaded by the Fine Arts students of the Technological University of the Philippines-Manila, under the mentorship of their esteemed professor, Mr. Rolando Jay Defero, continues to serve as a beacon of recognition for stories illuminating the diverse facets of human existence. Featuring narratives both on camera and behind the lenses, showcased through documentaries such as 'Ani ni Ina' by Istudyo Kolab, 'Ambisyong Tumaliwas' by BeeHype, 'Walang Patay, Walang Buhay' by Kariman, and 'Araw-Araw sa Gilid-Gilid' by Aimfire, each serving as a testament to the power of visual storytelling in capturing the essence of the human experience, where the four life stories depicted transcend mere tales, offering profound reflections of resilience, hope, and the intricacies of existence. This invites viewers to empathise, reflect, and appreciate the rich tapestry of life's stories portrayed through the lens of Gawad Dakila Year 2.<br/>
-                On February 9, 2024, at 5 PM, the Gawad Dakila YouTube Channel unveiled a series of films designed to take viewers on a profound journey through the depths of human existence. These cinematic creations promise to immerse audiences in a rich tapestry of raw emotions and genuine insights into the complexities of life. Delving into real-life narratives, they explore a range of themes, including women's empowerment, the challenges faced when one's occupation diverges from one's educational background, the remarkable resilience exhibited by communities residing amidst cemetery grounds, and the daily trials and triumphs experienced by street vendors. Each documentary serves as a poignant testament to the boundless diversity and unwavering fortitude of the human spirit, offering viewers a compelling glimpse into the multifaceted nature of the human experience.
-                </EventCard>
-                <EventCard title="HALA HALA 2023" bgImg="bg-[url('/assets/HALA.jpg')]">
-                'Hala-Hala: Pinong Sining Paningningin' was an electrifying showcase of creativity and talent organised by the Bachelor of Fine Arts major in Advertising, 4th-year students of section B, under their esteemed subject professor, Ernest Joseph Garcia. The event, which took place on December 14-15 at the CAFA atrium during the Technological University of the Philippines Foundation Day, was a testament to the dedication and passion of these budding artists.<br/>
-                The event featured various attractions, including captivating band performances by renowned acts such as Maize, Longganisa, Da Flamingguards, and Lil Kingdom Crew, setting the stage for an energetic and dynamic atmosphere. Adding to the excitement were the mesmerising drag performances by Draga Queen performers Maki Doll, Veronica Storm, It's WXYZ, Tangerine, and the one and only Slaytina, captivating the audience with their dazzling performances. Additionally, the event boasted vibrant dancing, engaging booths showcasing various artworks and crafts, food stalls, interactive games, and an open mic session where attendees could showcase their talents. Culminating the festivities is the eagerly anticipated Fine Arts night, where the spotlight will shine on the incredible talents of TUP's aspiring artists, leaving a lasting impression on all who attend. 'Hala-Hala: Pinong Sining Paningningin' is more than just an event; it's a celebration of creativity, passion, and the indomitable spirit of the artistic community at TUP.
-                </EventCard>
-                <EventCard title="SIKHAY LAWIN" bgImg="bg-[url('/assets/Sikhay.jpg')]">
-                    <span>SIKHAY LAWIN: CINEMULAN SA ATIN 2023
-                    The crew's enthusiastic shouts of 'ROLLING NA RAW!' filled the air, signaling the start of
-                    the cinematic journey. Come and witness the seven Filipino films brought to you by BFA-1A;
-                    this is Sikhay Lawin: Cinemulan sa atin.
-                    Just one more sleep, and we will behold the First Onsite Film Festival of TUP-FAD! It
-                    featured the societal issues and how the protagonists creatively tackle them through
-                    CINEmulating.
-                    Experience these films on June 23, at TUP Manila - IRTC Hall at precisely seven in the
-                    morning (7:00 AM). For future announcements and live streams, like, follow, and stay tuned
-                    on the Sikhay Lawin Facebook Page.<br/>
-                    Sikhay Lawin proudly presents Cinemulan sa atin, a lineup of short films from BFA-1A
-                    students:<br/>
-                    "Simbahan Daw Ang Quiapo"<br/>
-                    "Puta, he!"<br/>
-                    "Bukas Makalawa"<br/>
-                    "Paru-parong Bukid"<br/>
-                    "Sa Pagitan"<br/>
-                    "Talang-ka"<br/>
-                    "Yung painting sa kanta ng Eheads
-                    </span>
-                </EventCard>
-                <EventCard title="KULTURA SA TELA 2023" bgImg="bg-[url('/assets/KST.jpg')]">
-                Experience the fusion of creativity and culture as the Bachelor of Fine Arts major in Advertising, 3rd-year students from sections A and B, along with their subject professor, Mrs. Leticia L. Paldez, proudly present 'KULTURA SA TELA: Philippine Culture through Fashion.' Held on June 14, 2023, from 1:00 PM to 5:00 PM at the prestigious IRTC Conference Hall, Technological University of the Philippines - Manila, this event redefines the essence of style and culture. More than just a fashion showcase, 'KULTURA SA TELA' celebrates Filipino heritage, innovation, and the transformative power of art. Prepare to be inspired as these talented students take you on a journey through the vibrant tapestry of Filipino culture, leaving an indelible mark on your senses and imagination.<br/>
-                Attendees were treated to a visual feast as models strutted down the runway in elaborate costumes that seamlessly blended contemporary fashion with traditional Filipino motifs. Vibrant colours, intricate beadwork, and flowing silhouettes captivated the audience, highlighting the students' ingenuity and dedication to their craft. Beyond the aesthetic appeal, 'Kultura sa Tela' served as a cultural exchange and appreciation platform, fostering a deeper understanding of Philippine heritage among local and international spectators. As the event came to a close, it left a lasting impression, inspiring admiration for the talent and creativity of the students and reinforcing the importance of preserving and celebrating Filipino culture through the art of fashion.
-                </EventCard>
-                <EventCard title="GAWAD DAKILA THE FIRST FILM FESTIVAL 2022-2023" bgImg="bg-[url('/assets/GAWAD23.jpg')]">
-                The highly anticipated Gawad Dakila Film Festival 2023 commences with a riveting presentation from Lente Productions as the talented filmmakers of BFA-4E unveil their masterpiece, 'Hanggang Dulo.' This compelling creation promises to captivate audiences with its depth and resonance, setting the stage for an extraordinary cinematic journey. Meanwhile, Himuyong Productions, representing BFA-4C, presents their contribution, a captivating Class Film tailored for the esteemed festival. With meticulous craftsmanship and unwavering dedication, they create a cinematic marvel that will leave a lasting impression. As anticipation peaks, the film festival's grand premiere is set for December 22, 2022, at 3:00 PM, exclusively on the Gawad Dakila YouTube account, marking the beginning of an exhilarating showcase of talent and creativity.<br/>
-                Launching into the digital realm on December 31, 2022, is an electrifying talent showcase as BFA-4C and BFA-4E present their latest creations. Comprising six gripping narratives each, these Pandemic Short Films for the GAWAD DAKILA FILM FESTIVAL 2023 promise to enthral audiences with diverse themes and compelling storytelling. From BFA-4C, viewers can expect thought-provoking tales such as 'PaperPlanes' by StudioBlue5, 'RealWorld' by MundoProduction, the intriguing 'SpaghettingPalabas' by BadlingsProduction, the reflective 'Hiatus' by NineOclockProduction, the resonant 'AyudaPo' by DaluyongProductions, and the dreamy 'PaHinga' by MarahuyoProductions. Meanwhile, BFA-4E presents an equally riveting lineup, featuring the dynamic 'Rife' by EliteProductions, the strategic 'Checkmate' by GurumatikaProductions, the poignant 'KasamaKa' by FlickedProductions, the gripping 'Hawakamay' by PathfindersProductions, the profound 'ProvisionDay' by MovileProductions, and the enigmatic 'Masked' by SnapProductions. As the curtain rises on these cinematic endeavours, audiences are in for an immersive experience that transcends boundaries and captivates the imagination.<br/>
-                The third wave of films showcased at the GAWAD DAKILA FILM FESTIVAL 2023, set for January 10, presents an enthralling assortment of movies meticulously crafted by BFA 4C/4E. These Official Genre Films for the festival offer a diverse array of genres, including Romance, Adventure, Musical, Film Noir, Sci-Fi, and Horror, ensuring an unforgettable viewing experience. Immerse yourself in the rich tapestry of storytelling with selections such as 'Room 474' by StudioBlue5xMundoProductions, 'Usahay Nagamahay Ako' by 9OClockxDaluyongProductions, the enigmatic 'Okulus' by BadlingsProduction, the evocative 'Makapiling Ka' by MarahuyoProduction, the lyrical 'The Lyricist' by ElitexMovileProductions, and the intriguing 'Project Redo' by FlickedxSnapProductions, as well as the captivating 'Cupid Pysche' by GurumatikaxPathfinders. Each film poster serves as a portal to a world teeming with mystery, emotion, and thrills, beckoning viewers to embark on a journey of discovery. Dive into the unknown and lose yourself in the enchantment of cinema with these captivating and thought-provoking films.<br/>
-                </EventCard>
-                <EventCard title="ART FOR THE SOUL 2022" bgImg="bg-[url('/assets/AFTS.jpg')]">
-                    On November 23, 2022, a transformative event took place, the 'Art for the Soul' webinar, hosted by the Bachelor of Fine Arts major in Advertising, 3rd-year students of section A, under the expert guidance of Professor Leticia L. Paldez. This event served as a crucible for innovation, igniting participants' imaginations and propelling them into the dynamic intersection of art and advertising. From the early hours of 9:00 AM to the afternoon's close at 1:00 PM via Ms Teams, students delved into various disciplines, including media production, video storyboarding, videography, video editing (animation), and art therapy.<br/>
-                    Led by distinguished speakers Mr Rommel Pastrana Celespara, Mr Angelo Luigi A. Domingo, and Ms Filipina Deguzman, this event promises to be an enlightening journey through creativity, expression, and healing. Through engaging discussions, practical demonstrations, and interactive exercises, attendees will learn about the technical aspects of media production and discover art's profound impact on mental health and well-being. Whether you're a seasoned media professional, a budding artist, or simply someone interested in the healing power of creativity, 'Art for the Soul' promises to be an enriching experience that transcends the boundaries of traditional webinars, leaving a lasting impression on hearts and minds alike.<br/>
-                /
-                </EventCard>
-                <EventCard title="SINEDEMYA: CINESIGAW NG KABATAAN" bgImg="bg-[url('/assets/Cinegaw.jpg')]">
-                    SineDemya: CineSigaw ng Kabataan” 2022
-                    Despite facing new challenges, such as limitations in expressing their thoughts and feelings,
-                    Filipino youth managed to connect through art, particularly in the form of films. With the
-                    determination of our students, the Fine Arts Department of TUP Manila proudly presented
-                    the second Annual Film Display.<br/>
-                    The event, titled "SineDemya: CineSigaw ng Kabataan," showcased a lineup of short films
-                    from BFA-1 students. These films tackled issues related to culture, the current pandemic, and
-                    national concerns. We released the films on May 23, 2022, and we are delighted that they
-                    gave voice to the youth and their perspectives.<br/>
-                    1. "Ang Lihim ni Anna Dela Rosa"<br/>
-                    2. "Eyeball"<br/>
-                    3. "Ginhawa ng Laya"<br/>
-                    4. "Hapag Kainan"<br/>
-                    5. "Kalma, Ako Lang 'To"<br/>
-                    6. "Kuwadro"<br/>
-                    7. "Laro Tayo?"<br/>
-                    8. "Leonor"<br/>
-                    9. "Padayon"<br/>
-                    10. "Pananatili"<br/>
-                    11. "Patungo sa Isang Mapanganib na Daan"<br/>
-                    12. "Pulpolitika"<br/>
-                    13. "Takipsilim"<br/>
-                    14. "Tasteless Adobo"<br/>
-                    15. "Truth to Nowhere"
-                </EventCard>
-                <EventCard title="SINEDEMYA 2021" bgImg="bg-[url('/assets/Sine21.jpg')]">
-                    During the pandemic, filmmakers and film enthusiasts faced many challenges. Despite these
-                    difficulties, the power of art remained strong and continued to bring people together. Our
-                    Fine Arts Department recently held its first-ever film exhibition, showcasing the
-                    determination and creativity of our students. We were thrilled to present this event and
-                    celebrate the enduring strength of artistic expression.<br/>
-                    With great excitement, we revealed the lineup for the SineDemya Film Festival, featuring 18
-                    captivating films crafted by our Fine Arts students as part of their culminating project in the
-                    Creative Visual Writing course. Commencing on June 11, 2021, viewers were invited to
-                    immerse themselves in the diverse cinematic experiences showcased on the SineDemya
-                    Facebook page.<br/>
-                    The lineup included "Basurera sa Gitna ng Pandemya", "Behind my I", "Catharsis",
-                    "Connected", "Dear Followers", F.Y.P", "Happy Father's Day", "Ilayaw", "Ligaw",
-                    "Lunggati", "Maliliit na Bagay", "Musika ng Tagumpay", "Nathaniel", "Offline", "Project:
-                    Mask-aral", "Silent Melody", "Tadhanap", and "Una't Huli". Each film promised to offer a
-                    unique perspective, encapsulating our collective journey's myriad emotions and experiences.
-                    From tales of resilience and introspection to narratives of love and longing, these cinematic
-                    creations invited audiences to explore the depths of human expression.<br/>
-                    As we navigated through those challenging times, the SineDemya Film Festival served as a
-                    beacon of hope and inspiration, reminding us of the transformative power of storytelling. We
-                    came together to celebrate the creativity and ingenuity of our students as we embarked on this
-                    cinematic voyage together.
-                </EventCard> */}
+                ) : (
+                    <>
+                        <EventCard title="GAWAD DAKILA YEAR 2 2024" bgImg="bg-[url('/assets/GAWAD.jpg')]">
+                        In its second year, Gawad Dakila, spearheaded by the Fine Arts students of the Technological University of the Philippines-Manila, under the mentorship of their esteemed professor, Mr. Rolando Jay Defero, continues to serve as a beacon of recognition for stories illuminating the diverse facets of human existence. Featuring narratives both on camera and behind the lenses, showcased through documentaries such as 'Ani ni Ina' by Istudyo Kolab, 'Ambisyong Tumaliwas' by BeeHype, 'Walang Patay, Walang Buhay' by Kariman, and 'Araw-Araw sa Gilid-Gilid' by Aimfire, each serving as a testament to the power of visual storytelling in capturing the essence of the human experience, where the four life stories depicted transcend mere tales, offering profound reflections of resilience, hope, and the intricacies of existence. This invites viewers to empathise, reflect, and appreciate the rich tapestry of life's stories portrayed through the lens of Gawad Dakila Year 2.<br/>
+                        On February 9, 2024, at 5 PM, the Gawad Dakila YouTube Channel unveiled a series of films designed to take viewers on a profound journey through the depths of human existence. These cinematic creations promise to immerse audiences in a rich tapestry of raw emotions and genuine insights into the complexities of life. Delving into real-life narratives, they explore a range of themes, including women's empowerment, the challenges faced when one's occupation diverges from one's educational background, the remarkable resilience exhibited by communities residing amidst cemetery grounds, and the daily trials and triumphs experienced by street vendors. Each documentary serves as a poignant testament to the boundless diversity and unwavering fortitude of the human spirit, offering viewers a compelling glimpse into the multifaceted nature of the human experience.
+                        </EventCard>
+                        <EventCard title="HALA HALA 2023" bgImg="bg-[url('/assets/HALA.jpg')]">
+                        'Hala-Hala: Pinong Sining Paningningin' was an electrifying showcase of creativity and talent organised by the Bachelor of Fine Arts major in Advertising, 4th-year students of section B, under their esteemed subject professor, Ernest Joseph Garcia. The event, which took place on December 14-15 at the CAFA atrium during the Technological University of the Philippines Foundation Day, was a testament to the dedication and passion of these budding artists.<br/>
+                        The event featured various attractions, including captivating band performances by renowned acts such as Maize, Longganisa, Da Flamingguards, and Lil Kingdom Crew, setting the stage for an energetic and dynamic atmosphere. Adding to the excitement were the mesmerising drag performances by Draga Queen performers Maki Doll, Veronica Storm, It's WXYZ, Tangerine, and the one and only Slaytina, captivating the audience with their dazzling performances. Additionally, the event boasted vibrant dancing, engaging booths showcasing various artworks and crafts, food stalls, interactive games, and an open mic session where attendees could showcase their talents. Culminating the festivities is the eagerly anticipated Fine Arts night, where the spotlight will shine on the incredible talents of TUP's aspiring artists, leaving a lasting impression on all who attend. 'Hala-Hala: Pinong Sining Paningningin' is more than just an event; it's a celebration of creativity, passion, and the indomitable spirit of the artistic community at TUP.
+                        </EventCard>
+                        <EventCard title="SIKHAY LAWIN" bgImg="bg-[url('/assets/Sikhay.jpg')]">
+                            <span>SIKHAY LAWIN: CINEMULAN SA ATIN 2023
+                            The crew's enthusiastic shouts of 'ROLLING NA RAW!' filled the air, signaling the start of
+                            the cinematic journey. Come and witness the seven Filipino films brought to you by BFA-1A;
+                            this is Sikhay Lawin: Cinemulan sa atin.
+                            Just one more sleep, and we will behold the First Onsite Film Festival of TUP-FAD! It
+                            featured the societal issues and how the protagonists creatively tackle them through
+                            CINEmulating.
+                            Experience these films on June 23, at TUP Manila - IRTC Hall at precisely seven in the
+                            morning (7:00 AM). For future announcements and live streams, like, follow, and stay tuned
+                            on the Sikhay Lawin Facebook Page.<br/>
+                            Sikhay Lawin proudly presents Cinemulan sa atin, a lineup of short films from BFA-1A
+                            students:<br/>
+                            "Simbahan Daw Ang Quiapo"<br/>
+                            "Puta, he!"<br/>
+                            "Bukas Makalawa"<br/>
+                            "Paru-parong Bukid"<br/>
+                            "Sa Pagitan"<br/>
+                            "Talang-ka"<br/>
+                            "Yung painting sa kanta ng Eheads
+                            </span>
+                        </EventCard>
+                        <EventCard title="KULTURA SA TELA 2023" bgImg="bg-[url('/assets/KST.jpg')]">
+                        Experience the fusion of creativity and culture as the Bachelor of Fine Arts major in Advertising, 3rd-year students from sections A and B, along with their subject professor, Mrs. Leticia L. Paldez, proudly present 'KULTURA SA TELA: Philippine Culture through Fashion.' Held on June 14, 2023, from 1:00 PM to 5:00 PM at the prestigious IRTC Conference Hall, Technological University of the Philippines - Manila, this event redefines the essence of style and culture. More than just a fashion showcase, 'KULTURA SA TELA' celebrates Filipino heritage, innovation, and the transformative power of art. Prepare to be inspired as these talented students take you on a journey through the vibrant tapestry of Filipino culture, leaving an indelible mark on your senses and imagination.<br/>
+                        Attendees were treated to a visual feast as models strutted down the runway in elaborate costumes that seamlessly blended contemporary fashion with traditional Filipino motifs. Vibrant colours, intricate beadwork, and flowing silhouettes captivated the audience, highlighting the students' ingenuity and dedication to their craft. Beyond the aesthetic appeal, 'Kultura sa Tela' served as a cultural exchange and appreciation platform, fostering a deeper understanding of Philippine heritage among local and international spectators. As the event came to a close, it left a lasting impression, inspiring admiration for the talent and creativity of the students and reinforcing the importance of preserving and celebrating Filipino culture through the art of fashion.
+                        </EventCard>
+                        <EventCard title="GAWAD DAKILA THE FIRST FILM FESTIVAL 2022-2023" bgImg="bg-[url('/assets/GAWAD23.jpg')]">
+                        The highly anticipated Gawad Dakila Film Festival 2023 commences with a riveting presentation from Lente Productions as the talented filmmakers of BFA-4E unveil their masterpiece, 'Hanggang Dulo.' This compelling creation promises to captivate audiences with its depth and resonance, setting the stage for an extraordinary cinematic journey. Meanwhile, Himuyong Productions, representing BFA-4C, presents their contribution, a captivating Class Film tailored for the esteemed festival. With meticulous craftsmanship and unwavering dedication, they create a cinematic marvel that will leave a lasting impression. As anticipation peaks, the film festival's grand premiere is set for December 22, 2022, at 3:00 PM, exclusively on the Gawad Dakila YouTube account, marking the beginning of an exhilarating showcase of talent and creativity.<br/>
+                        Launching into the digital realm on December 31, 2022, is an electrifying talent showcase as BFA-4C and BFA-4E present their latest creations. Comprising six gripping narratives each, these Pandemic Short Films for the GAWAD DAKILA FILM FESTIVAL 2023 promise to enthral audiences with diverse themes and compelling storytelling. From BFA-4C, viewers can expect thought-provoking tales such as 'PaperPlanes' by StudioBlue5, 'RealWorld' by MundoProduction, the intriguing 'SpaghettingPalabas' by BadlingsProduction, the reflective 'Hiatus' by NineOclockProduction, the resonant 'AyudaPo' by DaluyongProductions, and the dreamy 'PaHinga' by MarahuyoProductions. Meanwhile, BFA-4E presents an equally riveting lineup, featuring the dynamic 'Rife' by EliteProductions, the strategic 'Checkmate' by GurumatikaProductions, the poignant 'KasamaKa' by FlickedProductions, the gripping 'Hawakamay' by PathfindersProductions, the profound 'ProvisionDay' by MovileProductions, and the enigmatic 'Masked' by SnapProductions. As the curtain rises on these cinematic endeavours, audiences are in for an immersive experience that transcends boundaries and captivates the imagination.<br/>
+                        The third wave of films showcased at the GAWAD DAKILA FILM FESTIVAL 2023, set for January 10, presents an enthralling assortment of movies meticulously crafted by BFA 4C/4E. These Official Genre Films for the festival offer a diverse array of genres, including Romance, Adventure, Musical, Film Noir, Sci-Fi, and Horror, ensuring an unforgettable viewing experience. Immerse yourself in the rich tapestry of storytelling with selections such as 'Room 474' by StudioBlue5xMundoProductions, 'Usahay Nagamahay Ako' by 9OClockxDaluyongProductions, the enigmatic 'Okulus' by BadlingsProduction, the evocative 'Makapiling Ka' by MarahuyoProduction, the lyrical 'The Lyricist' by ElitexMovileProductions, and the intriguing 'Project Redo' by FlickedxSnapProductions, as well as the captivating 'Cupid Pysche' by GurumatikaxPathfinders. Each film poster serves as a portal to a world teeming with mystery, emotion, and thrills, beckoning viewers to embark on a journey of discovery. Dive into the unknown and lose yourself in the enchantment of cinema with these captivating and thought-provoking films.<br/>
+                        </EventCard>
+                        <EventCard title="ART FOR THE SOUL 2022" bgImg="bg-[url('/assets/AFTS.jpg')]">
+                            On November 23, 2022, a transformative event took place, the 'Art for the Soul' webinar, hosted by the Bachelor of Fine Arts major in Advertising, 3rd-year students of section A, under the expert guidance of Professor Leticia L. Paldez. This event served as a crucible for innovation, igniting participants' imaginations and propelling them into the dynamic intersection of art and advertising. From the early hours of 9:00 AM to the afternoon's close at 1:00 PM via Ms Teams, students delved into various disciplines, including media production, video storyboarding, videography, video editing (animation), and art therapy.<br/>
+                            Led by distinguished speakers Mr Rommel Pastrana Celespara, Mr Angelo Luigi A. Domingo, and Ms Filipina Deguzman, this event promises to be an enlightening journey through creativity, expression, and healing. Through engaging discussions, practical demonstrations, and interactive exercises, attendees will learn about the technical aspects of media production and discover art's profound impact on mental health and well-being. Whether you're a seasoned media professional, a budding artist, or simply someone interested in the healing power of creativity, 'Art for the Soul' promises to be an enriching experience that transcends the boundaries of traditional webinars, leaving a lasting impression on hearts and minds alike.<br/>
+                        /
+                        </EventCard>
+                        <EventCard title="SINEDEMYA: CINESIGAW NG KABATAAN" bgImg="bg-[url('/assets/Cinegaw.jpg')]">
+                            SineDemya: CineSigaw ng Kabataan” 2022
+                            Despite facing new challenges, such as limitations in expressing their thoughts and feelings,
+                            Filipino youth managed to connect through art, particularly in the form of films. With the
+                            determination of our students, the Fine Arts Department of TUP Manila proudly presented
+                            the second Annual Film Display.<br/>
+                            The event, titled "SineDemya: CineSigaw ng Kabataan," showcased a lineup of short films
+                            from BFA-1 students. These films tackled issues related to culture, the current pandemic, and
+                            national concerns. We released the films on May 23, 2022, and we are delighted that they
+                            gave voice to the youth and their perspectives.<br/>
+                            1. "Ang Lihim ni Anna Dela Rosa"<br/>
+                            2. "Eyeball"<br/>
+                            3. "Ginhawa ng Laya"<br/>
+                            4. "Hapag Kainan"<br/>
+                            5. "Kalma, Ako Lang 'To"<br/>
+                            6. "Kuwadro"<br/>
+                            7. "Laro Tayo?"<br/>
+                            8. "Leonor"<br/>
+                            9. "Padayon"<br/>
+                            10. "Pananatili"<br/>
+                            11. "Patungo sa Isang Mapanganib na Daan"<br/>
+                            12. "Pulpolitika"<br/>
+                            13. "Takipsilim"<br/>
+                            14. "Tasteless Adobo"<br/>
+                            15. "Truth to Nowhere"
+                        </EventCard>
+                        <EventCard title="SINEDEMYA 2021" bgImg="bg-[url('/assets/Sine21.jpg')]">
+                            During the pandemic, filmmakers and film enthusiasts faced many challenges. Despite these
+                            difficulties, the power of art remained strong and continued to bring people together. Our
+                            Fine Arts Department recently held its first-ever film exhibition, showcasing the
+                            determination and creativity of our students. We were thrilled to present this event and
+                            celebrate the enduring strength of artistic expression.<br/>
+                            With great excitement, we revealed the lineup for the SineDemya Film Festival, featuring 18
+                            captivating films crafted by our Fine Arts students as part of their culminating project in the
+                            Creative Visual Writing course. Commencing on June 11, 2021, viewers were invited to
+                            immerse themselves in the diverse cinematic experiences showcased on the SineDemya
+                            Facebook page.<br/>
+                            The lineup included "Basurera sa Gitna ng Pandemya", "Behind my I", "Catharsis",
+                            "Connected", "Dear Followers", F.Y.P", "Happy Father's Day", "Ilayaw", "Ligaw",
+                            "Lunggati", "Maliliit na Bagay", "Musika ng Tagumpay", "Nathaniel", "Offline", "Project:
+                            Mask-aral", "Silent Melody", "Tadhanap", and "Una't Huli". Each film promised to offer a
+                            unique perspective, encapsulating our collective journey's myriad emotions and experiences.
+                            From tales of resilience and introspection to narratives of love and longing, these cinematic
+                            creations invited audiences to explore the depths of human expression.<br/>
+                            As we navigated through those challenging times, the SineDemya Film Festival served as a
+                            beacon of hope and inspiration, reminding us of the transformative power of storytelling. We
+                            came together to celebrate the creativity and ingenuity of our students as we embarked on this
+                            cinematic voyage together.
+                        </EventCard>
+                    </>
+                )}
             </div>
         </div>
     )
@@ -478,6 +482,7 @@ function NAAcard(res){
 }
 
 function NewsAndArticles(){
+    const isAdminActivated = import.meta.env.VITE_ADMIN_ACTIVATED === 'true';
     const [articles, setArticles] = useState([]); // Initialize state to an empty array
     useEffect(() => {
         // Define an async function to fetch data
@@ -525,97 +530,101 @@ function NewsAndArticles(){
                 <span className="xl:text-3xl text-xl">NEWS / ARTICLES</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-3 gap-2 py-6'>
-                {
+                {isAdminActivated ? (
                     articles.map(article => (
                         <NAAdialog key={article.id} title={article.title} imgSrc={article.image} description={article.description}
                             fbLink={article.FacebookURL}
                     />
                     ))
-                }
-                {/* <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1} description="Various student organizations have
-                    enthusiastically showcased their groups to the
-                    TUP Community through engaging booth
-                    setups, with the Booth Planning Committee
-                    selecting the top three 'Pinaka-kavogue na
-                    Booth' for TUP Indayog 2023. TUP - Institute
-                    for Visual Communication won TOP 3 - A prize
-                    of PHP 700 worth of SM Gift Certificates."
-                    fbLink="https://www.facebook.com/photo?fbid=122136709244010186&set=a.122117498048010186"
-                    />
-                <NAAdialog title="LUNETA ART FAIR" imgSrc={NAA2} description="The Luneta Art Fair, taking place on
-                    February 4th and 5th, will transform Rizal
-                    Park into a vibrant showcase of emerging
-                    artists' works from diverse backgrounds.
-                    TUP - Institute for Visual Communication
-                    participated alongside the TUP Fine Arts
-                    Department faculty."
-                    fbLink="https://www.facebook.com/photo/?fbid=397991026079763&set=pcb.397994486079417"
-                    />
-                <NAAdialog title="BFA - 4B ORIGINAL PILIPINO MUSIC (OPM) ART DIRECTION EXHIBITION" imgSrc={NAA3} description="TUP FAD's BFA 4B students
-                    showcase their Art Direction
-                    Exhibition, celebrating Original
-                    Pilipino Music (OPM), offering a
-                    captivating dive into Filipino
-                    creativity where music and art
-                    intertwine seamlessly."
-                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02HwfVJknHVsALMnwRgz6Sxx6oziDzLMEqMNjgKzYST6QqCArSWTBSCGhfLeUkUr6Sl"
-                    />
-                <NAAdialog title="BFA - 4A FLAVORS OF HOME ART DIRECTION EXHIBITION" imgSrc={NAA4} description="Experience the captivating journey of TUP
-                    FAD's BFA 4A Art Direction exhibition,
-                    celebrating the diverse culinary heritage of
-                    the Philippines with 'Flavors of Home.'
-                    Delve into the vibrant colors, intricate
-                    textures, and unforgettable experiences
-                    inspired by our beloved regional cuisines
-                    and treats."
-                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0TaAbsf2zTBTxhwjH4bFVV8SeGwne796gPvhp5oPVqJ8TRk3LWLZadRnRXnwKKpULl"
-                    />
-                <NAAdialog title="Meet Dexter Fernandez, the Filipino Artist Behind This International Streetwear Collab" imgSrc={NAA5} description="Meeting Dexter Fernandez (Garapata), the
-                    Filipino artist behind this global streetwear
-                    collaboration. Unveil the artistic essence
-                    of Dexter Fernandez as his mesmerizing
-                    street art seamlessly integrates into the
-                    realm of fashion alongside H&M and DBTK."
-                    fbLink="https://mega-onemega.com/meet-dexter-fernandez-the-filipino-artist-behind-this-international-streetwear-collab/"
-                    />
-                <NAAdialog title="CARE PROJECT “TRUST THE PROCESS” ART THERAPY" imgSrc={NAA6} description="Conducted on May 23, 2023, the 'Trust
-                    the Process' session offered an
-                    enriching and significant Art Therapy
-                    experience at Juan Luna Elementary
-                    School."
-                    fbLink="https://www.facebook.com/permalink.php?story_fbid=pfbid0TAaRBt1fvgezQiueddT5LzJuVsqz7K4dTQxpv5CUdLzNQigZJs7y2sqPEZcnD7Jpl&id=100076854947611"
-                    />
-                <NAAdialog title="UST ANNUAL INTER-SCHOOL ON-THE-SPOT PAINTING COMPETITION" imgSrc={NAA7} description="Mr. Ash Iverson Forlaje secured the first
-                    position in the UST annual inter-school
-                    on-the-spot painting competition this year
-                    alongside all the participating students."
-                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0xiJUA9K7uGiqTeDkmRZdmqp31EfGawUQ4ogMDwBScvfeSgf1tDNf7uYTjL3NkHLhl"
-                    />
-                <NAAdialog title="Art in the Park at Jaime Velasquez Park" imgSrc={NAA8} description="On March 19, 2023, 'Art in the Park'
-                    occurred at Jaime Velasquez Park
-                    in Makati City, featuring around 60
-                    exhibitors participating in the fair's
-                    17th edition."
-                    fbLink="https://www.facebook.com/photo?fbid=3432326520257411&set=a.182218585268237"
-                    />
-                <NAAdialog title="'Tara, G?' CAFAsyalan Advertising Art Direction" imgSrc={NAA9} description="CAFAsyalan is a design
-                    exhibition by BFA 4C students,
-                    presenting their creative branding
-                    projects for different cities as
-                    part of their ADV 441: Advertising
-                    Art Direction course. This
-                    showcase invites us to explore each location's unique beauty and celebrate the
-                    Philippines' diverse cultural identities. Visit the exhibition from January 26 to
-                    February 3, 2023, at CAFA Fine Arts Department (1st Floor)."
-                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02wy43fRu6zaAuyKujcMf5pg2yHu9N6XnKEu3Xr2UrU42NqRKRAt7kBpfheWLyPriVl"
-                    />
-                <NAAdialog title="Celebrating the 25th work anniversary of Sir Ramon Talaga Dela Cruz" imgSrc={NAA10} description="Manases Deneil Victor Mira Jr., Bj
-                    Domantay, and the other members of
-                    BFA-1A were highlighted in the Guhit Jes
-                    video for creating the Best Christmas
-                    Tree."
-                    fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02Nm2LXBPnGdhn6sLLA8RPTT3mKPRqnj1wmR3jGimSY1rBTrqzsSs54FX5g21rJ6N8l"
-                    /> */}
+                ) : (
+                    <>
+                        <NAAdialog title="PINAKA-KAVOUGE NA BOOTH-TUP INDAYOG 2023" imgSrc={NAA1} description="Various student organizations have
+                            enthusiastically showcased their groups to the
+                            TUP Community through engaging booth
+                            setups, with the Booth Planning Committee
+                            selecting the top three 'Pinaka-kavogue na
+                            Booth' for TUP Indayog 2023. TUP - Institute
+                            for Visual Communication won TOP 3 - A prize
+                            of PHP 700 worth of SM Gift Certificates."
+                            fbLink="https://www.facebook.com/photo?fbid=122136709244010186&set=a.122117498048010186"
+                            />
+                        <NAAdialog title="LUNETA ART FAIR" imgSrc={NAA2} description="The Luneta Art Fair, taking place on
+                            February 4th and 5th, will transform Rizal
+                            Park into a vibrant showcase of emerging
+                            artists' works from diverse backgrounds.
+                            TUP - Institute for Visual Communication
+                            participated alongside the TUP Fine Arts
+                            Department faculty."
+                            fbLink="https://www.facebook.com/photo/?fbid=397991026079763&set=pcb.397994486079417"
+                            />
+                        <NAAdialog title="BFA - 4B ORIGINAL PILIPINO MUSIC (OPM) ART DIRECTION EXHIBITION" imgSrc={NAA3} description="TUP FAD's BFA 4B students
+                            showcase their Art Direction
+                            Exhibition, celebrating Original
+                            Pilipino Music (OPM), offering a
+                            captivating dive into Filipino
+                            creativity where music and art
+                            intertwine seamlessly."
+                            fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02HwfVJknHVsALMnwRgz6Sxx6oziDzLMEqMNjgKzYST6QqCArSWTBSCGhfLeUkUr6Sl"
+                            />
+                        <NAAdialog title="BFA - 4A FLAVORS OF HOME ART DIRECTION EXHIBITION" imgSrc={NAA4} description="Experience the captivating journey of TUP
+                            FAD's BFA 4A Art Direction exhibition,
+                            celebrating the diverse culinary heritage of
+                            the Philippines with 'Flavors of Home.'
+                            Delve into the vibrant colors, intricate
+                            textures, and unforgettable experiences
+                            inspired by our beloved regional cuisines
+                            and treats."
+                            fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0TaAbsf2zTBTxhwjH4bFVV8SeGwne796gPvhp5oPVqJ8TRk3LWLZadRnRXnwKKpULl"
+                            />
+                        <NAAdialog title="Meet Dexter Fernandez, the Filipino Artist Behind This International Streetwear Collab" imgSrc={NAA5} description="Meeting Dexter Fernandez (Garapata), the
+                            Filipino artist behind this global streetwear
+                            collaboration. Unveil the artistic essence
+                            of Dexter Fernandez as his mesmerizing
+                            street art seamlessly integrates into the
+                            realm of fashion alongside H&M and DBTK."
+                            fbLink="https://mega-onemega.com/meet-dexter-fernandez-the-filipino-artist-behind-this-international-streetwear-collab/"
+                            />
+                        <NAAdialog title="CARE PROJECT “TRUST THE PROCESS” ART THERAPY" imgSrc={NAA6} description="Conducted on May 23, 2023, the 'Trust
+                            the Process' session offered an
+                            enriching and significant Art Therapy
+                            experience at Juan Luna Elementary
+                            School."
+                            fbLink="https://www.facebook.com/permalink.php?story_fbid=pfbid0TAaRBt1fvgezQiueddT5LzJuVsqz7K4dTQxpv5CUdLzNQigZJs7y2sqPEZcnD7Jpl&id=100076854947611"
+                            />
+                        <NAAdialog title="UST ANNUAL INTER-SCHOOL ON-THE-SPOT PAINTING COMPETITION" imgSrc={NAA7} description="Mr. Ash Iverson Forlaje secured the first
+                            position in the UST annual inter-school
+                            on-the-spot painting competition this year
+                            alongside all the participating students."
+                            fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid0xiJUA9K7uGiqTeDkmRZdmqp31EfGawUQ4ogMDwBScvfeSgf1tDNf7uYTjL3NkHLhl"
+                            />
+                        <NAAdialog title="Art in the Park at Jaime Velasquez Park" imgSrc={NAA8} description="On March 19, 2023, 'Art in the Park'
+                            occurred at Jaime Velasquez Park
+                            in Makati City, featuring around 60
+                            exhibitors participating in the fair's
+                            17th edition."
+                            fbLink="https://www.facebook.com/photo?fbid=3432326520257411&set=a.182218585268237"
+                            />
+                        <NAAdialog title="'Tara, G?' CAFAsyalan Advertising Art Direction" imgSrc={NAA9} description="CAFAsyalan is a design
+                            exhibition by BFA 4C students,
+                            presenting their creative branding
+                            projects for different cities as
+                            part of their ADV 441: Advertising
+                            Art Direction course. This
+                            showcase invites us to explore each location's unique beauty and celebrate the
+                            Philippines' diverse cultural identities. Visit the exhibition from January 26 to
+                            February 3, 2023, at CAFA Fine Arts Department (1st Floor)."
+                            fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02wy43fRu6zaAuyKujcMf5pg2yHu9N6XnKEu3Xr2UrU42NqRKRAt7kBpfheWLyPriVl"
+                            />
+                        <NAAdialog title="Celebrating the 25th work anniversary of Sir Ramon Talaga Dela Cruz" imgSrc={NAA10} description="Manases Deneil Victor Mira Jr., Bj
+                            Domantay, and the other members of
+                            BFA-1A were highlighted in the Guhit Jes
+                            video for creating the Best Christmas
+                            Tree."
+                            fbLink="https://www.facebook.com/ExpressYourheART2o17/posts/pfbid02Nm2LXBPnGdhn6sLLA8RPTT3mKPRqnj1wmR3jGimSY1rBTrqzsSs54FX5g21rJ6N8l"
+                            />
+                    </>
+                )}
+                {/*  */}
             </div>
         </div>
     )
@@ -980,6 +989,7 @@ function AlumniCards(res){
     )
 }
 function Alumni(){
+    const isAdminActivated = import.meta.env.VITE_ADMIN_ACTIVATED === 'true';
     const [isDrop, setIsDrop] = useState(false);
     const onClickDrop=()=>{
         setIsDrop(!isDrop)
@@ -1036,14 +1046,7 @@ function Alumni(){
                 <span className="xl:text-3xl text-xl">ALUMNI</span>
             </div>
             <div className='grid grid-cols-1 xl:grid-cols-3 gap-3 py-6 text-[#9B9B9B] gap-y-3'>
-                {/* <AlumniCards year="2000"/>
-                <AlumniCards year="2009"/>
-                <AlumniCards year="2010"/>
-                <AlumniCards year="2015"/>
-                <AlumniCards year="2022"/>
-                <AlumniCards year="2023"/> */}
-                {/* <div className='border-0 border-b-2 border-[#9B9B9B]' id ={dynamicId} onClick={onClickDrop}><span className='text-3xl'>BATCH YEAR: {res.year}</span></div> */}
-                {
+                {isAdminActivated ? (
                     uniqueYears.map((year,index) => (
                         <div key = {index}>
                             <div>
@@ -1066,7 +1069,16 @@ function Alumni(){
                             </div>    
                         </div>
                     ))
-                }
+                ) : (
+                    <>
+                        <AlumniCards year="2000"/>
+                        <AlumniCards year="2009"/>
+                        <AlumniCards year="2010"/>
+                        <AlumniCards year="2015"/>
+                        <AlumniCards year="2022"/>
+                        <AlumniCards year="2023"/>
+                    </>
+                )}
             </div>
         </div>
     )

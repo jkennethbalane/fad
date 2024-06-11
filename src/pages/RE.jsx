@@ -99,6 +99,7 @@ function Exhibition(){
 }
 
 function Events(ref){
+    const isAdminActivated = import.meta.env.VITE_ADMIN_ACTIVATED === 'true';
     const [events, setEvents] = useState([]); // Initialize state to an empty array
     useEffect(() => {
         // Define an async function to fetch data
@@ -143,14 +144,15 @@ function Events(ref){
                     <span className="xl:text-3xl text-xl font-[300]">EXTENSION PROJECT</span>
                 </div>
                 <div className='grid grid-cols-1 xl:grid-cols-4 gap-2'>
-                    {
-                        events.map(event => (
-                            <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
-                                {event.description}
-                            </EventCard>
-                        ))
-                    }
-                    {/* <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/assets/big.jpg')]" description="The CARE Project has recently collaborated with the Municipal Government of Macalelon
+                {isAdminActivated ? (
+                    events.map(event => (
+                        <EventCard key={event.id} title={event.title} bgImg={`url('${event.picture}')`} fbLink={event.facebookURL}>
+                            {event.description}
+                        </EventCard>
+                    ))
+                ) : (
+                    <>
+                        <EventCard title="Make BIG things out of small things" bgImg="bg-[url('/assets/big.jpg')]" description="The CARE Project has recently collaborated with the Municipal Government of Macalelon
                         Quezon and JA1 Macalelon Quezon. We are grateful to Ms. Shine Tolentino Rios for inviting
                         us to participate in the Women's Month celebration through the Gender and Development
                         program of MGMQ. Additionally, we would like to thank Rev. Ressie Lancap and Ms. Aicah
@@ -172,7 +174,9 @@ function Events(ref){
                         messiness. The event featured art activities, presentations, and a keynote speech by Ms.
                         Marjorie Gomez, who addressed finding beauty in life's challenges."
                         fbLink="https://www.facebook.com/share/p/JqU7d58jsAzzg9Tu/?mibextid=oFDknk"
-                        /> */}
+                        />
+                    </>
+                )}
                 </div>
             </div>
         </div>
